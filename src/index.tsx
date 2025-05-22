@@ -5,6 +5,13 @@ const app = new Hono();
 
 app.get('/', (c) => c.text('Hello Node.js!'));
 
-app.get('/:myParam', (c) => c.text(c.req.param('myParam')));
+app.get('/:myParam', (c) => {
+    const { myParam } = c.req.param();
 
-serve(app);
+    return c.text(myParam);
+});
+
+serve({
+    fetch: app.fetch,
+    port: 3000
+});
