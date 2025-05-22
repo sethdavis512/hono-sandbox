@@ -1,8 +1,20 @@
-import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
+import { serve } from '@hono/node-server';
+
 import type { PropsWithChildren } from 'hono/jsx';
 
 const app = new Hono();
+
+function Head() {
+    return (
+        <head>
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css"
+            ></link>
+        </head>
+    );
+}
 
 function Header() {
     return (
@@ -24,7 +36,7 @@ function Header() {
 function Footer() {
     return (
         <footer>
-            <p>© 2023 My Website</p>
+            <p>© 2025 My Website</p>
         </footer>
     );
 }
@@ -32,12 +44,7 @@ function Footer() {
 function Layout(props: PropsWithChildren) {
     return (
         <html>
-            <head>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css"
-                ></link>
-            </head>
+            <Head />
             <body class="container">
                 <Header />
                 <main>{props.children}</main>
