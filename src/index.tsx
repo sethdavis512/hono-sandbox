@@ -7,7 +7,13 @@ const app = new Hono();
 function Layout(props: PropsWithChildren) {
     return (
         <html>
-            <body>
+            <head>
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css"
+                ></link>
+            </head>
+            <body class="container">
                 <header>
                     <nav>
                         <ul>
