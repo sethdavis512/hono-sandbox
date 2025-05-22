@@ -4,6 +4,31 @@ import type { PropsWithChildren } from 'hono/jsx';
 
 const app = new Hono();
 
+function Header() {
+    return (
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
+}
+
+function Footer() {
+    return (
+        <footer>
+            <p>© 2023 My Website</p>
+        </footer>
+    );
+}
+
 function Layout(props: PropsWithChildren) {
     return (
         <html>
@@ -14,22 +39,9 @@ function Layout(props: PropsWithChildren) {
                 ></link>
             </head>
             <body class="container">
-                <header>
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="/">Home</a>
-                            </li>
-                            <li>
-                                <a href="/about">About</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </header>
+                <Header />
                 <main>{props.children}</main>
-                <footer>
-                    <p>© 2023 My Website</p>
-                </footer>
+                <Footer />
             </body>
         </html>
     );
