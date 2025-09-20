@@ -10,12 +10,12 @@ It works on any JavaScript runtime: Cloudflare Workers, Fastly Compute, Deno, Bu
 Fast, but not only fast.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hono!'))
+app.get('/', (c) => c.text('Hono!'));
 
-export default app
+export default app;
 ```
 
 ## Quick Start
@@ -48,11 +48,11 @@ deno init --npm hono@latest
 
 ## Features
 
-- **Ultrafast** 🚀 - The router `RegExpRouter` is really fast. Not using linear loops. Fast.
-- **Lightweight** 🪶 - The `hono/tiny` preset is under 14kB. Hono has zero dependencies and uses only the Web Standards.
-- **Multi-runtime** 🌍 - Works on Cloudflare Workers, Fastly Compute, Deno, Bun, AWS Lambda, or Node.js. The same code runs on all platforms.
-- **Batteries Included** 🔋 - Hono has built-in middleware, custom middleware, third-party middleware, and helpers. Batteries included.
-- **Delightful DX** 😃 - Super clean APIs. First-class TypeScript support. Now, we've got "Types".
+-   **Ultrafast** 🚀 - The router `RegExpRouter` is really fast. Not using linear loops. Fast.
+-   **Lightweight** 🪶 - The `hono/tiny` preset is under 14kB. Hono has zero dependencies and uses only the Web Standards.
+-   **Multi-runtime** 🌍 - Works on Cloudflare Workers, Fastly Compute, Deno, Bun, AWS Lambda, or Node.js. The same code runs on all platforms.
+-   **Batteries Included** 🔋 - Hono has built-in middleware, custom middleware, third-party middleware, and helpers. Batteries included.
+-   **Delightful DX** 😃 - Super clean APIs. First-class TypeScript support. Now, we've got "Types".
 
 ## Use-cases
 
@@ -60,12 +60,12 @@ Hono is a simple web application framework similar to Express, without a fronten
 But it runs on CDN Edges and allows you to construct larger applications when combined with middleware.
 Here are some examples of use-cases.
 
-- Building Web APIs
-- Proxy of backend servers
-- Front of CDN
-- Edge application
-- Base server for a library
-- Full-stack application
+-   Building Web APIs
+-   Proxy of backend servers
+-   Front of CDN
+-   Edge application
+-   Base server for a library
+-   Full-stack application
 
 ## Who is using Hono?
 
@@ -82,8 +82,8 @@ Here are some examples of use-cases.
 
 And the following.
 
-- [Drivly](https://driv.ly/) - Cloudflare Workers
-- [repeat.dev](https://repeat.dev/) - Cloudflare Workers
+-   [Drivly](https://driv.ly/) - Cloudflare Workers
+-   [repeat.dev](https://repeat.dev/) - Cloudflare Workers
 
 Do you want to see more? See [Who is using Hono in production?](https://github.com/orgs/honojs/discussions/1510).
 
@@ -136,15 +136,15 @@ See [more information about routes](/docs/concepts/routers).
 
 Thanks to the use of the **Web Standards**, Hono works on a lot of platforms.
 
-- Cloudflare Workers
-- Cloudflare Pages
-- Fastly Compute
-- Deno
-- Bun
-- Vercel
-- AWS Lambda
-- Lambda@Edge
-- Others
+-   Cloudflare Workers
+-   Cloudflare Pages
+-   Fastly Compute
+-   Deno
+-   Bun
+-   Vercel
+-   AWS Lambda
+-   Lambda@Edge
+-   Others
 
 And by using [a Node.js adapter](https://github.com/honojs/node-server), Hono works on Node.js.
 
@@ -156,38 +156,38 @@ See [more information about Web Standards](/docs/concepts/web-standard).
 
 Out of the box, Hono provides middleware and helpers for:
 
-- [Basic Authentication](/docs/middleware/builtin/basic-auth)
-- [Bearer Authentication](/docs/middleware/builtin/bearer-auth)
-- [Body Limit](/docs/middleware/builtin/body-limit)
-- [Cache](/docs/middleware/builtin/cache)
-- [Compress](/docs/middleware/builtin/compress)
-- [Context Storage](/docs/middleware/builtin/context-storage)
-- [Cookie](/docs/helpers/cookie)
-- [CORS](/docs/middleware/builtin/cors)
-- [ETag](/docs/middleware/builtin/etag)
-- [html](/docs/helpers/html)
-- [JSX](/docs/guides/jsx)
-- [JWT Authentication](/docs/middleware/builtin/jwt)
-- [Logger](/docs/middleware/builtin/logger)
-- [Language](/docs/middleware/builtin/language)
-- [Pretty JSON](/docs/middleware/builtin/pretty-json)
-- [Secure Headers](/docs/middleware/builtin/secure-headers)
-- [SSG](/docs/helpers/ssg)
-- [Streaming](/docs/helpers/streaming)
-- [GraphQL Server](https://github.com/honojs/middleware/tree/main/packages/graphql-server)
-- [Firebase Authentication](https://github.com/honojs/middleware/tree/main/packages/firebase-auth)
-- [Sentry](https://github.com/honojs/middleware/tree/main/packages/sentry)
-- Others!
+-   [Basic Authentication](/docs/middleware/builtin/basic-auth)
+-   [Bearer Authentication](/docs/middleware/builtin/bearer-auth)
+-   [Body Limit](/docs/middleware/builtin/body-limit)
+-   [Cache](/docs/middleware/builtin/cache)
+-   [Compress](/docs/middleware/builtin/compress)
+-   [Context Storage](/docs/middleware/builtin/context-storage)
+-   [Cookie](/docs/helpers/cookie)
+-   [CORS](/docs/middleware/builtin/cors)
+-   [ETag](/docs/middleware/builtin/etag)
+-   [html](/docs/helpers/html)
+-   [JSX](/docs/guides/jsx)
+-   [JWT Authentication](/docs/middleware/builtin/jwt)
+-   [Logger](/docs/middleware/builtin/logger)
+-   [Language](/docs/middleware/builtin/language)
+-   [Pretty JSON](/docs/middleware/builtin/pretty-json)
+-   [Secure Headers](/docs/middleware/builtin/secure-headers)
+-   [SSG](/docs/helpers/ssg)
+-   [Streaming](/docs/helpers/streaming)
+-   [GraphQL Server](https://github.com/honojs/middleware/tree/main/packages/graphql-server)
+-   [Firebase Authentication](https://github.com/honojs/middleware/tree/main/packages/firebase-auth)
+-   [Sentry](https://github.com/honojs/middleware/tree/main/packages/sentry)
+-   Others!
 
 For example, adding ETag and request logging only takes a few lines of code with Hono:
 
 ```ts
-import { Hono } from 'hono'
-import { etag } from 'hono/etag'
-import { logger } from 'hono/logger'
+import { Hono } from 'hono';
+import { etag } from 'hono/etag';
+import { logger } from 'hono/logger';
 
-const app = new Hono()
-app.use(etag(), logger())
+const app = new Hono();
+app.use(etag(), logger());
 ```
 
 See [more information about Middleware](/docs/concepts/middleware).
@@ -208,7 +208,6 @@ you can use your favorite validator such as Zod and easily share server-side API
 
 See [Hono Stacks](/docs/concepts/stacks).
 
-
 # Third-party Middleware
 
 Third-party middleware refers to middleware not bundled within the Hono package.
@@ -216,54 +215,53 @@ Most of this middleware leverages external libraries.
 
 ### Authentication
 
-- [Auth.js(Next Auth)](https://github.com/honojs/middleware/tree/main/packages/auth-js)
-- [Clerk Auth](https://github.com/honojs/middleware/tree/main/packages/clerk-auth)
-- [OAuth Providers](https://github.com/honojs/middleware/tree/main/packages/oauth-providers)
-- [OIDC Auth](https://github.com/honojs/middleware/tree/main/packages/oidc-auth)
-- [Firebase Auth](https://github.com/honojs/middleware/tree/main/packages/firebase-auth)
-- [Verify RSA JWT (JWKS)](https://github.com/wataruoguchi/verify-rsa-jwt-cloudflare-worker)
-- [Stytch Auth](https://github.com/honojs/middleware/tree/main/packages/stytch-auth)
+-   [Auth.js(Next Auth)](https://github.com/honojs/middleware/tree/main/packages/auth-js)
+-   [Clerk Auth](https://github.com/honojs/middleware/tree/main/packages/clerk-auth)
+-   [OAuth Providers](https://github.com/honojs/middleware/tree/main/packages/oauth-providers)
+-   [OIDC Auth](https://github.com/honojs/middleware/tree/main/packages/oidc-auth)
+-   [Firebase Auth](https://github.com/honojs/middleware/tree/main/packages/firebase-auth)
+-   [Verify RSA JWT (JWKS)](https://github.com/wataruoguchi/verify-rsa-jwt-cloudflare-worker)
+-   [Stytch Auth](https://github.com/honojs/middleware/tree/main/packages/stytch-auth)
 
 ### Validators
 
-- [ArkType validator](https://github.com/honojs/middleware/tree/main/packages/arktype-validator)
-- [Effect Schema Validator](https://github.com/honojs/middleware/tree/main/packages/effect-validator)
-- [Standard Schema Validator](https://github.com/honojs/middleware/tree/main/packages/standard-validator)
-- [TypeBox Validator](https://github.com/honojs/middleware/tree/main/packages/typebox-validator)
-- [Typia Validator](https://github.com/honojs/middleware/tree/main/packages/typia-validator)
-- [unknownutil Validator](https://github.com/ryoppippi/hono-unknownutil-validator)
-- [Valibot Validator](https://github.com/honojs/middleware/tree/main/packages/valibot-validator)
-- [Zod Validator](https://github.com/honojs/middleware/tree/main/packages/zod-validator)
+-   [ArkType validator](https://github.com/honojs/middleware/tree/main/packages/arktype-validator)
+-   [Effect Schema Validator](https://github.com/honojs/middleware/tree/main/packages/effect-validator)
+-   [Standard Schema Validator](https://github.com/honojs/middleware/tree/main/packages/standard-validator)
+-   [TypeBox Validator](https://github.com/honojs/middleware/tree/main/packages/typebox-validator)
+-   [Typia Validator](https://github.com/honojs/middleware/tree/main/packages/typia-validator)
+-   [unknownutil Validator](https://github.com/ryoppippi/hono-unknownutil-validator)
+-   [Valibot Validator](https://github.com/honojs/middleware/tree/main/packages/valibot-validator)
+-   [Zod Validator](https://github.com/honojs/middleware/tree/main/packages/zod-validator)
 
 ### OpenAPI
 
-- [Zod OpenAPI](https://github.com/honojs/middleware/tree/main/packages/zod-openapi)
-- [Scalar](https://github.com/scalar/scalar/tree/main/integrations/hono)
-- [Swagger UI](https://github.com/honojs/middleware/tree/main/packages/swagger-ui)
-- [Hono OpenAPI](https://github.com/rhinobase/hono-openapi)
+-   [Zod OpenAPI](https://github.com/honojs/middleware/tree/main/packages/zod-openapi)
+-   [Scalar](https://github.com/scalar/scalar/tree/main/integrations/hono)
+-   [Swagger UI](https://github.com/honojs/middleware/tree/main/packages/swagger-ui)
+-   [Hono OpenAPI](https://github.com/rhinobase/hono-openapi)
 
 ### Others
 
-- [Bun Transpiler](https://github.com/honojs/middleware/tree/main/packages/bun-transpiler)
-- [esbuild Transpiler](https://github.com/honojs/middleware/tree/main/packages/esbuild-transpiler)
-- [Event Emitter](https://github.com/honojs/middleware/tree/main/packages/event-emitter)
-- [GraphQL Server](https://github.com/honojs/middleware/tree/main/packages/graphql-server)
-- [Hono Rate Limiter](https://github.com/rhinobase/hono-rate-limiter)
-- [Node WebSocket Helper](https://github.com/honojs/middleware/tree/main/packages/node-ws)
-- [Prometheus Metrics](https://github.com/honojs/middleware/tree/main/packages/prometheus)
-- [OpenTelemetry](https://github.com/honojs/middleware/tree/main/packages/otel)
-- [Qwik City](https://github.com/honojs/middleware/tree/main/packages/qwik-city)
-- [React Compatibility](https://github.com/honojs/middleware/tree/main/packages/react-compat)
-- [React Renderer](https://github.com/honojs/middleware/tree/main/packages/react-renderer)
-- [RONIN (Database)](https://github.com/ronin-co/hono-client)
-- [Sentry](https://github.com/honojs/middleware/tree/main/packages/sentry)
-- [tRPC Server](https://github.com/honojs/middleware/tree/main/packages/trpc-server)
-- [Geo](https://github.com/ktkongtong/hono-geo-middleware/tree/main/packages/middleware)
-- [Hono Simple DI](https://github.com/maou-shonen/hono-simple-DI)
-- [Highlight.io](https://www.highlight.io/docs/getting-started/backend-sdk/js/hono)
-- [Apitally (API monitoring & analytics)](https://docs.apitally.io/frameworks/hono)
-- [Cap Checkpoint](https://capjs.js.org/guide/middleware/hono.html)
-
+-   [Bun Transpiler](https://github.com/honojs/middleware/tree/main/packages/bun-transpiler)
+-   [esbuild Transpiler](https://github.com/honojs/middleware/tree/main/packages/esbuild-transpiler)
+-   [Event Emitter](https://github.com/honojs/middleware/tree/main/packages/event-emitter)
+-   [GraphQL Server](https://github.com/honojs/middleware/tree/main/packages/graphql-server)
+-   [Hono Rate Limiter](https://github.com/rhinobase/hono-rate-limiter)
+-   [Node WebSocket Helper](https://github.com/honojs/middleware/tree/main/packages/node-ws)
+-   [Prometheus Metrics](https://github.com/honojs/middleware/tree/main/packages/prometheus)
+-   [OpenTelemetry](https://github.com/honojs/middleware/tree/main/packages/otel)
+-   [Qwik City](https://github.com/honojs/middleware/tree/main/packages/qwik-city)
+-   [React Compatibility](https://github.com/honojs/middleware/tree/main/packages/react-compat)
+-   [React Renderer](https://github.com/honojs/middleware/tree/main/packages/react-renderer)
+-   [RONIN (Database)](https://github.com/ronin-co/hono-client)
+-   [Sentry](https://github.com/honojs/middleware/tree/main/packages/sentry)
+-   [tRPC Server](https://github.com/honojs/middleware/tree/main/packages/trpc-server)
+-   [Geo](https://github.com/ktkongtong/hono-geo-middleware/tree/main/packages/middleware)
+-   [Hono Simple DI](https://github.com/maou-shonen/hono-simple-DI)
+-   [Highlight.io](https://www.highlight.io/docs/getting-started/backend-sdk/js/hono)
+-   [Apitally (API monitoring & analytics)](https://docs.apitally.io/frameworks/hono)
+-   [Cap Checkpoint](https://capjs.js.org/guide/middleware/hono.html)
 
 # Basic Auth Middleware
 
@@ -275,60 +273,58 @@ For more information about how the Basic auth scheme works under the hood, see t
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { basicAuth } from 'hono/basic-auth'
+import { Hono } from 'hono';
+import { basicAuth } from 'hono/basic-auth';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '/auth/*',
-  basicAuth({
-    username: 'hono',
-    password: 'acoolproject',
-  })
-)
+    '/auth/*',
+    basicAuth({
+        username: 'hono',
+        password: 'acoolproject'
+    })
+);
 
 app.get('/auth/page', (c) => {
-  return c.text('You are authorized')
-})
+    return c.text('You are authorized');
+});
 ```
 
 To restrict to a specific route + method:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.get('/auth/page', (c) => {
-  return c.text('Viewing page')
-})
+    return c.text('Viewing page');
+});
 
 app.delete(
-  '/auth/page',
-  basicAuth({ username: 'hono', password: 'acoolproject' }),
-  (c) => {
-    return c.text('Page deleted')
-  }
-)
+    '/auth/page',
+    basicAuth({ username: 'hono', password: 'acoolproject' }),
+    (c) => {
+        return c.text('Page deleted');
+    }
+);
 ```
 
 If you want to verify the user by yourself, specify the `verifyUser` option; returning `true` means it is accepted.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  basicAuth({
-    verifyUser: (username, password, c) => {
-      return (
-        username === 'dynamic-user' && password === 'hono-password'
-      )
-    },
-  })
-)
+    basicAuth({
+        verifyUser: (username, password, c) => {
+            return username === 'dynamic-user' && password === 'hono-password';
+        }
+    })
+);
 ```
 
 ## Options
@@ -370,45 +366,44 @@ This middleware also allows you to pass arbitrary parameters containing objects 
 
 ```ts
 app.use(
-  '/auth/*',
-  basicAuth(
-    {
-      username: 'hono',
-      password: 'acoolproject',
-      // Define other params in the first object
-      realm: 'www.example.com',
-    },
-    {
-      username: 'hono-admin',
-      password: 'super-secure',
-      // Cannot redefine other params here
-    },
-    {
-      username: 'hono-user-1',
-      password: 'a-secret',
-      // Or here
-    }
-  )
-)
+    '/auth/*',
+    basicAuth(
+        {
+            username: 'hono',
+            password: 'acoolproject',
+            // Define other params in the first object
+            realm: 'www.example.com'
+        },
+        {
+            username: 'hono-admin',
+            password: 'super-secure'
+            // Cannot redefine other params here
+        },
+        {
+            username: 'hono-user-1',
+            password: 'a-secret'
+            // Or here
+        }
+    )
+);
 ```
 
 Or less hardcoded:
 
 ```ts
-import { users } from '../config/users'
+import { users } from '../config/users';
 
 app.use(
-  '/auth/*',
-  basicAuth(
-    {
-      realm: 'www.example.com',
-      ...users[0],
-    },
-    ...users.slice(1)
-  )
-)
+    '/auth/*',
+    basicAuth(
+        {
+            realm: 'www.example.com',
+            ...users[0]
+        },
+        ...users.slice(1)
+    )
+);
 ```
-
 
 # Bearer Auth Middleware
 
@@ -424,8 +419,8 @@ curl -H 'Authorization: Bearer honoiscool' http://localhost:8787/auth/page
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { bearerAuth } from 'hono/bearer-auth'
+import { Hono } from 'hono';
+import { bearerAuth } from 'hono/bearer-auth';
 ```
 
 ## Usage
@@ -434,52 +429,52 @@ import { bearerAuth } from 'hono/bearer-auth'
 > Your `token` must match the regex `/[A-Za-z0-9._~+/-]+=*/`, otherwise a 400 error will be returned. Notably, this regex acommodates both URL-safe Base64- and standard Base64-encoded JWTs. This middleware does not require the bearer token to be a JWT, just that it matches the above regex.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-const token = 'honoiscool'
+const token = 'honoiscool';
 
-app.use('/api/*', bearerAuth({ token }))
+app.use('/api/*', bearerAuth({ token }));
 
 app.get('/api/page', (c) => {
-  return c.json({ message: 'You are authorized' })
-})
+    return c.json({ message: 'You are authorized' });
+});
 ```
 
 To restrict to a specific route + method:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-const token = 'honoiscool'
+const token = 'honoiscool';
 
 app.get('/api/page', (c) => {
-  return c.json({ message: 'Read posts' })
-})
+    return c.json({ message: 'Read posts' });
+});
 
 app.post('/api/page', bearerAuth({ token }), (c) => {
-  return c.json({ message: 'Created post!' }, 201)
-})
+    return c.json({ message: 'Created post!' }, 201);
+});
 ```
 
 To implement multiple tokens (E.g., any valid token can read but create/update/delete are restricted to a privileged token):
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-const readToken = 'read'
-const privilegedToken = 'read+write'
-const privilegedMethods = ['POST', 'PUT', 'PATCH', 'DELETE']
+const readToken = 'read';
+const privilegedToken = 'read+write';
+const privilegedMethods = ['POST', 'PUT', 'PATCH', 'DELETE'];
 
 app.on('GET', '/api/page/*', async (c, next) => {
-  // List of valid tokens
-  const bearer = bearerAuth({ token: [readToken, privilegedToken] })
-  return bearer(c, next)
-})
+    // List of valid tokens
+    const bearer = bearerAuth({ token: [readToken, privilegedToken] });
+    return bearer(c, next);
+});
 app.on(privilegedMethods, '/api/page/*', async (c, next) => {
-  // Single valid privileged token
-  const bearer = bearerAuth({ token: privilegedToken })
-  return bearer(c, next)
-})
+    // Single valid privileged token
+    const bearer = bearerAuth({ token: privilegedToken });
+    return bearer(c, next);
+});
 
 // Define handlers for GET, POST, etc.
 ```
@@ -487,16 +482,16 @@ app.on(privilegedMethods, '/api/page/*', async (c, next) => {
 If you want to verify the value of the token yourself, specify the `verifyToken` option; returning `true` means it is accepted.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '/auth-verify-token/*',
-  bearerAuth({
-    verifyToken: async (token, c) => {
-      return token === 'dynamic-token'
-    },
-  })
-)
+    '/auth-verify-token/*',
+    bearerAuth({
+        verifyToken: async (token, c) => {
+            return token === 'dynamic-token';
+        }
+    })
+);
 ```
 
 ## Options
@@ -538,7 +533,6 @@ The custom message if the authentication header is invalid.
 
 The custom message if the token is invalid.
 
-
 # Body Limit Middleware
 
 The Body Limit Middleware can limit the file size of the request body.
@@ -549,31 +543,31 @@ If it is not set, it reads the body in the stream and executes an error handler 
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { bodyLimit } from 'hono/body-limit'
+import { Hono } from 'hono';
+import { bodyLimit } from 'hono/body-limit';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.post(
-  '/upload',
-  bodyLimit({
-    maxSize: 50 * 1024, // 50kb
-    onError: (c) => {
-      return c.text('overflow :(', 413)
-    },
-  }),
-  async (c) => {
-    const body = await c.req.parseBody()
-    if (body['file'] instanceof File) {
-      console.log(`Got file sized: ${body['file'].size}`)
+    '/upload',
+    bodyLimit({
+        maxSize: 50 * 1024, // 50kb
+        onError: (c) => {
+            return c.text('overflow :(', 413);
+        }
+    }),
+    async (c) => {
+        const body = await c.req.parseBody();
+        if (body['file'] instanceof File) {
+            console.log(`Got file sized: ${body['file'].size}`);
+        }
+        return c.text('pass :)');
     }
-    return c.text('pass :)')
-  }
-)
+);
 ```
 
 ## Options
@@ -594,23 +588,22 @@ If you want to accept requests larger than 128MiB with Hono and Bun, you need to
 
 ```ts
 export default {
-  port: process.env['PORT'] || 3000,
-  fetch: app.fetch,
-  maxRequestBodySize: 1024 * 1024 * 200, // your value here
-}
+    port: process.env['PORT'] || 3000,
+    fetch: app.fetch,
+    maxRequestBodySize: 1024 * 1024 * 200 // your value here
+};
 ```
 
 or, depending on your setup:
 
 ```ts
 Bun.serve({
-  fetch(req, server) {
-    return app.fetch(req, { ip: server.requestIP(req) })
-  },
-  maxRequestBodySize: 1024 * 1024 * 200, // your value here
-})
+    fetch(req, server) {
+        return app.fetch(req, { ip: server.requestIP(req) });
+    },
+    maxRequestBodySize: 1024 * 1024 * 200 // your value here
+});
 ```
-
 
 # Cache Middleware
 
@@ -625,8 +618,8 @@ See [Usage](#usage) below for instructions on each platform.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { cache } from 'hono/cache'
+import { Hono } from 'hono';
+import { cache } from 'hono/cache';
 ```
 
 ## Usage
@@ -635,24 +628,24 @@ import { cache } from 'hono/cache'
 
 ```ts [Cloudflare Workers]
 app.get(
-  '*',
-  cache({
-    cacheName: 'my-app',
-    cacheControl: 'max-age=3600',
-  })
-)
+    '*',
+    cache({
+        cacheName: 'my-app',
+        cacheControl: 'max-age=3600'
+    })
+);
 ```
 
 ```ts [Deno]
 // Must use `wait: true` for the Deno runtime
 app.get(
-  '*',
-  cache({
-    cacheName: 'my-app',
-    cacheControl: 'max-age=3600',
-    wait: true,
-  })
-)
+    '*',
+    cache({
+        cacheName: 'my-app',
+        cacheControl: 'max-age=3600',
+        wait: true
+    })
+);
 ```
 
 :::
@@ -685,29 +678,28 @@ An array of status codes that should be cached. The default is `[200]`. Use this
 
 ```ts
 app.get(
-  '*',
-  cache({
-    cacheName: 'my-app',
-    cacheControl: 'max-age=3600',
-    cacheableStatusCodes: [200, 404, 412],
-  })
-)
+    '*',
+    cache({
+        cacheName: 'my-app',
+        cacheControl: 'max-age=3600',
+        cacheableStatusCodes: [200, 404, 412]
+    })
+);
 ```
-
 
 # Combine Middleware
 
 Combine Middleware combines multiple middleware functions into a single middleware. It provides three functions:
 
-- `some` - Runs only one of the given middleware.
-- `every` - Runs all given middleware.
-- `except` - Runs all given middleware only if a condition is not met.
+-   `some` - Runs only one of the given middleware.
+-   `every` - Runs all given middleware.
+-   `except` - Runs all given middleware only if a condition is not met.
 
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { some, every, except } from 'hono/combine'
+import { Hono } from 'hono';
+import { some, every, except } from 'hono/combine';
 ```
 
 ## Usage
@@ -715,28 +707,28 @@ import { some, every, except } from 'hono/combine'
 Here's an example of complex access control rules using Combine Middleware.
 
 ```ts
-import { Hono } from 'hono'
-import { bearerAuth } from 'hono/bearer-auth'
-import { getConnInfo } from 'hono/cloudflare-workers'
-import { every, some } from 'hono/combine'
-import { ipRestriction } from 'hono/ip-restriction'
-import { rateLimit } from '@/my-rate-limit'
+import { Hono } from 'hono';
+import { bearerAuth } from 'hono/bearer-auth';
+import { getConnInfo } from 'hono/cloudflare-workers';
+import { every, some } from 'hono/combine';
+import { ipRestriction } from 'hono/ip-restriction';
+import { rateLimit } from '@/my-rate-limit';
 
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '*',
-  some(
-    every(
-      ipRestriction(getConnInfo, { allowList: ['192.168.0.2'] }),
-      bearerAuth({ token })
-    ),
-    // If both conditions are met, rateLimit will not execute.
-    rateLimit()
-  )
-)
+    '*',
+    some(
+        every(
+            ipRestriction(getConnInfo, { allowList: ['192.168.0.2'] }),
+            bearerAuth({ token })
+        ),
+        // If both conditions are met, rateLimit will not execute.
+        rateLimit()
+    )
+);
 
-app.get('/', (c) => c.text('Hello Hono!'))
+app.get('/', (c) => c.text('Hello Hono!'));
 ```
 
 ### some
@@ -744,16 +736,13 @@ app.get('/', (c) => c.text('Hello Hono!'))
 Runs the first middleware that returns true. Middleware is applied in order, and if any middleware exits successfully, subsequent middleware will not run.
 
 ```ts
-import { some } from 'hono/combine'
-import { bearerAuth } from 'hono/bearer-auth'
-import { myRateLimit } from '@/rate-limit'
+import { some } from 'hono/combine';
+import { bearerAuth } from 'hono/bearer-auth';
+import { myRateLimit } from '@/rate-limit';
 
 // If client has a valid token, skip rate limiting.
 // Otherwise, apply rate limiting.
-app.use(
-  '/api/*',
-  some(bearerAuth({ token }), myRateLimit({ limit: 100 }))
-)
+app.use('/api/*', some(bearerAuth({ token }), myRateLimit({ limit: 100 })));
 ```
 
 ### every
@@ -761,20 +750,20 @@ app.use(
 Runs all middleware and stops if any of them fail. Middleware is applied in order, and if any middleware throws an error, subsequent middleware will not run.
 
 ```ts
-import { some, every } from 'hono/combine'
-import { bearerAuth } from 'hono/bearer-auth'
-import { myCheckLocalNetwork } from '@/check-local-network'
-import { myRateLimit } from '@/rate-limit'
+import { some, every } from 'hono/combine';
+import { bearerAuth } from 'hono/bearer-auth';
+import { myCheckLocalNetwork } from '@/check-local-network';
+import { myRateLimit } from '@/rate-limit';
 
 // If client is in local network, skip authentication and rate limiting.
 // Otherwise, apply authentication and rate limiting.
 app.use(
-  '/api/*',
-  some(
-    myCheckLocalNetwork(),
-    every(bearerAuth({ token }), myRateLimit({ limit: 100 }))
-  )
-)
+    '/api/*',
+    some(
+        myCheckLocalNetwork(),
+        every(bearerAuth({ token }), myRateLimit({ limit: 100 }))
+    )
+);
 ```
 
 ### except
@@ -782,14 +771,13 @@ app.use(
 Runs all middleware except when the condition is met. You can pass a string or function as the condition. If multiple targets need to be matched, pass them as an array.
 
 ```ts
-import { except } from 'hono/combine'
-import { bearerAuth } from 'hono/bearer-auth'
+import { except } from 'hono/combine';
+import { bearerAuth } from 'hono/bearer-auth';
 
 // If client is accessing public API, skip authentication.
 // Otherwise, require a valid token.
-app.use('/api/*', except('/api/public/*', bearerAuth({ token })))
+app.use('/api/*', except('/api/public/*', bearerAuth({ token })));
 ```
-
 
 # Compress Middleware
 
@@ -804,16 +792,16 @@ This middleware compresses the response body, according to `Accept-Encoding` req
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { compress } from 'hono/compress'
+import { Hono } from 'hono';
+import { compress } from 'hono/compress';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-app.use(compress())
+app.use(compress());
 ```
 
 ## Options
@@ -825,7 +813,6 @@ The compression scheme to allow for response compression. Either `gzip` or `defl
 ### <Badge type="info" text="optional" /> threshold: `number`
 
 The minimum size in bytes to compress. Defaults to 1024 bytes.
-
 
 # Context Storage Middleware
 
@@ -840,8 +827,8 @@ The Context Storage Middleware stores the Hono `Context` in the `AsyncLocalStora
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { contextStorage, getContext } from 'hono/context-storage'
+import { Hono } from 'hono';
+import { contextStorage, getContext } from 'hono/context-storage';
 ```
 
 ## Usage
@@ -850,48 +837,47 @@ The `getContext()` will return the current Context object if the `contextStorage
 
 ```ts
 type Env = {
-  Variables: {
-    message: string
-  }
-}
+    Variables: {
+        message: string;
+    };
+};
 
-const app = new Hono<Env>()
+const app = new Hono<Env>();
 
-app.use(contextStorage())
+app.use(contextStorage());
 
 app.use(async (c, next) => {
-  c.set('message', 'Hello!')
-  await next()
-})
+    c.set('message', 'Hello!');
+    await next();
+});
 
 // You can access the variable outside the handler.
 const getMessage = () => {
-  return getContext<Env>().var.message
-}
+    return getContext<Env>().var.message;
+};
 
 app.get('/', (c) => {
-  return c.text(getMessage())
-})
+    return c.text(getMessage());
+});
 ```
 
 On Cloudflare Workers, you can access the bindings outside the handler.
 
 ```ts
 type Env = {
-  Bindings: {
-    KV: KVNamespace
-  }
-}
+    Bindings: {
+        KV: KVNamespace;
+    };
+};
 
-const app = new Hono<Env>()
+const app = new Hono<Env>();
 
-app.use(contextStorage())
+app.use(contextStorage());
 
 const setKV = (value: string) => {
-  return getContext<Env>().env.KV.put('key', value)
-}
+    return getContext<Env>().env.KV.put('key', value);
+};
 ```
-
 
 # CORS Middleware
 
@@ -901,76 +887,75 @@ For them we have to implement CORS, let's do this with middleware as well.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { cors } from 'hono/cors'
+import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 // CORS should be called before the route
-app.use('/api/*', cors())
+app.use('/api/*', cors());
 app.use(
-  '/api2/*',
-  cors({
-    origin: 'http://example.com',
-    allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
-    allowMethods: ['POST', 'GET', 'OPTIONS'],
-    exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
-    maxAge: 600,
-    credentials: true,
-  })
-)
+    '/api2/*',
+    cors({
+        origin: 'http://example.com',
+        allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
+        allowMethods: ['POST', 'GET', 'OPTIONS'],
+        exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
+        maxAge: 600,
+        credentials: true
+    })
+);
 
 app.all('/api/abc', (c) => {
-  return c.json({ success: true })
-})
+    return c.json({ success: true });
+});
 app.all('/api2/abc', (c) => {
-  return c.json({ success: true })
-})
+    return c.json({ success: true });
+});
 ```
 
 Multiple origins:
 
 ```ts
 app.use(
-  '/api3/*',
-  cors({
-    origin: ['https://example.com', 'https://example.org'],
-  })
-)
+    '/api3/*',
+    cors({
+        origin: ['https://example.com', 'https://example.org']
+    })
+);
 
 // Or you can use "function"
 app.use(
-  '/api4/*',
-  cors({
-    // `c` is a `Context` object
-    origin: (origin, c) => {
-      return origin.endsWith('.example.com')
-        ? origin
-        : 'http://example.com'
-    },
-  })
-)
+    '/api4/*',
+    cors({
+        // `c` is a `Context` object
+        origin: (origin, c) => {
+            return origin.endsWith('.example.com')
+                ? origin
+                : 'http://example.com';
+        }
+    })
+);
 ```
 
 Dynamic allowed methods based on origin:
 
 ```ts
 app.use(
-  '/api5/*',
-  cors({
-    origin: (origin) =>
-      origin === 'https://example.com' ? origin : '*',
-    // `c` is a `Context` object
-    allowMethods: (origin, c) =>
-      origin === 'https://example.com'
-        ? ['GET', 'HEAD', 'POST', 'PATCH', 'DELETE']
-        : ['GET', 'HEAD'],
-  })
-)
+    '/api5/*',
+    cors({
+        origin: (origin) => (origin === 'https://example.com' ? origin : '*'),
+        // `c` is a `Context` object
+        allowMethods: (origin, c) =>
+            origin === 'https://example.com'
+                ? ['GET', 'HEAD', 'POST', 'PATCH', 'DELETE']
+                : ['GET', 'HEAD']
+    })
+);
 ```
 
 ## Options
@@ -1005,11 +990,11 @@ If you want to adjust CORS configuration according to the execution environment,
 
 ```ts
 app.use('*', async (c, next) => {
-  const corsMiddlewareHandler = cors({
-    origin: c.env.CORS_ORIGIN,
-  })
-  return corsMiddlewareHandler(c, next)
-})
+    const corsMiddlewareHandler = cors({
+        origin: c.env.CORS_ORIGIN
+    });
+    return corsMiddlewareHandler(c, next);
+});
 ```
 
 ## Using with Vite
@@ -1018,17 +1003,16 @@ When using Hono with Vite, you should disable Vite's built-in CORS feature by se
 
 ```ts
 // vite.config.ts
-import { cloudflare } from '@cloudflare/vite-plugin'
-import { defineConfig } from 'vite'
+import { cloudflare } from '@cloudflare/vite-plugin';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  server: {
-    cors: false, // disable Vite's built-in CORS setting
-  },
-  plugins: [cloudflare()],
-})
+    server: {
+        cors: false // disable Vite's built-in CORS setting
+    },
+    plugins: [cloudflare()]
+});
 ```
-
 
 # CSRF Protection
 
@@ -1036,71 +1020,71 @@ This middleware protects against CSRF attacks by checking both the `Origin` head
 
 The middleware only validates requests that:
 
-- Use unsafe HTTP methods (not GET, HEAD, or OPTIONS)
-- Have content types that can be sent by HTML forms (`application/x-www-form-urlencoded`, `multipart/form-data`, or `text/plain`)
+-   Use unsafe HTTP methods (not GET, HEAD, or OPTIONS)
+-   Have content types that can be sent by HTML forms (`application/x-www-form-urlencoded`, `multipart/form-data`, or `text/plain`)
 
 Old browsers that do not send `Origin` headers, or environments that use reverse proxies to remove these headers, may not work well. In such environments, use other CSRF token methods.
 
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { csrf } from 'hono/csrf'
+import { Hono } from 'hono';
+import { csrf } from 'hono/csrf';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 // Default: both origin and sec-fetch-site validation
-app.use(csrf())
+app.use(csrf());
 
 // Allow specific origins
-app.use(csrf({ origin: 'https://myapp.example.com' }))
+app.use(csrf({ origin: 'https://myapp.example.com' }));
 
 // Allow multiple origins
 app.use(
-  csrf({
-    origin: [
-      'https://myapp.example.com',
-      'https://development.myapp.example.com',
-    ],
-  })
-)
+    csrf({
+        origin: [
+            'https://myapp.example.com',
+            'https://development.myapp.example.com'
+        ]
+    })
+);
 
 // Allow specific sec-fetch-site values
-app.use(csrf({ secFetchSite: 'same-origin' }))
-app.use(csrf({ secFetchSite: ['same-origin', 'none'] }))
+app.use(csrf({ secFetchSite: 'same-origin' }));
+app.use(csrf({ secFetchSite: ['same-origin', 'none'] }));
 
 // Dynamic origin validation
 // It is strongly recommended that the protocol be verified to ensure a match to `$`.
 // You should *never* do a forward match.
 app.use(
-  '*',
-  csrf({
-    origin: (origin) =>
-      /https:\/\/(\w+\.)?myapp\.example\.com$/.test(origin),
-  })
-)
+    '*',
+    csrf({
+        origin: (origin) =>
+            /https:\/\/(\w+\.)?myapp\.example\.com$/.test(origin)
+    })
+);
 
 // Dynamic sec-fetch-site validation
 app.use(
-  csrf({
-    secFetchSite: (secFetchSite, c) => {
-      // Always allow same-origin
-      if (secFetchSite === 'same-origin') return true
-      // Allow cross-site for webhook endpoints
-      if (
-        secFetchSite === 'cross-site' &&
-        c.req.path.startsWith('/webhook/')
-      ) {
-        return true
-      }
-      return false
-    },
-  })
-)
+    csrf({
+        secFetchSite: (secFetchSite, c) => {
+            // Always allow same-origin
+            if (secFetchSite === 'same-origin') return true;
+            // Allow cross-site for webhook endpoints
+            if (
+                secFetchSite === 'cross-site' &&
+                c.req.path.startsWith('/webhook/')
+            ) {
+                return true;
+            }
+            return false;
+        }
+    })
+);
 ```
 
 ## Options
@@ -1109,9 +1093,9 @@ app.use(
 
 Specify allowed origins for CSRF protection.
 
-- **`string`**: Single allowed origin (e.g., `'https://example.com'`)
-- **`string[]`**: Array of allowed origins
-- **`Function`**: Custom handler `(origin: string, context: Context) => boolean` for flexible origin validation and bypass logic
+-   **`string`**: Single allowed origin (e.g., `'https://example.com'`)
+-   **`string[]`**: Array of allowed origins
+-   **`Function`**: Custom handler `(origin: string, context: Context) => boolean` for flexible origin validation and bypass logic
 
 **Default**: Only same origin as the request URL
 
@@ -1121,21 +1105,20 @@ The function handler receives the request's `Origin` header value and the reques
 
 Specify allowed Sec-Fetch-Site header values for CSRF protection using [Fetch Metadata](https://web.dev/articles/fetch-metadata).
 
-- **`string`**: Single allowed value (e.g., `'same-origin'`)
-- **`string[]`**: Array of allowed values (e.g., `['same-origin', 'none']`)
-- **`Function`**: Custom handler `(secFetchSite: string, context: Context) => boolean` for flexible validation
+-   **`string`**: Single allowed value (e.g., `'same-origin'`)
+-   **`string[]`**: Array of allowed values (e.g., `['same-origin', 'none']`)
+-   **`Function`**: Custom handler `(secFetchSite: string, context: Context) => boolean` for flexible validation
 
 **Default**: Only allows `'same-origin'`
 
 Standard Sec-Fetch-Site values:
 
-- `same-origin`: Request from same origin
-- `same-site`: Request from same site (different subdomain)
-- `cross-site`: Request from different site
-- `none`: Request not from a web page (e.g., browser address bar, bookmark)
+-   `same-origin`: Request from same origin
+-   `same-site`: Request from same site (different subdomain)
+-   `cross-site`: Request from different site
+-   `none`: Request not from a web page (e.g., browser address bar, bookmark)
 
 The function handler receives the request's `Sec-Fetch-Site` header value and the request context, enabling dynamic validation based on request properties.
-
 
 # ETag Middleware
 
@@ -1144,19 +1127,19 @@ Using this middleware, you can add ETag headers easily.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { etag } from 'hono/etag'
+import { Hono } from 'hono';
+import { etag } from 'hono/etag';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-app.use('/etag/*', etag())
+app.use('/etag/*', etag());
 app.get('/etag/abc', (c) => {
-  return c.text('Hono is cool')
-})
+    return c.text('Hono is cool');
+});
 ```
 
 ## The retained headers
@@ -1166,16 +1149,16 @@ The 304 Response must include the headers that would have been sent in an equiva
 If you want to add the header that is sent, you can use `retainedHeaders` option and `RETAINED_304_HEADERS` strings array variable that includes the default headers:
 
 ```ts
-import { etag, RETAINED_304_HEADERS } from 'hono/etag'
+import { etag, RETAINED_304_HEADERS } from 'hono/etag';
 
 // ...
 
 app.use(
-  '/etag/*',
-  etag({
-    retainedHeaders: ['x-message', ...RETAINED_304_HEADERS],
-  })
-)
+    '/etag/*',
+    etag({
+        retainedHeaders: ['x-message', ...RETAINED_304_HEADERS]
+    })
+);
 ```
 
 ## Options
@@ -1192,7 +1175,6 @@ The headers that you want to retain in the 304 Response.
 
 A custom digest generation function. By default, it uses `SHA-1`. This function is called with the response body as a `Uint8Array` and should return a hash as an `ArrayBuffer` or a Promise of one.
 
-
 # IP Restriction Middleware
 
 IP Restriction Middleware is middleware that limits access to resources based on the IP address of the user.
@@ -1200,8 +1182,8 @@ IP Restriction Middleware is middleware that limits access to resources based on
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { ipRestriction } from 'hono/ip-restriction'
+import { Hono } from 'hono';
+import { ipRestriction } from 'hono/ip-restriction';
 ```
 
 ## Usage
@@ -1209,37 +1191,37 @@ import { ipRestriction } from 'hono/ip-restriction'
 For your application running on Bun, if you want to allow access only from local, you can write it as follows. Specify the rules you want to deny in the `denyList` and the rules you want to allow in the `allowList`.
 
 ```ts
-import { Hono } from 'hono'
-import { getConnInfo } from 'hono/bun'
-import { ipRestriction } from 'hono/ip-restriction'
+import { Hono } from 'hono';
+import { getConnInfo } from 'hono/bun';
+import { ipRestriction } from 'hono/ip-restriction';
 
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '*',
-  ipRestriction(getConnInfo, {
-    denyList: [],
-    allowList: ['127.0.0.1', '::1'],
-  })
-)
+    '*',
+    ipRestriction(getConnInfo, {
+        denyList: [],
+        allowList: ['127.0.0.1', '::1']
+    })
+);
 
-app.get('/', (c) => c.text('Hello Hono!'))
+app.get('/', (c) => c.text('Hello Hono!'));
 ```
 
 Pass the `getConninfo` from the [ConnInfo helper](/docs/helpers/conninfo) appropriate for your environment as the first argument of `ipRestriction`. For example, for Deno, it would look like this:
 
 ```ts
-import { getConnInfo } from 'hono/deno'
-import { ipRestriction } from 'hono/ip-restriction'
+import { getConnInfo } from 'hono/deno';
+import { ipRestriction } from 'hono/ip-restriction';
 
 //...
 
 app.use(
-  '*',
-  ipRestriction(getConnInfo, {
-    // ...
-  })
-)
+    '*',
+    ipRestriction(getConnInfo, {
+        // ...
+    })
+);
 ```
 
 ## Rules
@@ -1248,15 +1230,15 @@ Follow the instructions below for writing rules.
 
 ### IPv4
 
-- `192.168.2.0` - Static IP Address
-- `192.168.2.0/24` - CIDR Notation
-- `*` - ALL Addresses
+-   `192.168.2.0` - Static IP Address
+-   `192.168.2.0/24` - CIDR Notation
+-   `*` - ALL Addresses
 
 ### IPv6
 
-- `::1` - Static IP Address
-- `::1/10` - CIDR Notation
-- `*` - ALL Addresses
+-   `::1` - Static IP Address
+-   `::1/10` - CIDR Notation
+-   `*` - ALL Addresses
 
 ## Error handling
 
@@ -1264,19 +1246,18 @@ To customize the error, return a `Response` in the third argument.
 
 ```ts
 app.use(
-  '*',
-  ipRestriction(
-    getConnInfo,
-    {
-      denyList: ['192.168.2.0/24'],
-    },
-    async (remote, c) => {
-      return c.text(`Blocking access from ${remote.addr}`, 403)
-    }
-  )
-)
+    '*',
+    ipRestriction(
+        getConnInfo,
+        {
+            denyList: ['192.168.2.0/24']
+        },
+        async (remote, c) => {
+            return c.text(`Blocking access from ${remote.addr}`, 403);
+        }
+    )
+);
 ```
-
 
 # JSX Renderer Middleware
 
@@ -1285,32 +1266,32 @@ JSX Renderer Middleware allows you to set up the layout when rendering JSX with 
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { jsxRenderer, useRequestContext } from 'hono/jsx-renderer'
+import { Hono } from 'hono';
+import { jsxRenderer, useRequestContext } from 'hono/jsx-renderer';
 ```
 
 ## Usage
 
 ```jsx
-const app = new Hono()
+const app = new Hono();
 
 app.get(
-  '/page/*',
-  jsxRenderer(({ children }) => {
-    return (
-      <html>
-        <body>
-          <header>Menu</header>
-          <div>{children}</div>
-        </body>
-      </html>
-    )
-  })
-)
+    '/page/*',
+    jsxRenderer(({ children }) => {
+        return (
+            <html>
+                <body>
+                    <header>Menu</header>
+                    <div>{children}</div>
+                </body>
+            </html>
+        );
+    })
+);
 
 app.get('/page/about', (c) => {
-  return c.render(<h1>About me!</h1>)
-})
+    return c.render(<h1>About me!</h1>);
+});
 ```
 
 ## Options
@@ -1321,39 +1302,39 @@ If you do not want to add a DOCTYPE at the beginning of the HTML, set the `docTy
 
 ```tsx
 app.use(
-  '*',
-  jsxRenderer(
-    ({ children }) => {
-      return (
-        <html>
-          <body>{children}</body>
-        </html>
-      )
-    },
-    { docType: false }
-  )
-)
+    '*',
+    jsxRenderer(
+        ({ children }) => {
+            return (
+                <html>
+                    <body>{children}</body>
+                </html>
+            );
+        },
+        { docType: false }
+    )
+);
 ```
 
 And you can specify the DOCTYPE.
 
 ```tsx
 app.use(
-  '*',
-  jsxRenderer(
-    ({ children }) => {
-      return (
-        <html>
-          <body>{children}</body>
-        </html>
-      )
-    },
-    {
-      docType:
-        '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">',
-    }
-  )
-)
+    '*',
+    jsxRenderer(
+        ({ children }) => {
+            return (
+                <html>
+                    <body>{children}</body>
+                </html>
+            );
+        },
+        {
+            docType:
+                '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">'
+        }
+    )
+);
 ```
 
 ### <Badge type="info" text="optional" /> stream: `boolean` | `Record<string, string>`
@@ -1362,34 +1343,34 @@ If you set it to `true` or provide a Record value, it will be rendered as a stre
 
 ```tsx
 const AsyncComponent = async () => {
-  await new Promise((r) => setTimeout(r, 1000)) // sleep 1s
-  return <div>Hi!</div>
-}
+    await new Promise((r) => setTimeout(r, 1000)); // sleep 1s
+    return <div>Hi!</div>;
+};
 
 app.get(
-  '*',
-  jsxRenderer(
-    ({ children }) => {
-      return (
-        <html>
-          <body>
-            <h1>SSR Streaming</h1>
-            {children}
-          </body>
-        </html>
-      )
-    },
-    { stream: true }
-  )
-)
+    '*',
+    jsxRenderer(
+        ({ children }) => {
+            return (
+                <html>
+                    <body>
+                        <h1>SSR Streaming</h1>
+                        {children}
+                    </body>
+                </html>
+            );
+        },
+        { stream: true }
+    )
+);
 
 app.get('/', (c) => {
-  return c.render(
-    <Suspense fallback={<div>loading...</div>}>
-      <AsyncComponent />
-    </Suspense>
-  )
-})
+    return c.render(
+        <Suspense fallback={<div>loading...</div>}>
+            <AsyncComponent />
+        </Suspense>
+    );
+});
 ```
 
 If `true` is set, the following headers are added:
@@ -1410,28 +1391,28 @@ The `Layout` component enables nesting the layouts.
 
 ```tsx
 app.use(
-  jsxRenderer(({ children }) => {
-    return (
-      <html>
-        <body>{children}</body>
-      </html>
-    )
-  })
-)
+    jsxRenderer(({ children }) => {
+        return (
+            <html>
+                <body>{children}</body>
+            </html>
+        );
+    })
+);
 
-const blog = new Hono()
+const blog = new Hono();
 blog.use(
-  jsxRenderer(({ children, Layout }) => {
-    return (
-      <Layout>
-        <nav>Blog Menu</nav>
-        <div>{children}</div>
-      </Layout>
-    )
-  })
-)
+    jsxRenderer(({ children, Layout }) => {
+        return (
+            <Layout>
+                <nav>Blog Menu</nav>
+                <div>{children}</div>
+            </Layout>
+        );
+    })
+);
 
-app.route('/blog', blog)
+app.route('/blog', blog);
 ```
 
 ## `useRequestContext()`
@@ -1439,23 +1420,23 @@ app.route('/blog', blog)
 `useRequestContext()` returns an instance of Context.
 
 ```tsx
-import { useRequestContext, jsxRenderer } from 'hono/jsx-renderer'
+import { useRequestContext, jsxRenderer } from 'hono/jsx-renderer';
 
-const app = new Hono()
-app.use(jsxRenderer())
+const app = new Hono();
+app.use(jsxRenderer());
 
 const RequestUrlBadge: FC = () => {
-  const c = useRequestContext()
-  return <b>{c.req.url}</b>
-}
+    const c = useRequestContext();
+    return <b>{c.req.url}</b>;
+};
 
 app.get('/page/info', (c) => {
-  return c.render(
-    <div>
-      You are accessing: <RequestUrlBadge />
-    </div>
-  )
-})
+    return c.render(
+        <div>
+            You are accessing: <RequestUrlBadge />
+        </div>
+    );
+});
 ```
 
 ::: warning
@@ -1478,48 +1459,44 @@ By defining `ContextRenderer` as shown below, you can pass additional content to
 
 ```tsx
 declare module 'hono' {
-  interface ContextRenderer {
-    (
-      content: string | Promise<string>,
-      props: { title: string }
-    ): Response
-  }
+    interface ContextRenderer {
+        (content: string | Promise<string>, props: { title: string }): Response;
+    }
 }
 
-const app = new Hono()
+const app = new Hono();
 
 app.get(
-  '/page/*',
-  jsxRenderer(({ children, title }) => {
-    return (
-      <html>
-        <head>
-          <title>{title}</title>
-        </head>
-        <body>
-          <header>Menu</header>
-          <div>{children}</div>
-        </body>
-      </html>
-    )
-  })
-)
+    '/page/*',
+    jsxRenderer(({ children, title }) => {
+        return (
+            <html>
+                <head>
+                    <title>{title}</title>
+                </head>
+                <body>
+                    <header>Menu</header>
+                    <div>{children}</div>
+                </body>
+            </html>
+        );
+    })
+);
 
 app.get('/page/favorites', (c) => {
-  return c.render(
-    <div>
-      <ul>
-        <li>Eating sushi</li>
-        <li>Watching baseball games</li>
-      </ul>
-    </div>,
-    {
-      title: 'My favorites',
-    }
-  )
-})
+    return c.render(
+        <div>
+            <ul>
+                <li>Eating sushi</li>
+                <li>Watching baseball games</li>
+            </ul>
+        </div>,
+        {
+            title: 'My favorites'
+        }
+    );
+});
 ```
-
 
 # JWK Auth Middleware
 
@@ -1534,64 +1511,63 @@ Example: `Bearer my.token.value` or `Basic my.token.value`
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { jwk } from 'hono/jwk'
-import { verifyWithJwks } from 'hono/jwt'
+import { Hono } from 'hono';
+import { jwk } from 'hono/jwk';
+import { verifyWithJwks } from 'hono/jwt';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '/auth/*',
-  jwk({
-    jwks_uri: `https://${backendServer}/.well-known/jwks.json`,
-  })
-)
+    '/auth/*',
+    jwk({
+        jwks_uri: `https://${backendServer}/.well-known/jwks.json`
+    })
+);
 
 app.get('/auth/page', (c) => {
-  return c.text('You are authorized')
-})
+    return c.text('You are authorized');
+});
 ```
 
 Get payload:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '/auth/*',
-  jwk({
-    jwks_uri: `https://${backendServer}/.well-known/jwks.json`,
-  })
-)
+    '/auth/*',
+    jwk({
+        jwks_uri: `https://${backendServer}/.well-known/jwks.json`
+    })
+);
 
 app.get('/auth/page', (c) => {
-  const payload = c.get('jwtPayload')
-  return c.json(payload) // eg: { "sub": "1234567890", "name": "John Doe", "iat": 1516239022 }
-})
+    const payload = c.get('jwtPayload');
+    return c.json(payload); // eg: { "sub": "1234567890", "name": "John Doe", "iat": 1516239022 }
+});
 ```
 
 Anonymous access:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '/auth/*',
-  jwk({
-    jwks_uri: (c) =>
-      `https://${c.env.authServer}/.well-known/jwks.json`,
-    allow_anon: true,
-  })
-)
+    '/auth/*',
+    jwk({
+        jwks_uri: (c) => `https://${c.env.authServer}/.well-known/jwks.json`,
+        allow_anon: true
+    })
+);
 
 app.get('/auth/page', (c) => {
-  const payload = c.get('jwtPayload')
-  return c.json(payload ?? { message: 'hello anon' })
-})
+    const payload = c.get('jwtPayload');
+    return c.json(payload ?? { message: 'hello anon' });
+});
 ```
 
 ## Using `verifyWithJwks` outside of middleware
@@ -1600,14 +1576,14 @@ The `verifyWithJwks` utility function can be used to verify JWT tokens outside o
 
 ```ts
 const id_payload = await verifyWithJwks(
-  id_token,
-  {
-    jwks_uri: 'https://your-auth-server/.well-known/jwks.json',
-  },
-  {
-    cf: { cacheEverything: true, cacheTtl: 3600 },
-  }
-)
+    id_token,
+    {
+        jwks_uri: 'https://your-auth-server/.well-known/jwks.json'
+    },
+    {
+        cf: { cacheEverything: true, cacheTtl: 3600 }
+    }
+);
 ```
 
 ## Options
@@ -1632,7 +1608,6 @@ If this value is set, then the value is retrieved from the cookie header using t
 
 The name of the header to look for the JWT token. The default is `Authorization`.
 
-
 # JWT Auth Middleware
 
 The JWT Auth Middleware provides authentication by verifying the token with JWT.
@@ -1647,48 +1622,48 @@ Example: `Bearer my.token.value` or `Basic my.token.value`
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { jwt } from 'hono/jwt'
-import type { JwtVariables } from 'hono/jwt'
+import { Hono } from 'hono';
+import { jwt } from 'hono/jwt';
+import type { JwtVariables } from 'hono/jwt';
 ```
 
 ## Usage
 
 ```ts
 // Specify the variable types to infer the `c.get('jwtPayload')`:
-type Variables = JwtVariables
+type Variables = JwtVariables;
 
-const app = new Hono<{ Variables: Variables }>()
+const app = new Hono<{ Variables: Variables }>();
 
 app.use(
-  '/auth/*',
-  jwt({
-    secret: 'it-is-very-secret',
-  })
-)
+    '/auth/*',
+    jwt({
+        secret: 'it-is-very-secret'
+    })
+);
 
 app.get('/auth/page', (c) => {
-  return c.text('You are authorized')
-})
+    return c.text('You are authorized');
+});
 ```
 
 Get payload:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '/auth/*',
-  jwt({
-    secret: 'it-is-very-secret',
-    issuer: 'my-trusted-issuer',
-  })
-)
+    '/auth/*',
+    jwt({
+        secret: 'it-is-very-secret',
+        issuer: 'my-trusted-issuer'
+    })
+);
 
 app.get('/auth/page', (c) => {
-  const payload = c.get('jwtPayload')
-  return c.json(payload) // eg: { "sub": "1234567890", "name": "John Doe", "iat": 1516239022, "iss": "my-trusted-issuer" }
-})
+    const payload = c.get('jwtPayload');
+    return c.json(payload); // eg: { "sub": "1234567890", "name": "John Doe", "iat": 1516239022, "iss": "my-trusted-issuer" }
+});
 ```
 
 ::: tip
@@ -1697,11 +1672,11 @@ app.get('/auth/page', (c) => {
 
 ```js
 app.use('/auth/*', (c, next) => {
-  const jwtMiddleware = jwt({
-    secret: c.env.JWT_SECRET,
-  })
-  return jwtMiddleware(c, next)
-})
+    const jwtMiddleware = jwt({
+        secret: c.env.JWT_SECRET
+    });
+    return jwtMiddleware(c, next);
+});
 ```
 
 :::
@@ -1728,12 +1703,12 @@ The name of the header to look for the JWT token. The default is `Authorization`
 
 ```ts
 app.use(
-  '/auth/*',
-  jwt({
-    secret: 'it-is-very-secret',
-    headerName: 'x-custom-auth-header',
-  })
-)
+    '/auth/*',
+    jwt({
+        secret: 'it-is-very-secret',
+        headerName: 'x-custom-auth-header'
+    })
+);
 ```
 
 ### <Badge type="info" text="optional" /> verifyOptions: `VerifyOptions`
@@ -1756,7 +1731,6 @@ The `iat` (not before) claim will be verified if present and this is set to `tru
 
 The `exp` (not before) claim will be verified if present and this is set to `true`. The default is `true`.
 
-
 # Language Middleware
 
 The Language Detector middleware automatically determines a user's preferred language (locale) from various sources and makes it available via `c.get('language')`. Detection strategies include query parameters, cookies, headers, and URL path segments. Perfect for internationalization (i18n) and locale-specific content.
@@ -1764,8 +1738,8 @@ The Language Detector middleware automatically determines a user's preferred lan
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { languageDetector } from 'hono/language'
+import { Hono } from 'hono';
+import { languageDetector } from 'hono/language';
 ```
 
 ## Basic Usage
@@ -1773,19 +1747,19 @@ import { languageDetector } from 'hono/language'
 Detect language from query string, cookie, and header (default order), with fallback to English:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  languageDetector({
-    supportedLanguages: ['en', 'ar', 'ja'], // Must include fallback
-    fallbackLanguage: 'en', // Required
-  })
-)
+    languageDetector({
+        supportedLanguages: ['en', 'ar', 'ja'], // Must include fallback
+        fallbackLanguage: 'en' // Required
+    })
+);
 
 app.get('/', (c) => {
-  const lang = c.get('language')
-  return c.text(`Hello! Your language is ${lang}`)
-})
+    const lang = c.get('language');
+    return c.text(`Hello! Your language is ${lang}`);
+});
 ```
 
 ### Client Examples
@@ -1808,23 +1782,23 @@ curl -H 'Accept-Language: ar,en;q=0.9' http://localhost:8787/
 
 ```ts
 export const DEFAULT_OPTIONS: DetectorOptions = {
-  order: ['querystring', 'cookie', 'header'],
-  lookupQueryString: 'lang',
-  lookupCookie: 'language',
-  lookupFromHeaderKey: 'accept-language',
-  lookupFromPathIndex: 0,
-  caches: ['cookie'],
-  ignoreCase: true,
-  fallbackLanguage: 'en',
-  supportedLanguages: ['en'],
-  cookieOptions: {
-    sameSite: 'Strict',
-    secure: true,
-    maxAge: 365 * 24 * 60 * 60,
-    httpOnly: true,
-  },
-  debug: false,
-}
+    order: ['querystring', 'cookie', 'header'],
+    lookupQueryString: 'lang',
+    lookupCookie: 'language',
+    lookupFromHeaderKey: 'accept-language',
+    lookupFromPathIndex: 0,
+    caches: ['cookie'],
+    ignoreCase: true,
+    fallbackLanguage: 'en',
+    supportedLanguages: ['en'],
+    cookieOptions: {
+        sameSite: 'Strict',
+        secure: true,
+        maxAge: 365 * 24 * 60 * 60,
+        httpOnly: true
+    },
+    debug: false
+};
 ```
 
 ## Key Behaviors
@@ -1832,9 +1806,10 @@ export const DEFAULT_OPTIONS: DetectorOptions = {
 ### Detection Workflow
 
 1. **Order**: Checks sources in this sequence by default:
-   - Query parameter (?lang=ar)
-   - Cookie (language=ar)
-   - Accept-Language header
+
+    - Query parameter (?lang=ar)
+    - Cookie (language=ar)
+    - Accept-Language header
 
 2. **Caching**: Stores detected language in a cookie (1 year by default)
 
@@ -1848,13 +1823,13 @@ Prioritize URL path detection (e.g., /en/about):
 
 ```ts
 app.use(
-  languageDetector({
-    order: ['path', 'cookie', 'querystring', 'header'],
-    lookupFromPathIndex: 0, // /en/profile → index 0 = 'en'
-    supportedLanguages: ['en', 'ar'],
-    fallbackLanguage: 'en',
-  })
-)
+    languageDetector({
+        order: ['path', 'cookie', 'querystring', 'header'],
+        lookupFromPathIndex: 0, // /en/profile → index 0 = 'en'
+        supportedLanguages: ['en', 'ar'],
+        fallbackLanguage: 'en'
+    })
+);
 ```
 
 ### Language Code Transformation
@@ -1863,39 +1838,39 @@ Normalize complex codes (e.g., en-US → en):
 
 ```ts
 app.use(
-  languageDetector({
-    convertDetectedLanguage: (lang) => lang.split('-')[0],
-    supportedLanguages: ['en', 'ja'],
-    fallbackLanguage: 'en',
-  })
-)
+    languageDetector({
+        convertDetectedLanguage: (lang) => lang.split('-')[0],
+        supportedLanguages: ['en', 'ja'],
+        fallbackLanguage: 'en'
+    })
+);
 ```
 
 ### Cookie Configuration
 
 ```ts
 app.use(
-  languageDetector({
-    lookupCookie: 'app_lang',
-    caches: ['cookie'],
-    cookieOptions: {
-      path: '/', // Cookie path
-      sameSite: 'Lax', // Cookie same-site policy
-      secure: true, // Only send over HTTPS
-      maxAge: 86400 * 365, // 1 year expiration
-      httpOnly: true, // Not accessible via JavaScript
-      domain: '.example.com', // Optional: specific domain
-    },
-  })
-)
+    languageDetector({
+        lookupCookie: 'app_lang',
+        caches: ['cookie'],
+        cookieOptions: {
+            path: '/', // Cookie path
+            sameSite: 'Lax', // Cookie same-site policy
+            secure: true, // Only send over HTTPS
+            maxAge: 86400 * 365, // 1 year expiration
+            httpOnly: true, // Not accessible via JavaScript
+            domain: '.example.com' // Optional: specific domain
+        }
+    })
+);
 ```
 
 To disable cookie caching:
 
 ```ts
 languageDetector({
-  caches: false,
-})
+    caches: false
+});
 ```
 
 ### Debugging
@@ -1904,8 +1879,8 @@ Log detection steps:
 
 ```ts
 languageDetector({
-  debug: true, // Shows: "Detected from querystring: ar"
-})
+    debug: true // Shows: "Detected from querystring: ar"
+});
 ```
 
 ## Options Reference
@@ -1949,10 +1924,10 @@ languageDetector({
 
 ## Validation & Error Handling
 
-- `fallbackLanguage` must be in `supportedLanguages` (throws error during setup)
-- `lookupFromPathIndex` must be ≥ 0
-- Invalid configurations throw errors during middleware initialization
-- Failed detections silently use `fallbackLanguage`
+-   `fallbackLanguage` must be in `supportedLanguages` (throws error during setup)
+-   `lookupFromPathIndex` must be ≥ 0
+-   Invalid configurations throw errors during middleware initialization
+-   Failed detections silently use `fallbackLanguage`
 
 ## Common Recipes
 
@@ -1960,20 +1935,19 @@ languageDetector({
 
 ```ts
 app.get('/:lang/home', (c) => {
-  const lang = c.get('language') // 'en', 'ar', etc.
-  return c.json({ message: getLocalizedContent(lang) })
-})
+    const lang = c.get('language'); // 'en', 'ar', etc.
+    return c.json({ message: getLocalizedContent(lang) });
+});
 ```
 
 ### Multiple Supported Languages
 
 ```ts
 languageDetector({
-  supportedLanguages: ['en', 'en-GB', 'ar', 'ar-EG'],
-  convertDetectedLanguage: (lang) => lang.replace('_', '-'), // Normalize
-})
+    supportedLanguages: ['en', 'en-GB', 'ar', 'ar-EG'],
+    convertDetectedLanguage: (lang) => lang.replace('_', '-') // Normalize
+});
 ```
-
 
 # Logger Middleware
 
@@ -1982,27 +1956,27 @@ It's a simple logger.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { logger } from 'hono/logger'
+import { Hono } from 'hono';
+import { logger } from 'hono/logger';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-app.use(logger())
-app.get('/', (c) => c.text('Hello Hono!'))
+app.use(logger());
+app.get('/', (c) => c.text('Hello Hono!'));
 ```
 
 ## Logging Details
 
 The Logger Middleware logs the following details for each request:
 
-- **Incoming Request**: Logs the HTTP method, request path, and incoming request.
-- **Outgoing Response**: Logs the HTTP method, request path, response status code, and request/response times.
-- **Status Code Coloring**: Response status codes are color-coded for better visibility and quick identification of status categories. Different status code categories are represented by different colors.
-- **Elapsed Time**: The time taken for the request/response cycle is logged in a human-readable format, either in milliseconds (ms) or seconds (s).
+-   **Incoming Request**: Logs the HTTP method, request path, and incoming request.
+-   **Outgoing Response**: Logs the HTTP method, request path, response status code, and request/response times.
+-   **Status Code Coloring**: Response status codes are color-coded for better visibility and quick identification of status categories. Different status code categories are represented by different colors.
+-   **Elapsed Time**: The time taken for the request/response cycle is logged in a human-readable format, either in milliseconds (ms) or seconds (s).
 
 By using the Logger Middleware, you can easily monitor the flow of requests and responses in your Hono application and quickly identify any issues or performance bottlenecks.
 
@@ -2016,8 +1990,8 @@ The Logger Middleware accepts an optional `PrintFunc` function as a parameter. T
 
 ### <Badge type="info" text="optional" /> fn: `PrintFunc(str: string, ...rest: string[])`
 
-- `str`: Passed by the logger.
-- `...rest`: Additional string props to be printed to console.
+-   `str`: Passed by the logger.
+-   `...rest`: Additional string props to be printed to console.
 
 ### Example
 
@@ -2025,28 +1999,27 @@ Setting up a custom `PrintFunc` function to the Logger Middleware:
 
 ```ts
 export const customLogger = (message: string, ...rest: string[]) => {
-  console.log(message, ...rest)
-}
+    console.log(message, ...rest);
+};
 
-app.use(logger(customLogger))
+app.use(logger(customLogger));
 ```
 
 Setting up the custom logger in a route:
 
 ```ts
 app.post('/blog', (c) => {
-  // Routing logic
+    // Routing logic
 
-  customLogger('Blog saved:', `Path: ${blog.url},`, `ID: ${blog.id}`)
-  // Output
-  // <-- POST /blog
-  // Blog saved: Path: /blog/example, ID: 1
-  // --> POST /blog 201 93ms
+    customLogger('Blog saved:', `Path: ${blog.url},`, `ID: ${blog.id}`);
+    // Output
+    // <-- POST /blog
+    // Blog saved: Path: /blog/example, ID: 1
+    // --> POST /blog 201 93ms
 
-  // Return Context
-})
+    // Return Context
+});
 ```
-
 
 # Method Override Middleware
 
@@ -2055,22 +2028,22 @@ This middleware executes the handler of the specified method, which is different
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { methodOverride } from 'hono/method-override'
+import { Hono } from 'hono';
+import { methodOverride } from 'hono/method-override';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 // If no options are specified, the value of `_method` in the form,
 // e.g. DELETE, is used as the method.
-app.use('/posts', methodOverride({ app }))
+app.use('/posts', methodOverride({ app }));
 
 app.delete('/posts', (c) => {
-  // ....
-})
+    // ....
+});
 ```
 
 ## For example
@@ -2081,33 +2054,30 @@ The HTML form:
 
 ```html
 <form action="/posts" method="POST">
-  <input type="hidden" name="_method" value="DELETE" />
-  <input type="text" name="id" />
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="text" name="id" />
 </form>
 ```
 
 The application:
 
 ```ts
-import { methodOverride } from 'hono/method-override'
+import { methodOverride } from 'hono/method-override';
 
-const app = new Hono()
-app.use('/posts', methodOverride({ app }))
+const app = new Hono();
+app.use('/posts', methodOverride({ app }));
 
 app.delete('/posts', () => {
-  // ...
-})
+    // ...
+});
 ```
 
 You can change the default values or use the header value and query value:
 
 ```ts
-app.use('/posts', methodOverride({ app, form: '_custom_name' }))
-app.use(
-  '/posts',
-  methodOverride({ app, header: 'X-METHOD-OVERRIDE' })
-)
-app.use('/posts', methodOverride({ app, query: '_method' }))
+app.use('/posts', methodOverride({ app, form: '_custom_name' }));
+app.use('/posts', methodOverride({ app, header: 'X-METHOD-OVERRIDE' }));
+app.use('/posts', methodOverride({ app, query: '_method' }));
 ```
 
 ## Options
@@ -2128,7 +2098,6 @@ Header name with a value containing the method name.
 ### <Badge type="info" text="optional" /> query: `boolean`
 
 Query parameter key with a value containing the method name.
-
 
 # Pretty JSON Middleware
 
@@ -2155,19 +2124,19 @@ will be:
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { prettyJSON } from 'hono/pretty-json'
+import { Hono } from 'hono';
+import { prettyJSON } from 'hono/pretty-json';
 ```
 
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-app.use(prettyJSON()) // With options: prettyJSON({ space: 4 })
+app.use(prettyJSON()); // With options: prettyJSON({ space: 4 })
 app.get('/', (c) => {
-  return c.json({ message: 'Hono!' })
-})
+    return c.json({ message: 'Hono!' });
+});
 ```
 
 ## Options
@@ -2180,7 +2149,6 @@ Number of spaces for indentation. The default is `2`.
 
 The name of the query string for applying. The default is `pretty`.
 
-
 # Request ID Middleware
 
 Request ID Middleware generates a unique ID for each request, which you can use in your handlers.
@@ -2192,8 +2160,8 @@ Request ID Middleware generates a unique ID for each request, which you can use 
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { requestId } from 'hono/request-id'
+import { Hono } from 'hono';
+import { requestId } from 'hono/request-id';
 ```
 
 ## Usage
@@ -2201,23 +2169,23 @@ import { requestId } from 'hono/request-id'
 You can access the Request ID through the `requestId` variable in the handlers and middleware to which the Request ID Middleware is applied.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-app.use('*', requestId())
+app.use('*', requestId());
 
 app.get('/', (c) => {
-  return c.text(`Your request id is ${c.get('requestId')}`)
-})
+    return c.text(`Your request id is ${c.get('requestId')}`);
+});
 ```
 
 If you want to explicitly specify the type, import `RequestIdVariables` and pass it in the generics of `new Hono()`.
 
 ```ts
-import type { RequestIdVariables } from 'hono/request-id'
+import type { RequestIdVariables } from 'hono/request-id';
 
 const app = new Hono<{
-  Variables: RequestIdVariables
-}>()
+    Variables: RequestIdVariables;
+}>();
 ```
 
 ### Set Request ID
@@ -2225,20 +2193,20 @@ const app = new Hono<{
 You set a custom request ID in the header (default: `X-Request-Id`), the middleware will use that value instead of generating a new one:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
-app.use('*', requestId())
+app.use('*', requestId());
 
 app.get('/', (c) => {
-  return c.text(`${c.get('requestId')}`)
-})
+    return c.text(`${c.get('requestId')}`);
+});
 
 const res = await app.request('/', {
-  headers: {
-    'X-Request-Id': 'your-custom-id',
-  },
-})
-console.log(await res.text()) // your-custom-id
+    headers: {
+        'X-Request-Id': 'your-custom-id'
+    }
+});
+console.log(await res.text()); // your-custom-id
 ```
 
 If you want to disable this feature, set [`headerName` option](#headername-string) to an empty string.
@@ -2257,7 +2225,6 @@ The header name used for the request ID. The default is `X-Request-Id`.
 
 The request ID generation function. By default, it uses `crypto.randomUUID()`.
 
-
 # Secure Headers Middleware
 
 Secure Headers Middleware simplifies the setup of security headers. Inspired in part by the capabilities of Helmet, it allows you to control the activation and deactivation of specific security headers.
@@ -2265,8 +2232,8 @@ Secure Headers Middleware simplifies the setup of security headers. Inspired in 
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { secureHeaders } from 'hono/secure-headers'
+import { Hono } from 'hono';
+import { secureHeaders } from 'hono/secure-headers';
 ```
 
 ## Usage
@@ -2274,36 +2241,35 @@ import { secureHeaders } from 'hono/secure-headers'
 You can use the optimal settings by default.
 
 ```ts
-const app = new Hono()
-app.use(secureHeaders())
+const app = new Hono();
+app.use(secureHeaders());
 ```
 
 You can suppress unnecessary headers by setting them to false.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 app.use(
-  '*',
-  secureHeaders({
-    xFrameOptions: false,
-    xXssProtection: false,
-  })
-)
+    '*',
+    secureHeaders({
+        xFrameOptions: false,
+        xXssProtection: false
+    })
+);
 ```
 
 You can override default header values using a string.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 app.use(
-  '*',
-  secureHeaders({
-    strictTransportSecurity:
-      'max-age=63072000; includeSubDomains; preload',
-    xFrameOptions: 'DENY',
-    xXssProtection: '1',
-  })
-)
+    '*',
+    secureHeaders({
+        strictTransportSecurity: 'max-age=63072000; includeSubDomains; preload',
+        xFrameOptions: 'DENY',
+        xXssProtection: '1'
+    })
+);
 ```
 
 ## Supported Options
@@ -2338,66 +2304,66 @@ Please be cautious about the order of specification when dealing with middleware
 In this case, Secure-headers operates and the `x-powered-by` is removed:
 
 ```ts
-const app = new Hono()
-app.use(secureHeaders())
-app.use(poweredBy())
+const app = new Hono();
+app.use(secureHeaders());
+app.use(poweredBy());
 ```
 
 In this case, Powered-By operates and the `x-powered-by` is added:
 
 ```ts
-const app = new Hono()
-app.use(poweredBy())
-app.use(secureHeaders())
+const app = new Hono();
+app.use(poweredBy());
+app.use(secureHeaders());
 ```
 
 ## Setting Content-Security-Policy
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 app.use(
-  '/test',
-  secureHeaders({
-    reportingEndpoints: [
-      {
-        name: 'endpoint-1',
-        url: 'https://example.com/reports',
-      },
-    ],
-    // -- or alternatively
-    // reportTo: [
-    //   {
-    //     group: 'endpoint-1',
-    //     max_age: 10886400,
-    //     endpoints: [{ url: 'https://example.com/reports' }],
-    //   },
-    // ],
-    contentSecurityPolicy: {
-      defaultSrc: ["'self'"],
-      baseUri: ["'self'"],
-      childSrc: ["'self'"],
-      connectSrc: ["'self'"],
-      fontSrc: ["'self'", 'https:', 'data:'],
-      formAction: ["'self'"],
-      frameAncestors: ["'self'"],
-      frameSrc: ["'self'"],
-      imgSrc: ["'self'", 'data:'],
-      manifestSrc: ["'self'"],
-      mediaSrc: ["'self'"],
-      objectSrc: ["'none'"],
-      reportTo: 'endpoint-1',
-      sandbox: ['allow-same-origin', 'allow-scripts'],
-      scriptSrc: ["'self'"],
-      scriptSrcAttr: ["'none'"],
-      scriptSrcElem: ["'self'"],
-      styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
-      styleSrcAttr: ['none'],
-      styleSrcElem: ["'self'", 'https:', "'unsafe-inline'"],
-      upgradeInsecureRequests: [],
-      workerSrc: ["'self'"],
-    },
-  })
-)
+    '/test',
+    secureHeaders({
+        reportingEndpoints: [
+            {
+                name: 'endpoint-1',
+                url: 'https://example.com/reports'
+            }
+        ],
+        // -- or alternatively
+        // reportTo: [
+        //   {
+        //     group: 'endpoint-1',
+        //     max_age: 10886400,
+        //     endpoints: [{ url: 'https://example.com/reports' }],
+        //   },
+        // ],
+        contentSecurityPolicy: {
+            defaultSrc: ["'self'"],
+            baseUri: ["'self'"],
+            childSrc: ["'self'"],
+            connectSrc: ["'self'"],
+            fontSrc: ["'self'", 'https:', 'data:'],
+            formAction: ["'self'"],
+            frameAncestors: ["'self'"],
+            frameSrc: ["'self'"],
+            imgSrc: ["'self'", 'data:'],
+            manifestSrc: ["'self'"],
+            mediaSrc: ["'self'"],
+            objectSrc: ["'none'"],
+            reportTo: 'endpoint-1',
+            sandbox: ['allow-same-origin', 'allow-scripts'],
+            scriptSrc: ["'self'"],
+            scriptSrcAttr: ["'none'"],
+            scriptSrcElem: ["'self'"],
+            styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
+            styleSrcAttr: ['none'],
+            styleSrcElem: ["'self'", 'https:', "'unsafe-inline'"],
+            upgradeInsecureRequests: [],
+            workerSrc: ["'self'"]
+        }
+    })
+);
 ```
 
 ### `nonce` attribute
@@ -2405,73 +2371,73 @@ app.use(
 You can add a [`nonce` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) to a `script` or `style` element by adding the `NONCE` imported from `hono/secure-headers` to a `scriptSrc` or `styleSrc`:
 
 ```tsx
-import { secureHeaders, NONCE } from 'hono/secure-headers'
-import type { SecureHeadersVariables } from 'hono/secure-headers'
+import { secureHeaders, NONCE } from 'hono/secure-headers';
+import type { SecureHeadersVariables } from 'hono/secure-headers';
 
 // Specify the variable types to infer the `c.get('secureHeadersNonce')`:
-type Variables = SecureHeadersVariables
+type Variables = SecureHeadersVariables;
 
-const app = new Hono<{ Variables: Variables }>()
+const app = new Hono<{ Variables: Variables }>();
 
 // Set the pre-defined nonce value to `scriptSrc`:
 app.get(
-  '*',
-  secureHeaders({
-    contentSecurityPolicy: {
-      scriptSrc: [NONCE, 'https://allowed1.example.com'],
-    },
-  })
-)
+    '*',
+    secureHeaders({
+        contentSecurityPolicy: {
+            scriptSrc: [NONCE, 'https://allowed1.example.com']
+        }
+    })
+);
 
 // Get the value from `c.get('secureHeadersNonce')`:
 app.get('/', (c) => {
-  return c.html(
-    <html>
-      <body>
-        {/** contents */}
-        <script
-          src='/js/client.js'
-          nonce={c.get('secureHeadersNonce')}
-        />
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <body>
+                {/** contents */}
+                <script
+                    src="/js/client.js"
+                    nonce={c.get('secureHeadersNonce')}
+                />
+            </body>
+        </html>
+    );
+});
 ```
 
 If you want to generate the nonce value yourself, you can also specify a function as the following:
 
 ```tsx
 const app = new Hono<{
-  Variables: { myNonce: string }
-}>()
+    Variables: { myNonce: string };
+}>();
 
 const myNonceGenerator: ContentSecurityPolicyOptionHandler = (c) => {
-  // This function is called on every request.
-  const nonce = Math.random().toString(36).slice(2)
-  c.set('myNonce', nonce)
-  return `'nonce-${nonce}'`
-}
+    // This function is called on every request.
+    const nonce = Math.random().toString(36).slice(2);
+    c.set('myNonce', nonce);
+    return `'nonce-${nonce}'`;
+};
 
 app.get(
-  '*',
-  secureHeaders({
-    contentSecurityPolicy: {
-      scriptSrc: [myNonceGenerator, 'https://allowed1.example.com'],
-    },
-  })
-)
+    '*',
+    secureHeaders({
+        contentSecurityPolicy: {
+            scriptSrc: [myNonceGenerator, 'https://allowed1.example.com']
+        }
+    })
+);
 
 app.get('/', (c) => {
-  return c.html(
-    <html>
-      <body>
-        {/** contents */}
-        <script src='/js/client.js' nonce={c.get('myNonce')} />
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <body>
+                {/** contents */}
+                <script src="/js/client.js" nonce={c.get('myNonce')} />
+            </body>
+        </html>
+    );
+});
 ```
 
 ## Setting Permission-Policy
@@ -2479,30 +2445,26 @@ app.get('/', (c) => {
 The Permission-Policy header allows you to control which features and APIs can be used in the browser. Here's an example of how to set it:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 app.use(
-  '*',
-  secureHeaders({
-    permissionsPolicy: {
-      fullscreen: ['self'], // fullscreen=(self)
-      bluetooth: ['none'], // bluetooth=(none)
-      payment: ['self', 'https://example.com'], // payment=(self "https://example.com")
-      syncXhr: [], // sync-xhr=()
-      camera: false, // camera=none
-      microphone: true, // microphone=*
-      geolocation: ['*'], // geolocation=*
-      usb: ['self', 'https://a.example.com', 'https://b.example.com'], // usb=(self "https://a.example.com" "https://b.example.com")
-      accelerometer: ['https://*.example.com'], // accelerometer=("https://*.example.com")
-      gyroscope: ['src'], // gyroscope=(src)
-      magnetometer: [
-        'https://a.example.com',
-        'https://b.example.com',
-      ], // magnetometer=("https://a.example.com" "https://b.example.com")
-    },
-  })
-)
+    '*',
+    secureHeaders({
+        permissionsPolicy: {
+            fullscreen: ['self'], // fullscreen=(self)
+            bluetooth: ['none'], // bluetooth=(none)
+            payment: ['self', 'https://example.com'], // payment=(self "https://example.com")
+            syncXhr: [], // sync-xhr=()
+            camera: false, // camera=none
+            microphone: true, // microphone=*
+            geolocation: ['*'], // geolocation=*
+            usb: ['self', 'https://a.example.com', 'https://b.example.com'], // usb=(self "https://a.example.com" "https://b.example.com")
+            accelerometer: ['https://*.example.com'], // accelerometer=("https://*.example.com")
+            gyroscope: ['src'], // gyroscope=(src)
+            magnetometer: ['https://a.example.com', 'https://b.example.com'] // magnetometer=("https://a.example.com" "https://b.example.com")
+        }
+    })
+);
 ```
-
 
 # Timeout Middleware
 
@@ -2511,8 +2473,8 @@ The Timeout Middleware enables you to easily manage request timeouts in your app
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { timeout } from 'hono/timeout'
+import { Hono } from 'hono';
+import { timeout } from 'hono/timeout';
 ```
 
 ## Usage
@@ -2522,30 +2484,30 @@ Here's how to use the Timeout Middleware with both default and custom settings:
 Default Settings:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 // Applying a 5-second timeout
-app.use('/api', timeout(5000))
+app.use('/api', timeout(5000));
 
 // Handling a route
 app.get('/api/data', async (c) => {
-  // Your route handler logic
-  return c.json({ data: 'Your data here' })
-})
+    // Your route handler logic
+    return c.json({ data: 'Your data here' });
+});
 ```
 
 Custom settings:
 
 ```ts
-import { HTTPException } from 'hono/http-exception'
+import { HTTPException } from 'hono/http-exception';
 
 // Custom exception factory function
 const customTimeoutException = (context) =>
-  new HTTPException(408, {
-    message: `Request timeout after waiting ${context.req.headers.get(
-      'Duration'
-    )} seconds. Please try again later.`,
-  })
+    new HTTPException(408, {
+        message: `Request timeout after waiting ${context.req.headers.get(
+            'Duration'
+        )} seconds. Please try again later.`
+    });
 
 // for Static Exception Message
 // const customTimeoutException = new HTTPException(408, {
@@ -2553,56 +2515,55 @@ const customTimeoutException = (context) =>
 // });
 
 // Applying a 1-minute timeout with a custom exception
-app.use('/api/long-process', timeout(60000, customTimeoutException))
+app.use('/api/long-process', timeout(60000, customTimeoutException));
 
 app.get('/api/long-process', async (c) => {
-  // Simulate a long process
-  await new Promise((resolve) => setTimeout(resolve, 61000))
-  return c.json({ data: 'This usually takes longer' })
-})
+    // Simulate a long process
+    await new Promise((resolve) => setTimeout(resolve, 61000));
+    return c.json({ data: 'This usually takes longer' });
+});
 ```
 
 ## Notes
 
-- The duration for the timeout can be specified in milliseconds. The middleware will automatically reject the promise and potentially throw an error if the specified duration is exceeded.
+-   The duration for the timeout can be specified in milliseconds. The middleware will automatically reject the promise and potentially throw an error if the specified duration is exceeded.
 
-- The timeout middleware cannot be used with stream Thus, use `stream.close` and `setTimeout` together.
+-   The timeout middleware cannot be used with stream Thus, use `stream.close` and `setTimeout` together.
 
 ```ts
 app.get('/sse', async (c) => {
-  let id = 0
-  let running = true
-  let timer: number | undefined
+    let id = 0;
+    let running = true;
+    let timer: number | undefined;
 
-  return streamSSE(c, async (stream) => {
-    timer = setTimeout(() => {
-      console.log('Stream timeout reached, closing stream')
-      stream.close()
-    }, 3000) as unknown as number
+    return streamSSE(c, async (stream) => {
+        timer = setTimeout(() => {
+            console.log('Stream timeout reached, closing stream');
+            stream.close();
+        }, 3000) as unknown as number;
 
-    stream.onAbort(async () => {
-      console.log('Client closed connection')
-      running = false
-      clearTimeout(timer)
-    })
+        stream.onAbort(async () => {
+            console.log('Client closed connection');
+            running = false;
+            clearTimeout(timer);
+        });
 
-    while (running) {
-      const message = `It is ${new Date().toISOString()}`
-      await stream.writeSSE({
-        data: message,
-        event: 'time-update',
-        id: String(id++),
-      })
-      await stream.sleep(1000)
-    }
-  })
-})
+        while (running) {
+            const message = `It is ${new Date().toISOString()}`;
+            await stream.writeSSE({
+                data: message,
+                event: 'time-update',
+                id: String(id++)
+            });
+            await stream.sleep(1000);
+        }
+    });
+});
 ```
 
 ## Middleware Conflicts
 
 Be cautious about the order of middleware, especially when using error-handling or other timing-related middleware, as it might affect the behavior of this timeout middleware.
-
 
 # Server-Timing Middleware
 
@@ -2617,9 +2578,9 @@ since [timers only show the time of last I/O](https://developers.cloudflare.com/
 ## Import
 
 ```ts [npm]
-import { Hono } from 'hono'
-import { timing, setMetric, startTime, endTime } from 'hono/timing'
-import type { TimingVariables } from 'hono/timing'
+import { Hono } from 'hono';
+import { timing, setMetric, startTime, endTime } from 'hono/timing';
+import type { TimingVariables } from 'hono/timing';
 ```
 
 ## Usage
@@ -2655,15 +2616,15 @@ app.get('/', async (c) => {
 ### Conditionally enabled
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.use(
-  '*',
-  timing({
-    // c: Context of the request
-    enabled: (c) => c.req.method === 'POST',
-  })
-)
+    '*',
+    timing({
+        // c: Context of the request
+        enabled: (c) => c.req.method === 'POST'
+    })
+);
 ```
 
 ## Result
@@ -2693,12 +2654,11 @@ If disabled, not manually ended timers will not be shown.
 
 The origin this timings header should be readable.
 
-- If false, only from current origin.
-- If true, from all origin.
-- If string, from this domain(s). Multiple domains must be separated with a comma.
+-   If false, only from current origin.
+-   If true, from all origin.
+-   If string, from this domain(s). Multiple domains must be separated with a comma.
 
 The default is `false`. See more [docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin).
-
 
 # Trailing Slash Middleware
 
@@ -2709,11 +2669,8 @@ This middleware handles Trailing Slash in the URL on a GET request.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import {
-  appendTrailingSlash,
-  trimTrailingSlash,
-} from 'hono/trailing-slash'
+import { Hono } from 'hono';
+import { appendTrailingSlash, trimTrailingSlash } from 'hono/trailing-slash';
 ```
 
 ## Usage
@@ -2721,31 +2678,30 @@ import {
 Example of redirecting a GET request of `/about/me` to `/about/me/`.
 
 ```ts
-import { Hono } from 'hono'
-import { appendTrailingSlash } from 'hono/trailing-slash'
+import { Hono } from 'hono';
+import { appendTrailingSlash } from 'hono/trailing-slash';
 
-const app = new Hono({ strict: true })
+const app = new Hono({ strict: true });
 
-app.use(appendTrailingSlash())
-app.get('/about/me/', (c) => c.text('With Trailing Slash'))
+app.use(appendTrailingSlash());
+app.get('/about/me/', (c) => c.text('With Trailing Slash'));
 ```
 
 Example of redirecting a GET request of `/about/me/` to `/about/me`.
 
 ```ts
-import { Hono } from 'hono'
-import { trimTrailingSlash } from 'hono/trailing-slash'
+import { Hono } from 'hono';
+import { trimTrailingSlash } from 'hono/trailing-slash';
 
-const app = new Hono({ strict: true })
+const app = new Hono({ strict: true });
 
-app.use(trimTrailingSlash())
-app.get('/about/me', (c) => c.text('Without Trailing Slash'))
+app.use(trimTrailingSlash());
+app.get('/about/me', (c) => c.text('Without Trailing Slash'));
 ```
 
 ## Note
 
 It will be enabled when the request method is `GET` and the response status is `404`.
-
 
 # Accepts Helper
 
@@ -2754,8 +2710,8 @@ Accepts Helper helps to handle Accept headers in the Requests.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { accepts } from 'hono/accepts'
+import { Hono } from 'hono';
+import { accepts } from 'hono/accepts';
 ```
 
 ## `accepts()`
@@ -2763,16 +2719,16 @@ import { accepts } from 'hono/accepts'
 The `accepts()` function looks at the Accept header, such as Accept-Encoding and Accept-Language, and returns the proper value.
 
 ```ts
-import { accepts } from 'hono/accepts'
+import { accepts } from 'hono/accepts';
 
 app.get('/', (c) => {
-  const accept = accepts(c, {
-    header: 'Accept-Language',
-    supports: ['en', 'ja', 'zh'],
-    default: 'en',
-  })
-  return c.json({ lang: accept })
-})
+    const accept = accepts(c, {
+        header: 'Accept-Language',
+        supports: ['en', 'ja', 'zh'],
+        default: 'en'
+    });
+    return c.json({ lang: accept });
+});
 ```
 
 ### `AcceptHeader` type
@@ -2781,13 +2737,13 @@ The definition of the `AcceptHeader` type is as follows.
 
 ```ts
 export type AcceptHeader =
-  | 'Accept'
-  | 'Accept-Charset'
-  | 'Accept-Encoding'
-  | 'Accept-Language'
-  | 'Accept-Patch'
-  | 'Accept-Post'
-  | 'Accept-Ranges'
+    | 'Accept'
+    | 'Accept-Charset'
+    | 'Accept-Encoding'
+    | 'Accept-Language'
+    | 'Accept-Patch'
+    | 'Accept-Post'
+    | 'Accept-Ranges';
 ```
 
 ## Options
@@ -2808,7 +2764,6 @@ The default values.
 
 The custom match function.
 
-
 # Adapter Helper
 
 The Adapter Helper provides a seamless way to interact with various platforms through a unified interface.
@@ -2816,8 +2771,8 @@ The Adapter Helper provides a seamless way to interact with various platforms th
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { env, getRuntimeKey } from 'hono/adapter'
+import { Hono } from 'hono';
+import { env, getRuntimeKey } from 'hono/adapter';
 ```
 
 ## `env()`
@@ -2825,39 +2780,39 @@ import { env, getRuntimeKey } from 'hono/adapter'
 The `env()` function facilitates retrieving environment variables across different runtimes, extending beyond just Cloudflare Workers' Bindings. The value that can be retrieved with `env(c)` may be different for each runtimes.
 
 ```ts
-import { env } from 'hono/adapter'
+import { env } from 'hono/adapter';
 
 app.get('/env', (c) => {
-  // NAME is process.env.NAME on Node.js or Bun
-  // NAME is the value written in `wrangler.toml` on Cloudflare
-  const { NAME } = env<{ NAME: string }>(c)
-  return c.text(NAME)
-})
+    // NAME is process.env.NAME on Node.js or Bun
+    // NAME is the value written in `wrangler.toml` on Cloudflare
+    const { NAME } = env<{ NAME: string }>(c);
+    return c.text(NAME);
+});
 ```
 
 Supported Runtimes, Serverless Platforms and Cloud Services:
 
-- Cloudflare Workers
-  - `wrangler.toml`
-  - `wrangler.jsonc`
-- Deno
-  - [`Deno.env`](https://docs.deno.com/runtime/manual/basics/env_variables)
-  - `.env` file
-- Bun
-  - [`Bun.env`](https://bun.sh/guides/runtime/set-env)
-  - `process.env`
-- Node.js
-  - `process.env`
-- Vercel
-  - [Environment Variables on Vercel](https://vercel.com/docs/projects/environment-variables)
-- AWS Lambda
-  - [Environment Variables on AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/samples-blank.html#samples-blank-architecture)
-- Lambda@Edge\
-  Environment Variables on Lambda are [not supported](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) by Lambda@Edge, you need to use [Lamdba@Edge event](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html) as an alternative.
-- Fastly Compute\
-  On Fastly Compute, you can use the ConfigStore to manage user-defined data.
-- Netlify\
-  On Netlify, you can use the [Netlify Contexts](https://docs.netlify.com/site-deploys/overview/#deploy-contexts) to manage user-defined data.
+-   Cloudflare Workers
+    -   `wrangler.toml`
+    -   `wrangler.jsonc`
+-   Deno
+    -   [`Deno.env`](https://docs.deno.com/runtime/manual/basics/env_variables)
+    -   `.env` file
+-   Bun
+    -   [`Bun.env`](https://bun.sh/guides/runtime/set-env)
+    -   `process.env`
+-   Node.js
+    -   `process.env`
+-   Vercel
+    -   [Environment Variables on Vercel](https://vercel.com/docs/projects/environment-variables)
+-   AWS Lambda
+    -   [Environment Variables on AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/samples-blank.html#samples-blank-architecture)
+-   Lambda@Edge\
+    Environment Variables on Lambda are [not supported](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) by Lambda@Edge, you need to use [Lamdba@Edge event](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html) as an alternative.
+-   Fastly Compute\
+    On Fastly Compute, you can use the ConfigStore to manage user-defined data.
+-   Netlify\
+    On Netlify, you can use the [Netlify Contexts](https://docs.netlify.com/site-deploys/overview/#deploy-contexts) to manage user-defined data.
 
 ### Specify the runtime
 
@@ -2865,9 +2820,9 @@ You can specify the runtime to get environment variables by passing the runtime 
 
 ```ts
 app.get('/env', (c) => {
-  const { NAME } = env<{ NAME: string }>(c, 'workerd')
-  return c.text(NAME)
-})
+    const { NAME } = env<{ NAME: string }>(c, 'workerd');
+    return c.text(NAME);
+});
 ```
 
 ## `getRuntimeKey()`
@@ -2889,14 +2844,13 @@ app.get('/', (c) => {
 
 Here are the available runtimes keys, unavailable runtime key runtimes may be supported and labeled as `other`, with some being inspired by [WinterCG's Runtime Keys](https://runtime-keys.proposal.wintercg.org/):
 
-- `workerd` - Cloudflare Workers
-- `deno`
-- `bun`
-- `node`
-- `edge-light` - Vercel Edge Functions
-- `fastly` - Fastly Compute
-- `other` - Other unknown runtimes keys
-
+-   `workerd` - Cloudflare Workers
+-   `deno`
+-   `bun`
+-   `node`
+-   `edge-light` - Vercel Edge Functions
+-   `fastly` - Fastly Compute
+-   `other` - Other unknown runtimes keys
 
 # ConnInfo Helper
 
@@ -2907,33 +2861,33 @@ The ConnInfo Helper helps you to get the connection information. For example, yo
 ::: code-group
 
 ```ts [Cloudflare Workers]
-import { Hono } from 'hono'
-import { getConnInfo } from 'hono/cloudflare-workers'
+import { Hono } from 'hono';
+import { getConnInfo } from 'hono/cloudflare-workers';
 ```
 
 ```ts [Deno]
-import { Hono } from 'hono'
-import { getConnInfo } from 'hono/deno'
+import { Hono } from 'hono';
+import { getConnInfo } from 'hono/deno';
 ```
 
 ```ts [Bun]
-import { Hono } from 'hono'
-import { getConnInfo } from 'hono/bun'
+import { Hono } from 'hono';
+import { getConnInfo } from 'hono/bun';
 ```
 
 ```ts [Vercel]
-import { Hono } from 'hono'
-import { getConnInfo } from 'hono/vercel'
+import { Hono } from 'hono';
+import { getConnInfo } from 'hono/vercel';
 ```
 
 ```ts [Lambda@Edge]
-import { Hono } from 'hono'
-import { getConnInfo } from 'hono/lambda-edge'
+import { Hono } from 'hono';
+import { getConnInfo } from 'hono/lambda-edge';
 ```
 
 ```ts [Node.js]
-import { Hono } from 'hono'
-import { getConnInfo } from '@hono/node-server/conninfo'
+import { Hono } from 'hono';
+import { getConnInfo } from '@hono/node-server/conninfo';
 ```
 
 :::
@@ -2941,12 +2895,12 @@ import { getConnInfo } from '@hono/node-server/conninfo'
 ## Usage
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.get('/', (c) => {
-  const info = getConnInfo(c) // info is `ConnInfo`
-  return c.text(`Your remote address is ${info.remote.address}`)
-})
+    const info = getConnInfo(c); // info is `ConnInfo`
+    return c.text(`Your remote address is ${info.remote.address}`);
+});
 ```
 
 ## Type Definitions
@@ -2954,46 +2908,45 @@ app.get('/', (c) => {
 The type definitions of the values that you can get from `getConnInfo()` are the following:
 
 ```ts
-type AddressType = 'IPv6' | 'IPv4' | undefined
+type AddressType = 'IPv6' | 'IPv4' | undefined;
 
 type NetAddrInfo = {
-  /**
-   * Transport protocol type
-   */
-  transport?: 'tcp' | 'udp'
-  /**
-   * Transport port number
-   */
-  port?: number
+    /**
+     * Transport protocol type
+     */
+    transport?: 'tcp' | 'udp';
+    /**
+     * Transport port number
+     */
+    port?: number;
 
-  address?: string
-  addressType?: AddressType
+    address?: string;
+    addressType?: AddressType;
 } & (
-  | {
-      /**
-       * Host name such as IP Addr
-       */
-      address: string
+    | {
+          /**
+           * Host name such as IP Addr
+           */
+          address: string;
 
-      /**
-       * Host name type
-       */
-      addressType: AddressType
-    }
-  | {}
-)
+          /**
+           * Host name type
+           */
+          addressType: AddressType;
+      }
+    | {}
+);
 
 /**
  * HTTP Connection information
  */
 interface ConnInfo {
-  /**
-   * Remote information
-   */
-  remote: NetAddrInfo
+    /**
+     * Remote information
+     */
+    remote: NetAddrInfo;
 }
 ```
-
 
 # Cookie Helper
 
@@ -3002,16 +2955,16 @@ The Cookie Helper provides an easy interface to manage cookies, enabling develop
 ## Import
 
 ```ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 import {
-  deleteCookie,
-  getCookie,
-  getSignedCookie,
-  setCookie,
-  setSignedCookie,
-  generateCookie,
-  generateSignedCookie,
-} from 'hono/cookie'
+    deleteCookie,
+    getCookie,
+    getSignedCookie,
+    setCookie,
+    setSignedCookie,
+    generateCookie,
+    generateSignedCookie
+} from 'hono/cookie';
 ```
 
 ## Usage
@@ -3020,12 +2973,12 @@ import {
 
 ```ts
 app.get('/cookie', (c) => {
-  setCookie(c, 'cookie_name', 'cookie_value')
-  const yummyCookie = getCookie(c, 'cookie_name')
-  deleteCookie(c, 'cookie_name')
-  const allCookies = getCookie(c)
-  // ...
-})
+    setCookie(c, 'cookie_name', 'cookie_value');
+    const yummyCookie = getCookie(c, 'cookie_name');
+    deleteCookie(c, 'cookie_name');
+    const allCookies = getCookie(c);
+    // ...
+});
 ```
 
 ### Signed cookies
@@ -3034,19 +2987,15 @@ app.get('/cookie', (c) => {
 
 ```ts
 app.get('/signed-cookie', (c) => {
-  const secret = 'secret' // make sure it's a large enough string to be secure
+    const secret = 'secret'; // make sure it's a large enough string to be secure
 
-  await setSignedCookie(c, 'cookie_name0', 'cookie_value', secret)
-  const fortuneCookie = await getSignedCookie(
-    c,
-    secret,
-    'cookie_name0'
-  )
-  deleteCookie(c, 'cookie_name0')
-  // `getSignedCookie` will return `false` for a specified cookie if the signature was tampered with or is invalid
-  const allSignedCookies = await getSignedCookie(c, secret)
-  // ...
-})
+    await setSignedCookie(c, 'cookie_name0', 'cookie_value', secret);
+    const fortuneCookie = await getSignedCookie(c, secret, 'cookie_name0');
+    deleteCookie(c, 'cookie_name0');
+    // `getSignedCookie` will return `false` for a specified cookie if the signature was tampered with or is invalid
+    const allSignedCookies = await getSignedCookie(c, secret);
+    // ...
+});
 ```
 
 ### Cookie Generation
@@ -3057,16 +3006,16 @@ app.get('/signed-cookie', (c) => {
 
 ```ts
 // Basic cookie generation
-const cookie = generateCookie('delicious_cookie', 'macha')
+const cookie = generateCookie('delicious_cookie', 'macha');
 // Returns: 'delicious_cookie=macha; Path=/'
 
 // Cookie with options
 const cookie = generateCookie('delicious_cookie', 'macha', {
-  path: '/',
-  secure: true,
-  httpOnly: true,
-  domain: 'example.com',
-})
+    path: '/',
+    secure: true,
+    httpOnly: true,
+    domain: 'example.com'
+});
 ```
 
 #### `generateSignedCookie`
@@ -3074,22 +3023,22 @@ const cookie = generateCookie('delicious_cookie', 'macha', {
 ```ts
 // Basic signed cookie generation
 const signedCookie = await generateSignedCookie(
-  'delicious_cookie',
-  'macha',
-  'secret chocolate chips'
-)
+    'delicious_cookie',
+    'macha',
+    'secret chocolate chips'
+);
 
 // Signed cookie with options
 const signedCookie = await generateSignedCookie(
-  'delicious_cookie',
-  'macha',
-  'secret chocolate chips',
-  {
-    path: '/',
-    secure: true,
-    httpOnly: true,
-  }
-)
+    'delicious_cookie',
+    'macha',
+    'secret chocolate chips',
+    {
+        path: '/',
+        secure: true,
+        httpOnly: true
+    }
+);
 ```
 
 **Note**: Unlike `setCookie` and `setSignedCookie`, these functions only generate the cookie strings. You need to manually set them in headers if needed.
@@ -3098,69 +3047,69 @@ const signedCookie = await generateSignedCookie(
 
 ### `setCookie` & `setSignedCookie`
 
-- domain: `string`
-- expires: `Date`
-- httpOnly: `boolean`
-- maxAge: `number`
-- path: `string`
-- secure: `boolean`
-- sameSite: `'Strict'` | `'Lax'` | `'None'`
-- priority: `'Low' | 'Medium' | 'High'`
-- prefix: `secure` | `'host'`
-- partitioned: `boolean`
+-   domain: `string`
+-   expires: `Date`
+-   httpOnly: `boolean`
+-   maxAge: `number`
+-   path: `string`
+-   secure: `boolean`
+-   sameSite: `'Strict'` | `'Lax'` | `'None'`
+-   priority: `'Low' | 'Medium' | 'High'`
+-   prefix: `secure` | `'host'`
+-   partitioned: `boolean`
 
 Example:
 
 ```ts
 // Regular cookies
 setCookie(c, 'great_cookie', 'banana', {
-  path: '/',
-  secure: true,
-  domain: 'example.com',
-  httpOnly: true,
-  maxAge: 1000,
-  expires: new Date(Date.UTC(2000, 11, 24, 10, 30, 59, 900)),
-  sameSite: 'Strict',
-})
-
-// Signed cookies
-await setSignedCookie(
-  c,
-  'fortune_cookie',
-  'lots-of-money',
-  'secret ingredient',
-  {
     path: '/',
     secure: true,
     domain: 'example.com',
     httpOnly: true,
     maxAge: 1000,
     expires: new Date(Date.UTC(2000, 11, 24, 10, 30, 59, 900)),
-    sameSite: 'Strict',
-  }
-)
+    sameSite: 'Strict'
+});
+
+// Signed cookies
+await setSignedCookie(
+    c,
+    'fortune_cookie',
+    'lots-of-money',
+    'secret ingredient',
+    {
+        path: '/',
+        secure: true,
+        domain: 'example.com',
+        httpOnly: true,
+        maxAge: 1000,
+        expires: new Date(Date.UTC(2000, 11, 24, 10, 30, 59, 900)),
+        sameSite: 'Strict'
+    }
+);
 ```
 
 ### `deleteCookie`
 
-- path: `string`
-- secure: `boolean`
-- domain: `string`
+-   path: `string`
+-   secure: `boolean`
+-   domain: `string`
 
 Example:
 
 ```ts
 deleteCookie(c, 'banana', {
-  path: '/',
-  secure: true,
-  domain: 'example.com',
-})
+    path: '/',
+    secure: true,
+    domain: 'example.com'
+});
 ```
 
 `deleteCookie` returns the deleted value:
 
 ```ts
-const deletedCookie = deleteCookie(c, 'delicious_cookie')
+const deletedCookie = deleteCookie(c, 'delicious_cookie');
 ```
 
 ## `__Secure-` and `__Host-` prefix
@@ -3170,61 +3119,54 @@ The Cookie helper supports `__Secure-` and `__Host-` prefix for cookies names.
 If you want to verify if the cookie name has a prefix, specify the prefix option.
 
 ```ts
-const securePrefixCookie = getCookie(c, 'yummy_cookie', 'secure')
-const hostPrefixCookie = getCookie(c, 'yummy_cookie', 'host')
+const securePrefixCookie = getCookie(c, 'yummy_cookie', 'secure');
+const hostPrefixCookie = getCookie(c, 'yummy_cookie', 'host');
 
 const securePrefixSignedCookie = await getSignedCookie(
-  c,
-  secret,
-  'fortune_cookie',
-  'secure'
-)
+    c,
+    secret,
+    'fortune_cookie',
+    'secure'
+);
 const hostPrefixSignedCookie = await getSignedCookie(
-  c,
-  secret,
-  'fortune_cookie',
-  'host'
-)
+    c,
+    secret,
+    'fortune_cookie',
+    'host'
+);
 ```
 
 Also, if you wish to specify a prefix when setting the cookie, specify a value for the prefix option.
 
 ```ts
 setCookie(c, 'delicious_cookie', 'macha', {
-  prefix: 'secure', // or `host`
-})
+    prefix: 'secure' // or `host`
+});
 
-await setSignedCookie(
-  c,
-  'delicious_cookie',
-  'macha',
-  'secret choco chips',
-  {
-    prefix: 'secure', // or `host`
-  }
-)
+await setSignedCookie(c, 'delicious_cookie', 'macha', 'secret choco chips', {
+    prefix: 'secure' // or `host`
+});
 ```
 
 ## Following the best practices
 
 A New Cookie RFC (a.k.a cookie-bis) and CHIPS include some best practices for Cookie settings that developers should follow.
 
-- [RFC6265bis-13](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-13)
-  - `Max-Age`/`Expires` limitation
-  - `__Host-`/`__Secure-` prefix limitation
-- [CHIPS-01](https://www.ietf.org/archive/id/draft-cutler-httpbis-partitioned-cookies-01.html)
-  - `Partitioned` limitation
+-   [RFC6265bis-13](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-13)
+    -   `Max-Age`/`Expires` limitation
+    -   `__Host-`/`__Secure-` prefix limitation
+-   [CHIPS-01](https://www.ietf.org/archive/id/draft-cutler-httpbis-partitioned-cookies-01.html)
+    -   `Partitioned` limitation
 
 Hono is following the best practices.
 The cookie helper will throw an `Error` when parsing cookies under the following conditions:
 
-- The cookie name starts with `__Secure-`, but `secure` option is not set.
-- The cookie name starts with `__Host-`, but `secure` option is not set.
-- The cookie name starts with `__Host-`, but `path` is not `/`.
-- The cookie name starts with `__Host-`, but `domain` is set.
-- The `maxAge` option value is greater than 400 days.
-- The `expires` option value is 400 days later than the current time.
-
+-   The cookie name starts with `__Secure-`, but `secure` option is not set.
+-   The cookie name starts with `__Host-`, but `secure` option is not set.
+-   The cookie name starts with `__Host-`, but `path` is not `/`.
+-   The cookie name starts with `__Host-`, but `domain` is set.
+-   The `maxAge` option value is greater than 400 days.
+-   The `expires` option value is 400 days later than the current time.
 
 # css Helper
 
@@ -3235,8 +3177,8 @@ You can write CSS in JSX in a JavaScript template literal named `css`. The retur
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { css, cx, keyframes, Style } from 'hono/css'
+import { Hono } from 'hono';
+import { css, cx, keyframes, Style } from 'hono/css';
 ```
 
 ## `css` <Badge style="vertical-align: middle;" type="warning" text="Experimental" />
@@ -3267,11 +3209,11 @@ You can style pseudo-classes like `:hover` by using the [nesting selector](https
 
 ```ts
 const buttonClass = css`
-  background-color: #fff;
-  &:hover {
-    background-color: red;
-  }
-`
+    background-color: #fff;
+    &:hover {
+        background-color: red;
+    }
+`;
 ```
 
 ### Extending
@@ -3280,42 +3222,42 @@ You can extend the CSS definition by embedding the class name.
 
 ```tsx
 const baseClass = css`
-  color: white;
-  background-color: blue;
-`
+    color: white;
+    background-color: blue;
+`;
 
 const header1Class = css`
-  ${baseClass}
-  font-size: 3rem;
-`
+    ${baseClass}
+    font-size: 3rem;
+`;
 
 const header2Class = css`
-  ${baseClass}
-  font-size: 2rem;
-`
+    ${baseClass}
+    font-size: 2rem;
+`;
 ```
 
 In addition, the syntax of `${baseClass} {}` enables nesting classes.
 
 ```tsx
 const headerClass = css`
-  color: white;
-  background-color: blue;
-`
+    color: white;
+    background-color: blue;
+`;
 const containerClass = css`
-  ${headerClass} {
-    h1 {
-      font-size: 3rem;
+    ${headerClass} {
+        h1 {
+            font-size: 3rem;
+        }
     }
-  }
-`
+`;
 return c.render(
-  <div class={containerClass}>
-    <header class={headerClass}>
-      <h1>Hello!</h1>
-    </header>
-  </div>
-)
+    <div class={containerClass}>
+        <header class={headerClass}>
+            <h1>Hello!</h1>
+        </header>
+    </div>
+);
 ```
 
 ### Global styles
@@ -3324,41 +3266,41 @@ A pseudo-selector called `:-hono-global` allows you to define global styles.
 
 ```tsx
 const globalClass = css`
-  :-hono-global {
-    html {
-      font-family: Arial, Helvetica, sans-serif;
+    :-hono-global {
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+        }
     }
-  }
-`
+`;
 
 return c.render(
-  <div class={globalClass}>
-    <h1>Hello!</h1>
-    <p>Today is a good day.</p>
-  </div>
-)
+    <div class={globalClass}>
+        <h1>Hello!</h1>
+        <p>Today is a good day.</p>
+    </div>
+);
 ```
 
 Or you can write CSS in the `<Style />` component with the `css` literal.
 
 ```tsx
 export const renderer = jsxRenderer(({ children, title }) => {
-  return (
-    <html>
-      <head>
-        <Style>{css`
-          html {
-            font-family: Arial, Helvetica, sans-serif;
-          }
-        `}</Style>
-        <title>{title}</title>
-      </head>
-      <body>
-        <div>{children}</div>
-      </body>
-    </html>
-  )
-})
+    return (
+        <html>
+            <head>
+                <Style>{css`
+                    html {
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                `}</Style>
+                <title>{title}</title>
+            </head>
+            <body>
+                <div>{children}</div>
+            </body>
+        </html>
+    );
+});
 ```
 
 ## `keyframes` <Badge style="vertical-align: middle;" type="warning" text="Experimental" />
@@ -3373,12 +3315,12 @@ const fadeInAnimation = keyframes`
   to {
     opacity: 1;
   }
-`
+`;
 const headerClass = css`
-  animation-name: ${fadeInAnimation};
-  animation-duration: 2s;
-`
-const Header = () => <a class={headerClass}>Hello!</a>
+    animation-name: ${fadeInAnimation};
+    animation-duration: 2s;
+`;
+const Header = () => <a class={headerClass}>Hello!</a>;
 ```
 
 ## `cx` <Badge style="vertical-align: middle;" type="warning" text="Experimental" />
@@ -3387,20 +3329,18 @@ The `cx` composites the two class names.
 
 ```tsx
 const buttonClass = css`
-  border-radius: 10px;
-`
+    border-radius: 10px;
+`;
 const primaryClass = css`
-  background: orange;
-`
-const Button = () => (
-  <a class={cx(buttonClass, primaryClass)}>Click!</a>
-)
+    background: orange;
+`;
+const Button = () => <a class={cx(buttonClass, primaryClass)}>Click!</a>;
 ```
 
 It can also compose simple strings.
 
 ```tsx
-const Header = () => <a class={cx('h1', primaryClass)}>Hi</a>
+const Header = () => <a class={cx('h1', primaryClass)}>Hi</a>;
 ```
 
 ## Usage in combination with [Secure Headers](/docs/middleware/builtin/secure-headers) middleware
@@ -3446,14 +3386,13 @@ If you use VS Code, you can use [vscode-styled-components](https://marketplace.v
 
 ![](/images/css-ss.png)
 
-
 # Dev Helper
 
 Dev Helper provides useful methods you can use in development.
 
 ```ts
-import { Hono } from 'hono'
-import { getRouterName, showRoutes } from 'hono/dev'
+import { Hono } from 'hono';
+import { getRouterName, showRoutes } from 'hono/dev';
 ```
 
 ## `getRouterName()`
@@ -3461,11 +3400,11 @@ import { getRouterName, showRoutes } from 'hono/dev'
 You can get the name of the currently used router with `getRouterName()`.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 // ...
 
-console.log(getRouterName(app))
+console.log(getRouterName(app));
 ```
 
 ## `showRoutes()`
@@ -3475,23 +3414,23 @@ console.log(getRouterName(app))
 Consider an application like the following:
 
 ```ts
-const app = new Hono().basePath('/v1')
+const app = new Hono().basePath('/v1');
 
 app.get('/posts', (c) => {
-  // ...
-})
+    // ...
+});
 
 app.get('/posts/:id', (c) => {
-  // ...
-})
+    // ...
+});
 
 app.post('/posts', (c) => {
-  // ...
-})
+    // ...
+});
 
 showRoutes(app, {
-  verbose: true,
-})
+    verbose: true
+});
 ```
 
 When this application starts running, the routes will be shown in your console as follows:
@@ -3512,7 +3451,6 @@ When set to `true`, it displays verbose information.
 
 When set to `false`, the output will not be colored.
 
-
 # Factory Helper
 
 The Factory Helper provides useful functions for creating Hono's components such as Middleware. Sometimes it's difficult to set the proper TypeScript types, but this helper facilitates that.
@@ -3520,8 +3458,8 @@ The Factory Helper provides useful functions for creating Hono's components such
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { createFactory, createMiddleware } from 'hono/factory'
+import { Hono } from 'hono';
+import { createFactory, createMiddleware } from 'hono/factory';
 ```
 
 ## `createFactory()`
@@ -3529,21 +3467,21 @@ import { createFactory, createMiddleware } from 'hono/factory'
 `createFactory()` will create an instance of the Factory class.
 
 ```ts
-import { createFactory } from 'hono/factory'
+import { createFactory } from 'hono/factory';
 
-const factory = createFactory()
+const factory = createFactory();
 ```
 
 You can pass your Env types as Generics:
 
 ```ts
 type Env = {
-  Variables: {
-    foo: string
-  }
-}
+    Variables: {
+        foo: string;
+    };
+};
 
-const factory = createFactory<Env>()
+const factory = createFactory<Env>();
 ```
 
 ### Options
@@ -3554,10 +3492,10 @@ The default options to pass to the Hono application created by `createApp()`.
 
 ```ts
 const factory = createFactory({
-  defaultAppOptions: { strict: false },
-})
+    defaultAppOptions: { strict: false }
+});
 
-const app = factory.createApp() // `strict: false` is applied
+const app = factory.createApp(); // `strict: false` is applied
 ```
 
 ## `createMiddleware()`
@@ -3567,22 +3505,22 @@ This function will create your custom middleware.
 
 ```ts
 const messageMiddleware = createMiddleware(async (c, next) => {
-  await next()
-  c.res.headers.set('X-Message', 'Good morning!')
-})
+    await next();
+    c.res.headers.set('X-Message', 'Good morning!');
+});
 ```
 
 Tip: If you want to get an argument like `message`, you can create it as a function like the following.
 
 ```ts
 const messageMiddleware = (message: string) => {
-  return createMiddleware(async (c, next) => {
-    await next()
-    c.res.headers.set('X-Message', message)
-  })
-}
+    return createMiddleware(async (c, next) => {
+        await next();
+        c.res.headers.set('X-Message', message);
+    });
+};
 
-app.use(messageMiddleware('Good evening!'))
+app.use(messageMiddleware('Good evening!'));
 ```
 
 ## `factory.createHandlers()`
@@ -3590,23 +3528,23 @@ app.use(messageMiddleware('Good evening!'))
 `createHandlers()` helps to define handlers in a different place than `app.get('/')`.
 
 ```ts
-import { createFactory } from 'hono/factory'
-import { logger } from 'hono/logger'
+import { createFactory } from 'hono/factory';
+import { logger } from 'hono/logger';
 
 // ...
 
-const factory = createFactory()
+const factory = createFactory();
 
 const middleware = factory.createMiddleware(async (c, next) => {
-  c.set('foo', 'bar')
-  await next()
-})
+    c.set('foo', 'bar');
+    await next();
+});
 
 const handlers = factory.createHandlers(logger(), middleware, (c) => {
-  return c.json(c.var.foo)
-})
+    return c.json(c.var.foo);
+});
 
-app.get('/api', ...handlers)
+app.get('/api', ...handlers);
 ```
 
 ## `factory.createApp()`
@@ -3616,41 +3554,41 @@ app.get('/api', ...handlers)
 If your application is like this, you have to set the `Env` in two places:
 
 ```ts
-import { createMiddleware } from 'hono/factory'
+import { createMiddleware } from 'hono/factory';
 
 type Env = {
-  Variables: {
-    myVar: string
-  }
-}
+    Variables: {
+        myVar: string;
+    };
+};
 
 // 1. Set the `Env` to `new Hono()`
-const app = new Hono<Env>()
+const app = new Hono<Env>();
 
 // 2. Set the `Env` to `createMiddleware()`
 const mw = createMiddleware<Env>(async (c, next) => {
-  await next()
-})
+    await next();
+});
 
-app.use(mw)
+app.use(mw);
 ```
 
 By using `createFactory()` and `createApp()`, you can set the `Env` only in one place.
 
 ```ts
-import { createFactory } from 'hono/factory'
+import { createFactory } from 'hono/factory';
 
 // ...
 
 // Set the `Env` to `createFactory()`
-const factory = createFactory<Env>()
+const factory = createFactory<Env>();
 
-const app = factory.createApp()
+const app = factory.createApp();
 
 // factory also has `createMiddleware()`
 const mw = factory.createMiddleware(async (c, next) => {
-  await next()
-})
+    await next();
+});
 ```
 
 `createFactory()` can receive the `initApp` option to initialize an `app` created by `createApp()`. The following is an example that uses the option.
@@ -3658,37 +3596,36 @@ const mw = factory.createMiddleware(async (c, next) => {
 ```ts
 // factory-with-db.ts
 type Env = {
-  Bindings: {
-    MY_DB: D1Database
-  }
-  Variables: {
-    db: DrizzleD1Database
-  }
-}
+    Bindings: {
+        MY_DB: D1Database;
+    };
+    Variables: {
+        db: DrizzleD1Database;
+    };
+};
 
 export default createFactory<Env>({
-  initApp: (app) => {
-    app.use(async (c, next) => {
-      const db = drizzle(c.env.MY_DB)
-      c.set('db', db)
-      await next()
-    })
-  },
-})
+    initApp: (app) => {
+        app.use(async (c, next) => {
+            const db = drizzle(c.env.MY_DB);
+            c.set('db', db);
+            await next();
+        });
+    }
+});
 ```
 
 ```ts
 // crud.ts
-import factoryWithDB from './factory-with-db'
+import factoryWithDB from './factory-with-db';
 
-const app = factoryWithDB.createApp()
+const app = factoryWithDB.createApp();
 
 app.post('/posts', (c) => {
-  c.var.db.insert()
-  // ...
-})
+    c.var.db.insert();
+    // ...
+});
 ```
-
 
 # html Helper
 
@@ -3697,22 +3634,22 @@ The html Helper lets you write HTML in JavaScript template literal with a tag na
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { html, raw } from 'hono/html'
+import { Hono } from 'hono';
+import { html, raw } from 'hono/html';
 ```
 
 ## `html`
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.get('/:username', (c) => {
-  const { username } = c.req.param()
-  return c.html(
-    html`<!doctype html>
-      <h1>Hello! ${username}!</h1>`
-  )
-})
+    const { username } = c.req.param();
+    return c.html(
+        html`<!DOCTYPE html>
+            <h1>Hello! ${username}!</h1>`
+    );
+});
 ```
 
 ### Insert snippets into JSX
@@ -3721,21 +3658,21 @@ Insert the inline script into JSX:
 
 ```tsx
 app.get('/', (c) => {
-  return c.html(
-    <html>
-      <head>
-        <title>Test Site</title>
-        {html`
-          <script>
-            // No need to use dangerouslySetInnerHTML.
-            // If you write it here, it will not be escaped.
-          </script>
-        `}
-      </head>
-      <body>Hello!</body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <head>
+                <title>Test Site</title>
+                {html`
+                    <script>
+                        // No need to use dangerouslySetInnerHTML.
+                        // If you write it here, it will not be escaped.
+                    </script>
+                `}
+            </head>
+            <body>Hello!</body>
+        </html>
+    );
+});
 ```
 
 ### Act as functional component
@@ -3746,20 +3683,20 @@ Since `html` returns an HtmlEscapedString, it can act as a fully functional comp
 
 ```typescript
 const Footer = () => html`
-  <footer>
-    <address>My Address...</address>
-  </footer>
-`
+    <footer>
+        <address>My Address...</address>
+    </footer>
+`;
 ```
 
 ### Receives props and embeds values
 
 ```typescript
 interface SiteData {
-  title: string
-  description: string
-  image: string
-  children?: any
+    title: string;
+    description: string;
+    image: string;
+    children?: any;
 }
 const Layout = (props: SiteData) => html`
 <html>
@@ -3777,43 +3714,42 @@ const Layout = (props: SiteData) => html`
   ${props.children}
 </body>
 </html>
-`
+`;
 
 const Content = (props: { siteData: SiteData; name: string }) => (
-  <Layout {...props.siteData}>
-    <h1>Hello {props.name}</h1>
-  </Layout>
-)
+    <Layout {...props.siteData}>
+        <h1>Hello {props.name}</h1>
+    </Layout>
+);
 
 app.get('/', (c) => {
-  const props = {
-    name: 'World',
-    siteData: {
-      title: 'Hello <> World',
-      description: 'This is a description',
-      image: 'https://example.com/image.png',
-    },
-  }
-  return c.html(<Content {...props} />)
-})
+    const props = {
+        name: 'World',
+        siteData: {
+            title: 'Hello <> World',
+            description: 'This is a description',
+            image: 'https://example.com/image.png'
+        }
+    };
+    return c.html(<Content {...props} />);
+});
 ```
 
 ## `raw()`
 
 ```ts
 app.get('/', (c) => {
-  const name = 'John &quot;Johnny&quot; Smith'
-  return c.html(html`<p>I'm ${raw(name)}.</p>`)
-})
+    const name = 'John &quot;Johnny&quot; Smith';
+    return c.html(html`<p>I'm ${raw(name)}.</p>`);
+});
 ```
 
 ## Tips
 
 Thanks to these libraries, Visual Studio Code and vim also interprets template literals as HTML, allowing syntax highlighting and formatting to be applied.
 
-- <https://marketplace.visualstudio.com/items?itemName=bierner.lit-html>
-- <https://github.com/MaxMEllon/vim-jsx-pretty>
-
+-   <https://marketplace.visualstudio.com/items?itemName=bierner.lit-html>
+-   <https://github.com/MaxMEllon/vim-jsx-pretty>
 
 # JWT Authentication Helper
 
@@ -3824,7 +3760,7 @@ This helper provides functions for encoding, decoding, signing, and verifying JS
 To use this helper, you can import it as follows:
 
 ```ts
-import { decode, sign, verify } from 'hono/jwt'
+import { decode, sign, verify } from 'hono/jwt';
 ```
 
 ::: info
@@ -3847,15 +3783,15 @@ sign(
 ### Example
 
 ```ts
-import { sign } from 'hono/jwt'
+import { sign } from 'hono/jwt';
 
 const payload = {
-  sub: 'user123',
-  role: 'admin',
-  exp: Math.floor(Date.now() / 1000) + 60 * 5, // Token expires in 5 minutes
-}
-const secret = 'mySecretKey'
-const token = await sign(payload, secret)
+    sub: 'user123',
+    role: 'admin',
+    exp: Math.floor(Date.now() / 1000) + 60 * 5 // Token expires in 5 minutes
+};
+const secret = 'mySecretKey';
+const token = await sign(payload, secret);
 ```
 
 ### Options
@@ -3891,13 +3827,13 @@ verify(
 ### Example
 
 ```ts
-import { verify } from 'hono/jwt'
+import { verify } from 'hono/jwt';
 
-const tokenToVerify = 'token'
-const secretKey = 'mySecretKey'
+const tokenToVerify = 'token';
+const secretKey = 'mySecretKey';
 
-const decodedPayload = await verify(tokenToVerify, secretKey)
-console.log(decodedPayload)
+const decodedPayload = await verify(tokenToVerify, secretKey);
+console.log(decodedPayload);
 ```
 
 ### Options
@@ -3931,16 +3867,16 @@ decode(token: string): { header: any; payload: any };
 ### Example
 
 ```ts
-import { decode } from 'hono/jwt'
+import { decode } from 'hono/jwt';
 
 // Decode the JWT token
 const tokenToDecode =
-  'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJzdWIiOiAidXNlcjEyMyIsICJyb2xlIjogImFkbWluIn0.JxUwx6Ua1B0D1B0FtCrj72ok5cm1Pkmr_hL82sd7ELA'
+    'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJzdWIiOiAidXNlcjEyMyIsICJyb2xlIjogImFkbWluIn0.JxUwx6Ua1B0D1B0FtCrj72ok5cm1Pkmr_hL82sd7ELA';
 
-const { header, payload } = decode(tokenToDecode)
+const { header, payload } = decode(tokenToDecode);
 
-console.log('Decoded Header:', header)
-console.log('Decoded Payload:', payload)
+console.log('Decoded Header:', header);
+console.log('Decoded Payload:', payload);
 ```
 
 ### Options
@@ -3957,10 +3893,10 @@ The JWT token to be decoded.
 
 When verifying a JWT token, the following payload validations are performed:
 
-- `exp`: The token is checked to ensure it has not expired.
-- `nbf`: The token is checked to ensure it is not being used before a specified time.
-- `iat`: The token is checked to ensure it is not issued in the future.
-- `iss`: The token is checked to ensure it has been issued by a trusted issuer.
+-   `exp`: The token is checked to ensure it has not expired.
+-   `nbf`: The token is checked to ensure it is not being used before a specified time.
+-   `iat`: The token is checked to ensure it is not issued in the future.
+-   `iss`: The token is checked to ensure it has been issued by a trusted issuer.
 
 Please ensure that your JWT payload includes these fields, as an object, if you intend to perform these checks during verification.
 
@@ -3968,32 +3904,31 @@ Please ensure that your JWT payload includes these fields, as an object, if you 
 
 The module also defines custom error types to handle JWT-related errors.
 
-- `JwtAlgorithmNotImplemented`: Indicates that the requested JWT algorithm is not implemented.
-- `JwtTokenInvalid`: Indicates that the JWT token is invalid.
-- `JwtTokenNotBefore`: Indicates that the token is being used before its valid date.
-- `JwtTokenExpired`: Indicates that the token has expired.
-- `JwtTokenIssuedAt`: Indicates that the "iat" claim in the token is incorrect.
-- `JwtTokenIssuer`: Indicates that the "iss" claim in the token is incorrect.
-- `JwtTokenSignatureMismatched`: Indicates a signature mismatch in the token.
+-   `JwtAlgorithmNotImplemented`: Indicates that the requested JWT algorithm is not implemented.
+-   `JwtTokenInvalid`: Indicates that the JWT token is invalid.
+-   `JwtTokenNotBefore`: Indicates that the token is being used before its valid date.
+-   `JwtTokenExpired`: Indicates that the token has expired.
+-   `JwtTokenIssuedAt`: Indicates that the "iat" claim in the token is incorrect.
+-   `JwtTokenIssuer`: Indicates that the "iss" claim in the token is incorrect.
+-   `JwtTokenSignatureMismatched`: Indicates a signature mismatch in the token.
 
 ## Supported AlgorithmTypes
 
 The module supports the following JWT cryptographic algorithms:
 
-- `HS256`: HMAC using SHA-256
-- `HS384`: HMAC using SHA-384
-- `HS512`: HMAC using SHA-512
-- `RS256`: RSASSA-PKCS1-v1_5 using SHA-256
-- `RS384`: RSASSA-PKCS1-v1_5 using SHA-384
-- `RS512`: RSASSA-PKCS1-v1_5 using SHA-512
-- `PS256`: RSASSA-PSS using SHA-256 and MGF1 with SHA-256
-- `PS384`: RSASSA-PSS using SHA-386 and MGF1 with SHA-386
-- `PS512`: RSASSA-PSS using SHA-512 and MGF1 with SHA-512
-- `ES256`: ECDSA using P-256 and SHA-256
-- `ES384`: ECDSA using P-384 and SHA-384
-- `ES512`: ECDSA using P-521 and SHA-512
-- `EdDSA`: EdDSA using Ed25519
-
+-   `HS256`: HMAC using SHA-256
+-   `HS384`: HMAC using SHA-384
+-   `HS512`: HMAC using SHA-512
+-   `RS256`: RSASSA-PKCS1-v1_5 using SHA-256
+-   `RS384`: RSASSA-PKCS1-v1_5 using SHA-384
+-   `RS512`: RSASSA-PKCS1-v1_5 using SHA-512
+-   `PS256`: RSASSA-PSS using SHA-256 and MGF1 with SHA-256
+-   `PS384`: RSASSA-PSS using SHA-386 and MGF1 with SHA-386
+-   `PS512`: RSASSA-PSS using SHA-512 and MGF1 with SHA-512
+-   `ES256`: ECDSA using P-256 and SHA-256
+-   `ES384`: ECDSA using P-384 and SHA-384
+-   `ES512`: ECDSA using P-521 and SHA-512
+-   `EdDSA`: EdDSA using Ed25519
 
 # Proxy Helper
 
@@ -4002,8 +3937,8 @@ Proxy Helper provides useful functions when using Hono application as a (reverse
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { proxy } from 'hono/proxy'
+import { Hono } from 'hono';
+import { proxy } from 'hono/proxy';
 ```
 
 ## `proxy()`
@@ -4018,54 +3953,51 @@ Simple usage:
 
 ```ts
 app.get('/proxy/:path', (c) => {
-  return proxy(`http://${originServer}/${c.req.param('path')}`)
-})
+    return proxy(`http://${originServer}/${c.req.param('path')}`);
+});
 ```
 
 Complicated usage:
 
 ```ts
 app.get('/proxy/:path', async (c) => {
-  const res = await proxy(
-    `http://${originServer}/${c.req.param('path')}`,
-    {
-      headers: {
-        ...c.req.header(), // optional, specify only when forwarding all the request data (including credentials) is necessary.
-        'X-Forwarded-For': '127.0.0.1',
-        'X-Forwarded-Host': c.req.header('host'),
-        Authorization: undefined, // do not propagate request headers contained in c.req.header('Authorization')
-      },
-    }
-  )
-  res.headers.delete('Set-Cookie')
-  return res
-})
+    const res = await proxy(`http://${originServer}/${c.req.param('path')}`, {
+        headers: {
+            ...c.req.header(), // optional, specify only when forwarding all the request data (including credentials) is necessary.
+            'X-Forwarded-For': '127.0.0.1',
+            'X-Forwarded-Host': c.req.header('host'),
+            Authorization: undefined // do not propagate request headers contained in c.req.header('Authorization')
+        }
+    });
+    res.headers.delete('Set-Cookie');
+    return res;
+});
 ```
 
 Or you can pass the `c.req` as a parameter.
 
 ```ts
 app.all('/proxy/:path', (c) => {
-  return proxy(`http://${originServer}/${c.req.param('path')}`, {
-    ...c.req, // optional, specify only when forwarding all the request data (including credentials) is necessary.
-    headers: {
-      ...c.req.header(),
-      'X-Forwarded-For': '127.0.0.1',
-      'X-Forwarded-Host': c.req.header('host'),
-      Authorization: undefined, // do not propagate request headers contained in c.req.header('Authorization')
-    },
-  })
-})
+    return proxy(`http://${originServer}/${c.req.param('path')}`, {
+        ...c.req, // optional, specify only when forwarding all the request data (including credentials) is necessary.
+        headers: {
+            ...c.req.header(),
+            'X-Forwarded-For': '127.0.0.1',
+            'X-Forwarded-Host': c.req.header('host'),
+            Authorization: undefined // do not propagate request headers contained in c.req.header('Authorization')
+        }
+    });
+});
 ```
 
 You can override the default global `fetch` function with the `customFetch` option:
 
 ```ts
 app.get('/proxy', (c) => {
-  return proxy('https://example.com/', {
-    customFetch,
-  })
-})
+    return proxy('https://example.com/', {
+        customFetch
+    });
+});
 ```
 
 ### `ProxyFetch`
@@ -4074,23 +4006,19 @@ The type of `proxy()` is defined as `ProxyFetch` and is as follows
 
 ```ts
 interface ProxyRequestInit extends Omit<RequestInit, 'headers'> {
-  raw?: Request
-  customFetch?: (request: Request) => Promise<Response>
-  headers?:
-    | HeadersInit
-    | [string, string][]
-    | Record<RequestHeader, string | undefined>
-    | Record<string, string | undefined>
+    raw?: Request;
+    customFetch?: (request: Request) => Promise<Response>;
+    headers?:
+        | HeadersInit
+        | [string, string][]
+        | Record<RequestHeader, string | undefined>
+        | Record<string, string | undefined>;
 }
 
 interface ProxyFetch {
-  (
-    input: string | URL | Request,
-    init?: ProxyRequestInit
-  ): Promise<Response>
+    (input: string | URL | Request, init?: ProxyRequestInit): Promise<Response>;
 }
 ```
-
 
 # Route Helper
 
@@ -4099,13 +4027,8 @@ The Route Helper provides enhanced routing information for debugging and middlew
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import {
-  matchedRoutes,
-  routePath,
-  baseRoutePath,
-  basePath,
-} from 'hono/route'
+import { Hono } from 'hono';
+import { matchedRoutes, routePath, baseRoutePath, basePath } from 'hono/route';
 ```
 
 ## Usage
@@ -4113,34 +4036,34 @@ import {
 ### Basic route information
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.get('/posts/:id', (c) => {
-  const currentPath = routePath(c) // '/posts/:id'
-  const routes = matchedRoutes(c) // Array of matched routes
+    const currentPath = routePath(c); // '/posts/:id'
+    const routes = matchedRoutes(c); // Array of matched routes
 
-  return c.json({
-    path: currentPath,
-    totalRoutes: routes.length,
-  })
-})
+    return c.json({
+        path: currentPath,
+        totalRoutes: routes.length
+    });
+});
 ```
 
 ### Working with sub-applications
 
 ```ts
-const app = new Hono()
-const apiApp = new Hono()
+const app = new Hono();
+const apiApp = new Hono();
 
 apiApp.get('/posts/:id', (c) => {
-  return c.json({
-    routePath: routePath(c), // '/posts/:id'
-    baseRoutePath: baseRoutePath(c), // '/api'
-    basePath: basePath(c), // '/api' (with actual params)
-  })
-})
+    return c.json({
+        routePath: routePath(c), // '/posts/:id'
+        baseRoutePath: baseRoutePath(c), // '/api'
+        basePath: basePath(c) // '/api' (with actual params)
+    });
+});
 
-app.route('/api', apiApp)
+app.route('/api', apiApp);
 ```
 
 ## `matchedRoutes(c)`
@@ -4149,18 +4072,18 @@ Returns an array of all routes that matched the current request, including middl
 
 ```ts
 app.all('/api/*', (c, next) => {
-  console.log('API middleware')
-  return next()
-})
+    console.log('API middleware');
+    return next();
+});
 
 app.get('/api/users/:id', (c) => {
-  const routes = matchedRoutes(c)
-  // Returns: [
-  //   { method: 'ALL', path: '/api/*', handler: [Function] },
-  //   { method: 'GET', path: '/api/users/:id', handler: [Function] }
-  // ]
-  return c.json({ routes: routes.length })
-})
+    const routes = matchedRoutes(c);
+    // Returns: [
+    //   { method: 'ALL', path: '/api/*', handler: [Function] },
+    //   { method: 'GET', path: '/api/users/:id', handler: [Function] }
+    // ]
+    return c.json({ routes: routes.length });
+});
 ```
 
 ## `routePath(c)`
@@ -4169,9 +4092,9 @@ Returns the route path pattern registered for the current handler.
 
 ```ts
 app.get('/posts/:id', (c) => {
-  console.log(routePath(c)) // '/posts/:id'
-  return c.text('Post details')
-})
+    console.log(routePath(c)); // '/posts/:id'
+    return c.text('Post details');
+});
 ```
 
 ## `baseRoutePath(c)`
@@ -4179,12 +4102,12 @@ app.get('/posts/:id', (c) => {
 Returns the base path pattern of the current route as specified in routing.
 
 ```ts
-const subApp = new Hono()
+const subApp = new Hono();
 subApp.get('/posts/:id', (c) => {
-  return c.text(baseRoutePath(c)) // '/:sub'
-})
+    return c.text(baseRoutePath(c)); // '/:sub'
+});
 
-app.route('/:sub', subApp)
+app.route('/:sub', subApp);
 ```
 
 ## `basePath(c)`
@@ -4192,14 +4115,13 @@ app.route('/:sub', subApp)
 Returns the base path with embedded parameters from the actual request.
 
 ```ts
-const subApp = new Hono()
+const subApp = new Hono();
 subApp.get('/posts/:id', (c) => {
-  return c.text(basePath(c)) // '/api' (for request to '/api/posts/123')
-})
+    return c.text(basePath(c)); // '/api' (for request to '/api/posts/123')
+});
 
-app.route('/:sub', subApp)
+app.route('/:sub', subApp);
 ```
-
 
 # SSG Helper
 
@@ -4213,40 +4135,40 @@ If you have a simple Hono application like the following:
 
 ```tsx
 // index.tsx
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.html('Hello, World!'))
+app.get('/', (c) => c.html('Hello, World!'));
 app.use('/about', async (c, next) => {
-  c.setRenderer((content, head) => {
-    return c.html(
-      <html>
-        <head>
-          <title>{head.title ?? ''}</title>
-        </head>
-        <body>
-          <p>{content}</p>
-        </body>
-      </html>
-    )
-  })
-  await next()
-})
+    c.setRenderer((content, head) => {
+        return c.html(
+            <html>
+                <head>
+                    <title>{head.title ?? ''}</title>
+                </head>
+                <body>
+                    <p>{content}</p>
+                </body>
+            </html>
+        );
+    });
+    await next();
+});
 app.get('/about', (c) => {
-  return c.render('Hello!', { title: 'Hono SSG Page' })
-})
+    return c.render('Hello!', { title: 'Hono SSG Page' });
+});
 
-export default app
+export default app;
 ```
 
 For Node.js, create a build script like this:
 
 ```ts
 // build.ts
-import app from './index'
-import { toSSG } from 'hono/ssg'
-import fs from 'fs/promises'
+import app from './index';
+import { toSSG } from 'hono/ssg';
+import fs from 'fs/promises';
 
-toSSG(app, fs)
+toSSG(app, fs);
 ```
 
 By executing the script, the files will be output as follows:
@@ -4274,24 +4196,24 @@ The arguments for toSSG are specified in ToSSGInterface.
 
 ```ts
 export interface ToSSGInterface {
-  (
-    app: Hono,
-    fsModule: FileSystemModule,
-    options?: ToSSGOptions
-  ): Promise<ToSSGResult>
+    (
+        app: Hono,
+        fsModule: FileSystemModule,
+        options?: ToSSGOptions
+    ): Promise<ToSSGResult>;
 }
 ```
 
-- `app` specifies `new Hono()` with registered routes.
-- `fs` specifies the following object, assuming `node:fs/promise`.
+-   `app` specifies `new Hono()` with registered routes.
+-   `fs` specifies the following object, assuming `node:fs/promise`.
 
 ```ts
 export interface FileSystemModule {
-  writeFile(path: string, data: string | Uint8Array): Promise<void>
-  mkdir(
-    path: string,
-    options: { recursive: boolean }
-  ): Promise<void | string>
+    writeFile(path: string, data: string | Uint8Array): Promise<void>;
+    mkdir(
+        path: string,
+        options: { recursive: boolean }
+    ): Promise<void | string>;
 }
 ```
 
@@ -4302,17 +4224,17 @@ If you want to use SSG on Deno or Bun, a `toSSG` function is provided for each f
 For Deno:
 
 ```ts
-import { toSSG } from 'hono/deno'
+import { toSSG } from 'hono/deno';
 
-toSSG(app) // The second argument is an option typed `ToSSGOptions`.
+toSSG(app); // The second argument is an option typed `ToSSGOptions`.
 ```
 
 For Bun:
 
 ```ts
-import { toSSG } from 'hono/bun'
+import { toSSG } from 'hono/bun';
 
-toSSG(app) // The second argument is an option typed `ToSSGOptions`.
+toSSG(app); // The second argument is an option typed `ToSSGOptions`.
 ```
 
 ### Options
@@ -4321,17 +4243,17 @@ Options are specified in the ToSSGOptions interface.
 
 ```ts
 export interface ToSSGOptions {
-  dir?: string
-  concurrency?: number
-  extensionMap?: Record<string, string>
-  plugins?: SSGPlugin[]
+    dir?: string;
+    concurrency?: number;
+    extensionMap?: Record<string, string>;
+    plugins?: SSGPlugin[];
 }
 ```
 
-- `dir` is the output destination for Static files. The default value is `./static`.
-- `concurrency` is the concurrent number of files to be generated at the same time. The default value is `2`.
-- `extensionMap` is a map containing the `Content-Type` as a key and the string of the extension as a value. This is used to determine the file extension of the output file.
-- `plugins` is an array of SSG plugins that extend the functionality of the static site generation process.
+-   `dir` is the output destination for Static files. The default value is `./static`.
+-   `concurrency` is the concurrent number of files to be generated at the same time. The default value is `2`.
+-   `extensionMap` is a map containing the `Content-Type` as a key and the string of the extension as a value. This is used to determine the file extension of the output file.
+-   `plugins` is an array of SSG plugins that extend the functionality of the static site generation process.
 
 ### Output
 
@@ -4339,9 +4261,9 @@ export interface ToSSGOptions {
 
 ```ts
 export interface ToSSGResult {
-  success: boolean
-  files: string[]
-  error?: Error
+    success: boolean;
+    files: string[];
+    error?: Error;
 }
 ```
 
@@ -4351,9 +4273,9 @@ export interface ToSSGResult {
 
 The following rules apply to the registered route information and the generated file name. The default `./static` behaves as follows:
 
-- `/` -> `./static/index.html`
-- `/path` -> `./static/path.html`
-- `/path/` -> `./static/path/index.html`
+-   `/` -> `./static/index.html`
+-   `/path` -> `./static/path.html`
+-   `/path/` -> `./static/path/index.html`
 
 ### File Extension
 
@@ -4362,25 +4284,25 @@ The file extension depends on the `Content-Type` returned by each route. For exa
 If you want to customize the file extensions, set the `extensionMap` option.
 
 ```ts
-import { toSSG, defaultExtensionMap } from 'hono/ssg'
+import { toSSG, defaultExtensionMap } from 'hono/ssg';
 
 // Save `application/x-html` content with `.html`
 toSSG(app, fs, {
-  extensionMap: {
-    'application/x-html': 'html',
-    ...defaultExtensionMap,
-  },
-})
+    extensionMap: {
+        'application/x-html': 'html',
+        ...defaultExtensionMap
+    }
+});
 ```
 
 Note that paths ending with a slash are saved as index.ext regardless of the extension.
 
 ```ts
 // save to ./static/html/index.html
-app.get('/html/', (c) => c.html('html'))
+app.get('/html/', (c) => c.html('html'));
 
 // save to ./static/text/index.txt
-app.get('/text/', (c) => c.text('text'))
+app.get('/text/', (c) => c.text('text'));
 ```
 
 ## Middleware
@@ -4395,23 +4317,23 @@ Example:
 
 ```ts
 app.get(
-  '/shops/:id',
-  ssgParams(async () => {
-    const shops = await getShops()
-    return shops.map((shop) => ({ id: shop.id }))
-  }),
-  async (c) => {
-    const shop = await getShop(c.req.param('id'))
-    if (!shop) {
-      return c.notFound()
+    '/shops/:id',
+    ssgParams(async () => {
+        const shops = await getShops();
+        return shops.map((shop) => ({ id: shop.id }));
+    }),
+    async (c) => {
+        const shop = await getShop(c.req.param('id'));
+        if (!shop) {
+            return c.notFound();
+        }
+        return c.render(
+            <div>
+                <h1>{shop.name}</h1>
+            </div>
+        );
     }
-    return c.render(
-      <div>
-        <h1>{shop.name}</h1>
-      </div>
-    )
-  }
-)
+);
 ```
 
 ### disableSSG
@@ -4419,7 +4341,7 @@ app.get(
 Routes with the `disableSSG` middleware set are excluded from static file generation by `toSSG`.
 
 ```ts
-app.get('/api', disableSSG(), (c) => c.text('an-api'))
+app.get('/api', disableSSG(), (c) => c.text('an-api'));
 ```
 
 ### onlySSG
@@ -4427,7 +4349,7 @@ app.get('/api', disableSSG(), (c) => c.text('an-api'))
 Routes with the `onlySSG` middleware set will be overridden by `c.notFound()` after `toSSG` execution.
 
 ```ts
-app.get('/static-page', onlySSG(), (c) => c.html(<h1>Welcome to my site</h1>))
+app.get('/static-page', onlySSG(), (c) => c.html(<h1>Welcome to my site</h1>));
 ```
 
 ## Plugins
@@ -4439,24 +4361,22 @@ Plugins allow you to extend the functionality of the static site generation proc
 Plugins can use the following hooks to customize the `toSSG` process:
 
 ```ts
-export type BeforeRequestHook = (req: Request) => Request | false
-export type AfterResponseHook = (res: Response) => Response | false
-export type AfterGenerateHook = (
-  result: ToSSGResult
-) => void | Promise<void>
+export type BeforeRequestHook = (req: Request) => Request | false;
+export type AfterResponseHook = (res: Response) => Response | false;
+export type AfterGenerateHook = (result: ToSSGResult) => void | Promise<void>;
 ```
 
-- **BeforeRequestHook**: Called before processing each request. Return `false` to skip the route.
-- **AfterResponseHook**: Called after receiving each response. Return `false` to skip file generation.
-- **AfterGenerateHook**: Called after the entire generation process completes.
+-   **BeforeRequestHook**: Called before processing each request. Return `false` to skip the route.
+-   **AfterResponseHook**: Called after receiving each response. Return `false` to skip file generation.
+-   **AfterGenerateHook**: Called after the entire generation process completes.
 
 ### Plugin Interface
 
 ```ts
 export interface SSGPlugin {
-  beforeRequestHook?: BeforeRequestHook | BeforeRequestHook[]
-  afterResponseHook?: AfterResponseHook | AfterResponseHook[]
-  afterGenerateHook?: AfterGenerateHook | AfterGenerateHook[]
+    beforeRequestHook?: BeforeRequestHook | BeforeRequestHook[];
+    afterResponseHook?: AfterResponseHook | AfterResponseHook[];
+    afterGenerateHook?: AfterGenerateHook | AfterGenerateHook[];
 }
 ```
 
@@ -4466,38 +4386,38 @@ Filter only GET requests:
 
 ```ts
 const getOnlyPlugin: SSGPlugin = {
-  beforeRequestHook: (req) => {
-    if (req.method === 'GET') {
-      return req
+    beforeRequestHook: (req) => {
+        if (req.method === 'GET') {
+            return req;
+        }
+        return false;
     }
-    return false
-  },
-}
+};
 ```
 
 Filter by status code:
 
 ```ts
 const statusFilterPlugin: SSGPlugin = {
-  afterResponseHook: (res) => {
-    if (res.status === 200 || res.status === 500) {
-      return res
+    afterResponseHook: (res) => {
+        if (res.status === 200 || res.status === 500) {
+            return res;
+        }
+        return false;
     }
-    return false
-  },
-}
+};
 ```
 
 Log generated files:
 
 ```ts
 const logFilesPlugin: SSGPlugin = {
-  afterGenerateHook: (result) => {
-    if (result.files) {
-      result.files.forEach((file) => console.log(file))
+    afterGenerateHook: (result) => {
+        if (result.files) {
+            result.files.forEach((file) => console.log(file));
+        }
     }
-  },
-}
+};
 ```
 
 ### Advanced Plugin Example
@@ -4506,46 +4426,45 @@ Here's an example of creating a sitemap plugin that generates a `sitemap.xml` fi
 
 ```ts
 // plugins.ts
-import fs from 'node:fs/promises'
-import path from 'node:path'
-import type { SSGPlugin } from 'hono/ssg'
-import { DEFAULT_OUTPUT_DIR } from 'hono/ssg'
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import type { SSGPlugin } from 'hono/ssg';
+import { DEFAULT_OUTPUT_DIR } from 'hono/ssg';
 
 export const sitemapPlugin = (baseURL: string): SSGPlugin => {
-  return {
-    afterGenerateHook: (result, fsModule, options) => {
-      const outputDir = options?.dir ?? DEFAULT_OUTPUT_DIR
-      const filePath = path.join(outputDir, 'sitemap.xml')
-      const urls = result.files.map((file) =>
-        new URL(file, baseURL).toString()
-      )
-      const siteMapText = `<?xml version="1.0" encoding="UTF-8"?>
+    return {
+        afterGenerateHook: (result, fsModule, options) => {
+            const outputDir = options?.dir ?? DEFAULT_OUTPUT_DIR;
+            const filePath = path.join(outputDir, 'sitemap.xml');
+            const urls = result.files.map((file) =>
+                new URL(file, baseURL).toString()
+            );
+            const siteMapText = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((url) => `<url><loc>${url}</loc></url>`).join('\n')}
-</urlset>`
-      fsModule.writeFile(filePath, siteMapText)
-    },
-  }
-}
+</urlset>`;
+            fsModule.writeFile(filePath, siteMapText);
+        }
+    };
+};
 ```
 
 Applying plugins:
 
 ```ts
-import app from './index'
-import { toSSG } from 'hono/ssg'
-import { sitemapPlugin } from './plugins'
+import app from './index';
+import { toSSG } from 'hono/ssg';
+import { sitemapPlugin } from './plugins';
 
 toSSG(app, fs, {
-  plugins: [
-    getOnlyPlugin,
-    statusFilterPlugin,
-    logFilesPlugin,
-    sitemapPlugin('https://example.com'),
-  ],
-})
+    plugins: [
+        getOnlyPlugin,
+        statusFilterPlugin,
+        logFilesPlugin,
+        sitemapPlugin('https://example.com')
+    ]
+});
 ```
-
 
 # Streaming Helper
 
@@ -4554,8 +4473,8 @@ The Streaming Helper provides methods for streaming responses.
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { stream, streamText, streamSSE } from 'hono/streaming'
+import { Hono } from 'hono';
+import { stream, streamText, streamSSE } from 'hono/streaming';
 ```
 
 ## `stream()`
@@ -4564,17 +4483,17 @@ It returns a simple streaming response as `Response` object.
 
 ```ts
 app.get('/stream', (c) => {
-  return stream(c, async (stream) => {
-    // Write a process to be executed when aborted.
-    stream.onAbort(() => {
-      console.log('Aborted!')
-    })
-    // Write a Uint8Array.
-    await stream.write(new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f]))
-    // Pipe a readable stream.
-    await stream.pipe(anotherReadableStream)
-  })
-})
+    return stream(c, async (stream) => {
+        // Write a process to be executed when aborted.
+        stream.onAbort(() => {
+            console.log('Aborted!');
+        });
+        // Write a Uint8Array.
+        await stream.write(new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f]));
+        // Pipe a readable stream.
+        await stream.pipe(anotherReadableStream);
+    });
+});
 ```
 
 ## `streamText()`
@@ -4583,15 +4502,15 @@ It returns a streaming response with `Content-Type:text/plain`, `Transfer-Encodi
 
 ```ts
 app.get('/streamText', (c) => {
-  return streamText(c, async (stream) => {
-    // Write a text with a new line ('\n').
-    await stream.writeln('Hello')
-    // Wait 1 second.
-    await stream.sleep(1000)
-    // Write a text without a new line.
-    await stream.write(`Hono!`)
-  })
-})
+    return streamText(c, async (stream) => {
+        // Write a text with a new line ('\n').
+        await stream.writeln('Hello');
+        // Wait 1 second.
+        await stream.sleep(1000);
+        // Write a text without a new line.
+        await stream.write(`Hono!`);
+    });
+});
 ```
 
 ::: warning
@@ -4600,11 +4519,11 @@ If you are developing an application for Cloudflare Workers, a streaming may not
 
 ```ts
 app.get('/streamText', (c) => {
-  c.header('Content-Encoding', 'Identity')
-  return streamText(c, async (stream) => {
-    // ...
-  })
-})
+    c.header('Content-Encoding', 'Identity');
+    return streamText(c, async (stream) => {
+        // ...
+    });
+});
 ```
 
 :::
@@ -4614,22 +4533,22 @@ app.get('/streamText', (c) => {
 It allows you to stream Server-Sent Events (SSE) seamlessly.
 
 ```ts
-const app = new Hono()
-let id = 0
+const app = new Hono();
+let id = 0;
 
 app.get('/sse', async (c) => {
-  return streamSSE(c, async (stream) => {
-    while (true) {
-      const message = `It is ${new Date().toISOString()}`
-      await stream.writeSSE({
-        data: message,
-        event: 'time-update',
-        id: String(id++),
-      })
-      await stream.sleep(1000)
-    }
-  })
-})
+    return streamSSE(c, async (stream) => {
+        while (true) {
+            const message = `It is ${new Date().toISOString()}`;
+            await stream.writeSSE({
+                data: message,
+                event: 'time-update',
+                id: String(id++)
+            });
+            await stream.sleep(1000);
+        }
+    });
+});
 ```
 
 ## Error Handling
@@ -4639,26 +4558,24 @@ This argument is optional, if you don't specify it, the error will be output as 
 
 ```ts
 app.get('/stream', (c) => {
-  return stream(
-    c,
-    async (stream) => {
-      // Write a process to be executed when aborted.
-      stream.onAbort(() => {
-        console.log('Aborted!')
-      })
-      // Write a Uint8Array.
-      await stream.write(
-        new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f])
-      )
-      // Pipe a readable stream.
-      await stream.pipe(anotherReadableStream)
-    },
-    (err, stream) => {
-      stream.writeln('An error occurred!')
-      console.error(err)
-    }
-  )
-})
+    return stream(
+        c,
+        async (stream) => {
+            // Write a process to be executed when aborted.
+            stream.onAbort(() => {
+                console.log('Aborted!');
+            });
+            // Write a Uint8Array.
+            await stream.write(new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f]));
+            // Pipe a readable stream.
+            await stream.pipe(anotherReadableStream);
+        },
+        (err, stream) => {
+            stream.writeln('An error occurred!');
+            console.error(err);
+        }
+    );
+});
 ```
 
 The stream will be automatically closed after the callbacks are executed.
@@ -4671,7 +4588,6 @@ If the callback function of the streaming helper throws an error, the `onError` 
 
 :::
 
-
 # Testing Helper
 
 The Testing Helper provides functions to make testing of Hono applications easier.
@@ -4679,8 +4595,8 @@ The Testing Helper provides functions to make testing of Hono applications easie
 ## Import
 
 ```ts
-import { Hono } from 'hono'
-import { testClient } from 'hono/testing'
+import { Hono } from 'hono';
+import { testClient } from 'hono/testing';
 ```
 
 ## `testClient()`
@@ -4700,80 +4616,79 @@ This example works because the `.get()` method is chained directly onto the `new
 ```ts
 // index.ts
 const app = new Hono().get('/search', (c) => {
-  const query = c.req.query('q')
-  return c.json({ query: query, results: ['result1', 'result2'] })
-})
+    const query = c.req.query('q');
+    return c.json({ query: query, results: ['result1', 'result2'] });
+});
 
-export default app
+export default app;
 ```
 
 ```ts
 // index.test.ts
-import { Hono } from 'hono'
-import { testClient } from 'hono/testing'
-import { describe, it, expect } from 'vitest' // Or your preferred test runner
-import app from './app'
+import { Hono } from 'hono';
+import { testClient } from 'hono/testing';
+import { describe, it, expect } from 'vitest'; // Or your preferred test runner
+import app from './app';
 
 describe('Search Endpoint', () => {
-  // Create the test client from the app instance
-  const client = testClient(app)
+    // Create the test client from the app instance
+    const client = testClient(app);
 
-  it('should return search results', async () => {
-    // Call the endpoint using the typed client
-    // Notice the type safety for query parameters (if defined in the route)
-    // and the direct access via .$get()
-    const res = await client.search.$get({
-      query: { q: 'hono' },
-    })
+    it('should return search results', async () => {
+        // Call the endpoint using the typed client
+        // Notice the type safety for query parameters (if defined in the route)
+        // and the direct access via .$get()
+        const res = await client.search.$get({
+            query: { q: 'hono' }
+        });
 
-    // Assertions
-    expect(res.status).toBe(200)
-    expect(await res.json()).toEqual({
-      query: 'hono',
-      results: ['result1', 'result2'],
-    })
-  })
-})
+        // Assertions
+        expect(res.status).toBe(200);
+        expect(await res.json()).toEqual({
+            query: 'hono',
+            results: ['result1', 'result2']
+        });
+    });
+});
 ```
 
 To include headers in your test, pass them as the second parameter in the call. The second parameter can also take an `init` property as a `RequestInit` object, allowing you to set headers, method, body, etc. Learn more about the `init` property [here](/docs/guides/rpc#init-option).
 
 ```ts
 // index.test.ts
-import { Hono } from 'hono'
-import { testClient } from 'hono/testing'
-import { describe, it, expect } from 'vitest' // Or your preferred test runner
-import app from './app'
+import { Hono } from 'hono';
+import { testClient } from 'hono/testing';
+import { describe, it, expect } from 'vitest'; // Or your preferred test runner
+import app from './app';
 
 describe('Search Endpoint', () => {
-  // Create the test client from the app instance
-  const client = testClient(app)
+    // Create the test client from the app instance
+    const client = testClient(app);
 
-  it('should return search results', async () => {
-    // Include the token in the headers and set the content type
-    const token = 'this-is-a-very-clean-token'
-    const res = await client.search.$get(
-      {
-        query: { q: 'hono' },
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': `application/json`,
-        },
-      }
-    )
+    it('should return search results', async () => {
+        // Include the token in the headers and set the content type
+        const token = 'this-is-a-very-clean-token';
+        const res = await client.search.$get(
+            {
+                query: { q: 'hono' }
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': `application/json`
+                }
+            }
+        );
 
-    // Assertions
-    expect(res.status).toBe(200)
-    expect(await res.json()).toEqual({
-      query: 'hono',
-      results: ['result1', 'result2'],
-    })
-  })
-})
+        // Assertions
+        expect(res.status).toBe(200);
+        expect(await res.json()).toEqual({
+            query: 'hono',
+            results: ['result1', 'result2']
+        });
+    });
+});
 ```
-
 
 # WebSocket Helper
 
@@ -4785,25 +4700,25 @@ Currently Cloudflare Workers / Pages, Deno, and Bun adapters are available.
 ::: code-group
 
 ```ts [Cloudflare Workers]
-import { Hono } from 'hono'
-import { upgradeWebSocket } from 'hono/cloudflare-workers'
+import { Hono } from 'hono';
+import { upgradeWebSocket } from 'hono/cloudflare-workers';
 ```
 
 ```ts [Deno]
-import { Hono } from 'hono'
-import { upgradeWebSocket } from 'hono/deno'
+import { Hono } from 'hono';
+import { upgradeWebSocket } from 'hono/deno';
 ```
 
 ```ts [Bun]
-import { Hono } from 'hono'
-import { upgradeWebSocket, websocket } from 'hono/bun'
+import { Hono } from 'hono';
+import { upgradeWebSocket, websocket } from 'hono/bun';
 
 // ...
 
 export default {
-  fetch: app.fetch,
-  websocket,
-}
+    fetch: app.fetch,
+    websocket
+};
 ```
 
 :::
@@ -4815,30 +4730,30 @@ If you use Node.js, you can use [@hono/node-ws](https://github.com/honojs/middle
 `upgradeWebSocket()` returns a handler for handling WebSocket.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 app.get(
-  '/ws',
-  upgradeWebSocket((c) => {
-    return {
-      onMessage(event, ws) {
-        console.log(`Message from client: ${event.data}`)
-        ws.send('Hello from server!')
-      },
-      onClose: () => {
-        console.log('Connection closed')
-      },
-    }
-  })
-)
+    '/ws',
+    upgradeWebSocket((c) => {
+        return {
+            onMessage(event, ws) {
+                console.log(`Message from client: ${event.data}`);
+                ws.send('Hello from server!');
+            },
+            onClose: () => {
+                console.log('Connection closed');
+            }
+        };
+    })
+);
 ```
 
 Available events:
 
-- `onOpen` - Currently, Cloudflare Workers does not support it.
-- `onMessage`
-- `onClose`
-- `onError`
+-   `onOpen` - Currently, Cloudflare Workers does not support it.
+-   `onMessage`
+-   `onClose`
+-   `onError`
 
 ::: warning
 
@@ -4855,17 +4770,17 @@ Handlers defined with WebSocket Helper support RPC mode.
 ```ts
 // server.ts
 const wsApp = app.get(
-  '/ws',
-  upgradeWebSocket((c) => {
-    //...
-  })
-)
+    '/ws',
+    upgradeWebSocket((c) => {
+        //...
+    })
+);
 
-export type WebSocketApp = typeof wsApp
+export type WebSocketApp = typeof wsApp;
 
 // client.ts
-const client = hc<WebSocketApp>('http://localhost:8787')
-const socket = client.ws.$ws() // A WebSocket object for a client
+const client = hc<WebSocketApp>('http://localhost:8787');
+const socket = client.ws.$ws(); // A WebSocket object for a client
 ```
 
 ## Examples
@@ -4876,94 +4791,93 @@ See the examples using WebSocket Helper.
 
 ```ts
 // server.ts
-import { Hono } from 'hono'
-import { upgradeWebSocket } from 'hono/cloudflare-workers'
+import { Hono } from 'hono';
+import { upgradeWebSocket } from 'hono/cloudflare-workers';
 
 const app = new Hono().get(
-  '/ws',
-  upgradeWebSocket(() => {
-    return {
-      onMessage: (event) => {
-        console.log(event.data)
-      },
-    }
-  })
-)
+    '/ws',
+    upgradeWebSocket(() => {
+        return {
+            onMessage: (event) => {
+                console.log(event.data);
+            }
+        };
+    })
+);
 
-export default app
+export default app;
 ```
 
 ```ts
 // client.ts
-import { hc } from 'hono/client'
-import type app from './server'
+import { hc } from 'hono/client';
+import type app from './server';
 
-const client = hc<typeof app>('http://localhost:8787')
-const ws = client.ws.$ws(0)
+const client = hc<typeof app>('http://localhost:8787');
+const ws = client.ws.$ws(0);
 
 ws.addEventListener('open', () => {
-  setInterval(() => {
-    ws.send(new Date().toString())
-  }, 1000)
-})
+    setInterval(() => {
+        ws.send(new Date().toString());
+    }, 1000);
+});
 ```
 
 ### Bun with JSX
 
 ```tsx
-import { Hono } from 'hono'
-import { createBunWebSocket } from 'hono/bun'
-import { html } from 'hono/html'
+import { Hono } from 'hono';
+import { createBunWebSocket } from 'hono/bun';
+import { html } from 'hono/html';
 
-const { upgradeWebSocket, websocket } = createBunWebSocket()
+const { upgradeWebSocket, websocket } = createBunWebSocket();
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/', (c) => {
-  return c.html(
-    <html>
-      <head>
-        <meta charset='UTF-8' />
-      </head>
-      <body>
-        <div id='now-time'></div>
-        {html`
-          <script>
-            const ws = new WebSocket('ws://localhost:3000/ws')
-            const $nowTime = document.getElementById('now-time')
-            ws.onmessage = (event) => {
-              $nowTime.textContent = event.data
-            }
-          </script>
-        `}
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <head>
+                <meta charset="UTF-8" />
+            </head>
+            <body>
+                <div id="now-time"></div>
+                {html`
+                    <script>
+                        const ws = new WebSocket('ws://localhost:3000/ws');
+                        const $nowTime = document.getElementById('now-time');
+                        ws.onmessage = (event) => {
+                            $nowTime.textContent = event.data;
+                        };
+                    </script>
+                `}
+            </body>
+        </html>
+    );
+});
 
 const ws = app.get(
-  '/ws',
-  upgradeWebSocket((c) => {
-    let intervalId
-    return {
-      onOpen(_event, ws) {
-        intervalId = setInterval(() => {
-          ws.send(new Date().toString())
-        }, 200)
-      },
-      onClose() {
-        clearInterval(intervalId)
-      },
-    }
-  })
-)
+    '/ws',
+    upgradeWebSocket((c) => {
+        let intervalId;
+        return {
+            onOpen(_event, ws) {
+                intervalId = setInterval(() => {
+                    ws.send(new Date().toString());
+                }, 200);
+            },
+            onClose() {
+                clearInterval(intervalId);
+            }
+        };
+    })
+);
 
 export default {
-  fetch: app.fetch,
-  websocket,
-}
+    fetch: app.fetch,
+    websocket
+};
 ```
-
 
 # Best Practices
 
@@ -4978,10 +4892,10 @@ When possible, you should not create "Ruby on Rails-like Controllers".
 // 🙁
 // A RoR-like Controller
 const booksList = (c: Context) => {
-  return c.json('list books')
-}
+    return c.json('list books');
+};
 
-app.get('/books', booksList)
+app.get('/books', booksList);
 ```
 
 The issue is related to types. For example, the path parameter cannot be inferred in the Controller without writing complex generics.
@@ -4990,9 +4904,9 @@ The issue is related to types. For example, the path parameter cannot be inferre
 // 🙁
 // A RoR-like Controller
 const bookPermalink = (c: Context) => {
-  const id = c.req.param('id') // Can't infer the path param
-  return c.json(`get ${id}`)
-}
+    const id = c.req.param('id'); // Can't infer the path param
+    return c.json(`get ${id}`);
+};
 ```
 
 Therefore, you don't need to create RoR-like controllers and should write handlers directly after path definitions.
@@ -5000,9 +4914,9 @@ Therefore, you don't need to create RoR-like controllers and should write handle
 ```ts
 // 😃
 app.get('/books/:id', (c) => {
-  const id = c.req.param('id') // Can infer the path param
-  return c.json(`get ${id}`)
-})
+    const id = c.req.param('id'); // Can infer the path param
+    return c.json(`get ${id}`);
+});
 ```
 
 ## `factory.createHandlers()` in `hono/factory`
@@ -5010,24 +4924,24 @@ app.get('/books/:id', (c) => {
 If you still want to create a RoR-like Controller, use `factory.createHandlers()` in [`hono/factory`](/docs/helpers/factory). If you use this, type inference will work correctly.
 
 ```ts
-import { createFactory } from 'hono/factory'
-import { logger } from 'hono/logger'
+import { createFactory } from 'hono/factory';
+import { logger } from 'hono/logger';
 
 // ...
 
 // 😃
-const factory = createFactory()
+const factory = createFactory();
 
 const middleware = factory.createMiddleware(async (c, next) => {
-  c.set('foo', 'bar')
-  await next()
-})
+    c.set('foo', 'bar');
+    await next();
+});
 
 const handlers = factory.createHandlers(logger(), middleware, (c) => {
-  return c.json(c.var.foo)
-})
+    return c.json(c.var.foo);
+});
 
-app.get('/api', ...handlers)
+app.get('/api', ...handlers);
 ```
 
 ## Building a larger application
@@ -5038,45 +4952,45 @@ If your application has `/authors` and `/books` endpoints and you wish to separa
 
 ```ts
 // authors.ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.json('list authors'))
-app.post('/', (c) => c.json('create an author', 201))
-app.get('/:id', (c) => c.json(`get ${c.req.param('id')}`))
+app.get('/', (c) => c.json('list authors'));
+app.post('/', (c) => c.json('create an author', 201));
+app.get('/:id', (c) => c.json(`get ${c.req.param('id')}`));
 
-export default app
+export default app;
 ```
 
 ```ts
 // books.ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.json('list books'))
-app.post('/', (c) => c.json('create a book', 201))
-app.get('/:id', (c) => c.json(`get ${c.req.param('id')}`))
+app.get('/', (c) => c.json('list books'));
+app.post('/', (c) => c.json('create a book', 201));
+app.get('/:id', (c) => c.json(`get ${c.req.param('id')}`));
 
-export default app
+export default app;
 ```
 
 Then, import them and mount on the paths `/authors` and `/books` with `app.route()`.
 
 ```ts
 // index.ts
-import { Hono } from 'hono'
-import authors from './authors'
-import books from './books'
+import { Hono } from 'hono';
+import authors from './authors';
+import books from './books';
 
-const app = new Hono()
+const app = new Hono();
 
 // 😃
-app.route('/authors', authors)
-app.route('/books', books)
+app.route('/authors', authors);
+app.route('/books', books);
 
-export default app
+export default app;
 ```
 
 ### If you want to use RPC features
@@ -5086,33 +5000,31 @@ However, if you want to use the `RPC` feature, you can get the correct type by c
 
 ```ts
 // authors.ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
 const app = new Hono()
-  .get('/', (c) => c.json('list authors'))
-  .post('/', (c) => c.json('create an author', 201))
-  .get('/:id', (c) => c.json(`get ${c.req.param('id')}`))
+    .get('/', (c) => c.json('list authors'))
+    .post('/', (c) => c.json('create an author', 201))
+    .get('/:id', (c) => c.json(`get ${c.req.param('id')}`));
 
-export default app
+export default app;
 ```
 
 If you pass the type of the `app` to `hc`, it will get the correct type.
 
 ```ts
-import app from './authors'
-import { hc } from 'hono/client'
+import app from './authors';
+import { hc } from 'hono/client';
 
 // 😃
-const client = hc<typeof app>('http://localhost') // Typed correctly
+const client = hc<typeof app>('http://localhost'); // Typed correctly
 ```
 
 For more detailed information, please see [the RPC page](/docs/guides/rpc#using-rpc-with-larger-applications).
 
-
 # Examples
 
 See the [Examples section](/examples/).
-
 
 # Frequently Asked Questions
 
@@ -5128,15 +5040,14 @@ In your `renovate.json` :
 ```json
 // renovate.json
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>shinGangan/renovate-config-hono" // [!code ++]
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>shinGangan/renovate-config-hono" // [!code ++]
+    ]
 }
 ```
 
 see [renovate-config-hono](https://github.com/shinGangan/renovate-config-hono) repository for more details.
-
 
 # Helpers
 
@@ -5145,33 +5056,32 @@ Helpers are available to assist in developing your application. Unlike middlewar
 For instance, here's how to use the [Cookie helper](/docs/helpers/cookie):
 
 ```ts
-import { getCookie, setCookie } from 'hono/cookie'
+import { getCookie, setCookie } from 'hono/cookie';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/cookie', (c) => {
-  const yummyCookie = getCookie(c, 'yummy_cookie')
-  // ...
-  setCookie(c, 'delicious_cookie', 'macha')
-  //
-})
+    const yummyCookie = getCookie(c, 'yummy_cookie');
+    // ...
+    setCookie(c, 'delicious_cookie', 'macha');
+    //
+});
 ```
 
 ## Available Helpers
 
-- [Accepts](/docs/helpers/accepts)
-- [Adapter](/docs/helpers/adapter)
-- [Cookie](/docs/helpers/cookie)
-- [css](/docs/helpers/css)
-- [Dev](/docs/helpers/dev)
-- [Factory](/docs/helpers/factory)
-- [html](/docs/helpers/html)
-- [JWT](/docs/helpers/jwt)
-- [SSG](/docs/helpers/ssg)
-- [Streaming](/docs/helpers/streaming)
-- [Testing](/docs/helpers/testing)
-- [WebSocket](/docs/helpers/websocket)
-
+-   [Accepts](/docs/helpers/accepts)
+-   [Adapter](/docs/helpers/adapter)
+-   [Cookie](/docs/helpers/cookie)
+-   [css](/docs/helpers/css)
+-   [Dev](/docs/helpers/dev)
+-   [Factory](/docs/helpers/factory)
+-   [html](/docs/helpers/html)
+-   [JWT](/docs/helpers/jwt)
+-   [SSG](/docs/helpers/ssg)
+-   [Streaming](/docs/helpers/streaming)
+-   [Testing](/docs/helpers/testing)
+-   [WebSocket](/docs/helpers/websocket)
 
 # Client Components
 
@@ -5186,31 +5096,31 @@ This section introduces Client Components-specific features.
 Here is an example of a simple counter, the same code works as in React.
 
 ```tsx
-import { useState } from 'hono/jsx'
-import { render } from 'hono/jsx/dom'
+import { useState } from 'hono/jsx';
+import { render } from 'hono/jsx/dom';
 
 function Counter() {
-  const [count, setCount] = useState(0)
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  )
+    const [count, setCount] = useState(0);
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
 }
 
 function App() {
-  return (
-    <html>
-      <body>
-        <Counter />
-      </body>
-    </html>
-  )
+    return (
+        <html>
+            <body>
+                <Counter />
+            </body>
+        </html>
+    );
 }
 
-const root = document.getElementById('root')
-render(<App />, root)
+const root = document.getElementById('root');
+render(<App />, root);
 ```
 
 ## `render()`
@@ -5218,37 +5128,37 @@ render(<App />, root)
 You can use `render()` to insert JSX components within a specified HTML element.
 
 ```tsx
-render(<Component />, container)
+render(<Component />, container);
 ```
 
 ## Hooks compatible with React
 
 hono/jsx/dom has Hooks that are compatible or partially compatible with React. You can learn about these APIs by looking at [the React documentation](https://react.dev/reference/react/hooks).
 
-- `useState()`
-- `useEffect()`
-- `useRef()`
-- `useCallback()`
-- `use()`
-- `startTransition()`
-- `useTransition()`
-- `useDeferredValue()`
-- `useMemo()`
-- `useLayoutEffect()`
-- `useReducer()`
-- `useDebugValue()`
-- `createElement()`
-- `memo()`
-- `isValidElement()`
-- `useId()`
-- `createRef()`
-- `forwardRef()`
-- `useImperativeHandle()`
-- `useSyncExternalStore()`
-- `useInsertionEffect()`
-- `useFormStatus()`
-- `useActionState()`
-- `useOptimistic()`
+-   `useState()`
+-   `useEffect()`
+-   `useRef()`
+-   `useCallback()`
+-   `use()`
+-   `startTransition()`
+-   `useTransition()`
+-   `useDeferredValue()`
+-   `useMemo()`
+-   `useLayoutEffect()`
+-   `useReducer()`
+-   `useDebugValue()`
+-   `createElement()`
+-   `memo()`
+-   `isValidElement()`
+-   `useId()`
+-   `createRef()`
+-   `forwardRef()`
+-   `useImperativeHandle()`
+-   `useSyncExternalStore()`
+-   `useInsertionEffect()`
+-   `useFormStatus()`
+-   `useActionState()`
+-   `useOptimistic()`
 
 ## `startViewTransition()` family
 
@@ -5259,41 +5169,41 @@ The `startViewTransition()` family contains original hooks and functions to hand
 You can write a transition using the `document.startViewTransition` shortly with the `startViewTransition()`.
 
 ```tsx
-import { useState, startViewTransition } from 'hono/jsx'
-import { css, Style } from 'hono/css'
+import { useState, startViewTransition } from 'hono/jsx';
+import { css, Style } from 'hono/css';
 
 export default function App() {
-  const [showLargeImage, setShowLargeImage] = useState(false)
-  return (
-    <>
-      <Style />
-      <button
-        onClick={() =>
-          startViewTransition(() =>
-            setShowLargeImage((state) => !state)
-          )
-        }
-      >
-        Click!
-      </button>
-      <div>
-        {!showLargeImage ? (
-          <img src='https://hono.dev/images/logo.png' />
-        ) : (
-          <div
-            class={css`
-              background: url('https://hono.dev/images/logo-large.png');
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-position: center;
-              width: 600px;
-              height: 600px;
-            `}
-          ></div>
-        )}
-      </div>
-    </>
-  )
+    const [showLargeImage, setShowLargeImage] = useState(false);
+    return (
+        <>
+            <Style />
+            <button
+                onClick={() =>
+                    startViewTransition(() =>
+                        setShowLargeImage((state) => !state)
+                    )
+                }
+            >
+                Click!
+            </button>
+            <div>
+                {!showLargeImage ? (
+                    <img src="https://hono.dev/images/logo.png" />
+                ) : (
+                    <div
+                        class={css`
+                            background: url('https://hono.dev/images/logo-large.png');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 600px;
+                            height: 600px;
+                        `}
+                    ></div>
+                )}
+            </div>
+        </>
+    );
 }
 ```
 
@@ -5304,9 +5214,9 @@ The `viewTransition()` function allows you to get the unique `view-transition-na
 You can use it with the `keyframes()`, The `::view-transition-old()` is converted to `::view-transition-old(${uniqueName))`.
 
 ```tsx
-import { useState, startViewTransition } from 'hono/jsx'
-import { viewTransition } from 'hono/jsx/dom/css'
-import { css, keyframes, Style } from 'hono/css'
+import { useState, startViewTransition } from 'hono/jsx';
+import { viewTransition } from 'hono/jsx/dom/css';
+import { css, keyframes, Style } from 'hono/css';
 
 const rotate = keyframes`
   from {
@@ -5315,51 +5225,51 @@ const rotate = keyframes`
   to {
     rotate: 360deg;
   }
-`
+`;
 
 export default function App() {
-  const [showLargeImage, setShowLargeImage] = useState(false)
-  const [transitionNameClass] = useState(() =>
-    viewTransition(css`
-      ::view-transition-old() {
-        animation-name: ${rotate};
-      }
-      ::view-transition-new() {
-        animation-name: ${rotate};
-      }
-    `)
-  )
-  return (
-    <>
-      <Style />
-      <button
-        onClick={() =>
-          startViewTransition(() =>
-            setShowLargeImage((state) => !state)
-          )
-        }
-      >
-        Click!
-      </button>
-      <div>
-        {!showLargeImage ? (
-          <img src='https://hono.dev/images/logo.png' />
-        ) : (
-          <div
-            class={css`
-              ${transitionNameClass}
-              background: url('https://hono.dev/images/logo-large.png');
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-position: center;
-              width: 600px;
-              height: 600px;
-            `}
-          ></div>
-        )}
-      </div>
-    </>
-  )
+    const [showLargeImage, setShowLargeImage] = useState(false);
+    const [transitionNameClass] = useState(() =>
+        viewTransition(css`
+            ::view-transition-old() {
+                animation-name: ${rotate};
+            }
+            ::view-transition-new() {
+                animation-name: ${rotate};
+            }
+        `)
+    );
+    return (
+        <>
+            <Style />
+            <button
+                onClick={() =>
+                    startViewTransition(() =>
+                        setShowLargeImage((state) => !state)
+                    )
+                }
+            >
+                Click!
+            </button>
+            <div>
+                {!showLargeImage ? (
+                    <img src="https://hono.dev/images/logo.png" />
+                ) : (
+                    <div
+                        class={css`
+                            ${transitionNameClass}
+                            background: url('https://hono.dev/images/logo-large.png');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 600px;
+                            height: 600px;
+                        `}
+                    ></div>
+                )}
+            </div>
+        </>
+    );
 }
 ```
 
@@ -5369,13 +5279,13 @@ If you want to change the style only during the animation. You can use `useViewT
 
 When this hook is used, the Component is evaluated at the following two times.
 
-- Inside the callback of a call to `startViewTransition()`.
-- When [the `finish` promise becomes fulfilled](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition/finished)
+-   Inside the callback of a call to `startViewTransition()`.
+-   When [the `finish` promise becomes fulfilled](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition/finished)
 
 ```tsx
-import { useState, useViewTransition } from 'hono/jsx'
-import { viewTransition } from 'hono/jsx/dom/css'
-import { css, keyframes, Style } from 'hono/css'
+import { useState, useViewTransition } from 'hono/jsx';
+import { viewTransition } from 'hono/jsx/dom/css';
+import { css, keyframes, Style } from 'hono/css';
 
 const rotate = keyframes`
   from {
@@ -5384,62 +5294,62 @@ const rotate = keyframes`
   to {
     rotate: 360deg;
   }
-`
+`;
 
 export default function App() {
-  const [isUpdating, startViewTransition] = useViewTransition()
-  const [showLargeImage, setShowLargeImage] = useState(false)
-  const [transitionNameClass] = useState(() =>
-    viewTransition(css`
-      ::view-transition-old() {
-        animation-name: ${rotate};
-      }
-      ::view-transition-new() {
-        animation-name: ${rotate};
-      }
-    `)
-  )
-  return (
-    <>
-      <Style />
-      <button
-        onClick={() =>
-          startViewTransition(() =>
-            setShowLargeImage((state) => !state)
-          )
-        }
-      >
-        Click!
-      </button>
-      <div>
-        {!showLargeImage ? (
-          <img src='https://hono.dev/images/logo.png' />
-        ) : (
-          <div
-            class={css`
-              ${transitionNameClass}
-              background: url('https://hono.dev/images/logo-large.png');
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-position: center;
-              width: 600px;
-              height: 600px;
-              position: relative;
-              ${isUpdating &&
-              css`
-                &:before {
-                  content: 'Loading...';
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
+    const [isUpdating, startViewTransition] = useViewTransition();
+    const [showLargeImage, setShowLargeImage] = useState(false);
+    const [transitionNameClass] = useState(() =>
+        viewTransition(css`
+            ::view-transition-old() {
+                animation-name: ${rotate};
+            }
+            ::view-transition-new() {
+                animation-name: ${rotate};
+            }
+        `)
+    );
+    return (
+        <>
+            <Style />
+            <button
+                onClick={() =>
+                    startViewTransition(() =>
+                        setShowLargeImage((state) => !state)
+                    )
                 }
-              `}
-            `}
-          ></div>
-        )}
-      </div>
-    </>
-  )
+            >
+                Click!
+            </button>
+            <div>
+                {!showLargeImage ? (
+                    <img src="https://hono.dev/images/logo.png" />
+                ) : (
+                    <div
+                        class={css`
+                            ${transitionNameClass}
+                            background: url('https://hono.dev/images/logo-large.png');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 600px;
+                            height: 600px;
+                            position: relative;
+                            ${isUpdating &&
+                            css`
+                                &:before {
+                                    content: 'Loading...';
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                }
+                            `}
+                        `}
+                    ></div>
+                )}
+            </div>
+        </>
+    );
 }
 ```
 
@@ -5449,25 +5359,24 @@ There is a small JSX Runtime for Client Components. Using this will result in sm
 
 ```json
 {
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx/dom"
-  }
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx/dom"
+    }
 }
 ```
 
 Alternatively, you can specify `hono/jsx/dom` in the esbuild transform options in `vite.config.ts`.
 
 ```ts
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  esbuild: {
-    jsxImportSource: 'hono/jsx/dom',
-  },
-})
+    esbuild: {
+        jsxImportSource: 'hono/jsx/dom'
+    }
+});
 ```
-
 
 # JSX
 
@@ -5483,10 +5392,10 @@ To use JSX, modify the `tsconfig.json`:
 
 ```json
 {
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
-  }
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx"
+    }
 }
 ```
 
@@ -5501,10 +5410,10 @@ For Deno, you have to modify the `deno.json` instead of the `tsconfig.json`:
 
 ```json
 {
-  "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "hono/jsx"
-  }
+    "compilerOptions": {
+        "jsx": "precompile",
+        "jsxImportSource": "hono/jsx"
+    }
 }
 ```
 
@@ -5517,40 +5426,38 @@ If you are comming straight from the [Quick Start](/docs/#quick-start), the main
 `index.tsx`:
 
 ```tsx
-import { Hono } from 'hono'
-import type { FC } from 'hono/jsx'
+import { Hono } from 'hono';
+import type { FC } from 'hono/jsx';
 
-const app = new Hono()
+const app = new Hono();
 
 const Layout: FC = (props) => {
-  return (
-    <html>
-      <body>{props.children}</body>
-    </html>
-  )
-}
+    return (
+        <html>
+            <body>{props.children}</body>
+        </html>
+    );
+};
 
-const Top: FC<{ messages: string[] }> = (props: {
-  messages: string[]
-}) => {
-  return (
-    <Layout>
-      <h1>Hello Hono!</h1>
-      <ul>
-        {props.messages.map((message) => {
-          return <li>{message}!!</li>
-        })}
-      </ul>
-    </Layout>
-  )
-}
+const Top: FC<{ messages: string[] }> = (props: { messages: string[] }) => {
+    return (
+        <Layout>
+            <h1>Hello Hono!</h1>
+            <ul>
+                {props.messages.map((message) => {
+                    return <li>{message}!!</li>;
+                })}
+            </ul>
+        </Layout>
+    );
+};
 
 app.get('/', (c) => {
-  const messages = ['Good Morning', 'Good Evening', 'Good Night']
-  return c.html(<Top messages={messages} />)
-})
+    const messages = ['Good Morning', 'Good Evening', 'Good Night'];
+    return c.html(<Top messages={messages} />);
+});
 
-export default app
+export default app;
 ```
 
 ## Metadata hoisting
@@ -5558,33 +5465,33 @@ export default app
 You can write document metadata tags such as `<title>`, `<link>`, and `<meta>` directly inside your components. These tags will be automatically hoisted to the `<head>` section of the document. This is especially useful when the `<head>` element is rendered far from the component that determines the appropriate metadata.
 
 ```tsx
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
 app.use('*', async (c, next) => {
-  c.setRenderer((content) => {
-    return c.html(
-      <html>
-        <head></head>
-        <body>{content}</body>
-      </html>
-    )
-  })
-  await next()
-})
+    c.setRenderer((content) => {
+        return c.html(
+            <html>
+                <head></head>
+                <body>{content}</body>
+            </html>
+        );
+    });
+    await next();
+});
 
 app.get('/about', (c) => {
-  return c.render(
-    <>
-      <title>About Page</title>
-      <meta name='description' content='This is the about page.' />
-      about page content
-    </>
-  )
-})
+    return c.render(
+        <>
+            <title>About Page</title>
+            <meta name="description" content="This is the about page." />
+            about page content
+        </>
+    );
+});
 
-export default app
+export default app;
 ```
 
 ## Fragment
@@ -5592,27 +5499,27 @@ export default app
 Use Fragment to group multiple elements without adding extra nodes:
 
 ```tsx
-import { Fragment } from 'hono/jsx'
+import { Fragment } from 'hono/jsx';
 
 const List = () => (
-  <Fragment>
-    <p>first child</p>
-    <p>second child</p>
-    <p>third child</p>
-  </Fragment>
-)
+    <Fragment>
+        <p>first child</p>
+        <p>second child</p>
+        <p>third child</p>
+    </Fragment>
+);
 ```
 
 Or you can write it with `<></>` if it set up properly.
 
 ```tsx
 const List = () => (
-  <>
-    <p>first child</p>
-    <p>second child</p>
-    <p>third child</p>
-  </>
-)
+    <>
+        <p>first child</p>
+        <p>second child</p>
+        <p>third child</p>
+    </>
+);
 ```
 
 ## `PropsWithChildren`
@@ -5620,20 +5527,20 @@ const List = () => (
 You can use `PropsWithChildren` to correctly infer a child element in a function component.
 
 ```tsx
-import { PropsWithChildren } from 'hono/jsx'
+import { PropsWithChildren } from 'hono/jsx';
 
 type Post = {
-  id: number
-  title: string
-}
+    id: number;
+    title: string;
+};
 
 function Component({ title, children }: PropsWithChildren<Post>) {
-  return (
-    <div>
-      <h1>{title}</h1>
-      {children}
-    </div>
-  )
+    return (
+        <div>
+            <h1>{title}</h1>
+            {children}
+        </div>
+    );
 }
 ```
 
@@ -5643,9 +5550,9 @@ To directly insert HTML, use `dangerouslySetInnerHTML`:
 
 ```tsx
 app.get('/foo', (c) => {
-  const inner = { __html: 'JSX &middot; SSR' }
-  const Div = <div dangerouslySetInnerHTML={inner} />
-})
+    const inner = { __html: 'JSX &middot; SSR' };
+    const Div = <div dangerouslySetInnerHTML={inner} />;
+});
 ```
 
 ## Memoization
@@ -5653,17 +5560,17 @@ app.get('/foo', (c) => {
 Optimize your components by memoizing computed strings using `memo`:
 
 ```tsx
-import { memo } from 'hono/jsx'
+import { memo } from 'hono/jsx';
 
-const Header = memo(() => <header>Welcome to Hono</header>)
-const Footer = memo(() => <footer>Powered by Hono</footer>)
+const Header = memo(() => <header>Welcome to Hono</header>);
+const Footer = memo(() => <footer>Powered by Hono</footer>);
 const Layout = (
-  <div>
-    <Header />
-    <p>Hono is cool!</p>
-    <Footer />
-  </div>
-)
+    <div>
+        <Header />
+        <p>Hono is cool!</p>
+        <Footer />
+    </div>
+);
 ```
 
 ## Context
@@ -5671,46 +5578,46 @@ const Layout = (
 By using `useContext`, you can share data globally across any level of the Component tree without passing values through props.
 
 ```tsx
-import type { FC } from 'hono/jsx'
-import { createContext, useContext } from 'hono/jsx'
+import type { FC } from 'hono/jsx';
+import { createContext, useContext } from 'hono/jsx';
 
 const themes = {
-  light: {
-    color: '#000000',
-    background: '#eeeeee',
-  },
-  dark: {
-    color: '#ffffff',
-    background: '#222222',
-  },
-}
+    light: {
+        color: '#000000',
+        background: '#eeeeee'
+    },
+    dark: {
+        color: '#ffffff',
+        background: '#222222'
+    }
+};
 
-const ThemeContext = createContext(themes.light)
+const ThemeContext = createContext(themes.light);
 
 const Button: FC = () => {
-  const theme = useContext(ThemeContext)
-  return <button style={theme}>Push!</button>
-}
+    const theme = useContext(ThemeContext);
+    return <button style={theme}>Push!</button>;
+};
 
 const Toolbar: FC = () => {
-  return (
-    <div>
-      <Button />
-    </div>
-  )
-}
+    return (
+        <div>
+            <Button />
+        </div>
+    );
+};
 
 // ...
 
 app.get('/', (c) => {
-  return c.html(
-    <div>
-      <ThemeContext.Provider value={themes.dark}>
-        <Toolbar />
-      </ThemeContext.Provider>
-    </div>
-  )
-})
+    return c.html(
+        <div>
+            <ThemeContext.Provider value={themes.dark}>
+                <Toolbar />
+            </ThemeContext.Provider>
+        </div>
+    );
+});
 ```
 
 ## Async Component
@@ -5720,19 +5627,19 @@ If you render it with `c.html()`, it will await automatically.
 
 ```tsx
 const AsyncComponent = async () => {
-  await new Promise((r) => setTimeout(r, 1000)) // sleep 1s
-  return <div>Done!</div>
-}
+    await new Promise((r) => setTimeout(r, 1000)); // sleep 1s
+    return <div>Done!</div>;
+};
 
 app.get('/', (c) => {
-  return c.html(
-    <html>
-      <body>
-        <AsyncComponent />
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <body>
+                <AsyncComponent />
+            </body>
+        </html>
+    );
+});
 ```
 
 ## Suspense <Badge style="vertical-align: middle;" type="warning" text="Experimental" />
@@ -5742,27 +5649,27 @@ If you wrap the async component with `Suspense`, the content in the fallback wil
 You can use it with `renderToReadableStream()`.
 
 ```tsx
-import { renderToReadableStream, Suspense } from 'hono/jsx/streaming'
+import { renderToReadableStream, Suspense } from 'hono/jsx/streaming';
 
 //...
 
 app.get('/', (c) => {
-  const stream = renderToReadableStream(
-    <html>
-      <body>
-        <Suspense fallback={<div>loading...</div>}>
-          <Component />
-        </Suspense>
-      </body>
-    </html>
-  )
-  return c.body(stream, {
-    headers: {
-      'Content-Type': 'text/html; charset=UTF-8',
-      'Transfer-Encoding': 'chunked',
-    },
-  })
-})
+    const stream = renderToReadableStream(
+        <html>
+            <body>
+                <Suspense fallback={<div>loading...</div>}>
+                    <Component />
+                </Suspense>
+            </body>
+        </html>
+    );
+    return c.body(stream, {
+        headers: {
+            'Content-Type': 'text/html; charset=UTF-8',
+            'Transfer-Encoding': 'chunked'
+        }
+    });
+});
 ```
 
 ## ErrorBoundary <Badge style="vertical-align: middle;" type="warning" text="Experimental" />
@@ -5773,45 +5680,45 @@ In the example below, it will show the content specified in `fallback` if an err
 
 ```tsx
 function SyncComponent() {
-  throw new Error('Error')
-  return <div>Hello</div>
+    throw new Error('Error');
+    return <div>Hello</div>;
 }
 
 app.get('/sync', async (c) => {
-  return c.html(
-    <html>
-      <body>
-        <ErrorBoundary fallback={<div>Out of Service</div>}>
-          <SyncComponent />
-        </ErrorBoundary>
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <body>
+                <ErrorBoundary fallback={<div>Out of Service</div>}>
+                    <SyncComponent />
+                </ErrorBoundary>
+            </body>
+        </html>
+    );
+});
 ```
 
 `ErrorBoundary` can also be used with async components and `Suspense`.
 
 ```tsx
 async function AsyncComponent() {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-  throw new Error('Error')
-  return <div>Hello</div>
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    throw new Error('Error');
+    return <div>Hello</div>;
 }
 
 app.get('/with-suspense', async (c) => {
-  return c.html(
-    <html>
-      <body>
-        <ErrorBoundary fallback={<div>Out of Service</div>}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <AsyncComponent />
-          </Suspense>
-        </ErrorBoundary>
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <body>
+                <ErrorBoundary fallback={<div>Out of Service</div>}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <AsyncComponent />
+                    </Suspense>
+                </ErrorBoundary>
+            </body>
+        </html>
+    );
+});
 ```
 
 ## StreamingContext <Badge style="vertical-align: middle;" type="warning" text="Experimental" />
@@ -5819,34 +5726,31 @@ app.get('/with-suspense', async (c) => {
 You can use `StreamingContext` to provide configuration for streaming components like `Suspense` and `ErrorBoundary`. This is useful for adding nonce values to script tags generated by these components for Content Security Policy (CSP).
 
 ```tsx
-import { Suspense, StreamingContext } from 'hono/jsx/streaming'
+import { Suspense, StreamingContext } from 'hono/jsx/streaming';
 
 // ...
 
 app.get('/', (c) => {
-  const stream = renderToReadableStream(
-    <html>
-      <body>
-        <StreamingContext
-          value={{ scriptNonce: 'random-nonce-value' }}
-        >
-          <Suspense fallback={<div>Loading...</div>}>
-            <AsyncComponent />
-          </Suspense>
-        </StreamingContext>
-      </body>
-    </html>
-  )
+    const stream = renderToReadableStream(
+        <html>
+            <body>
+                <StreamingContext value={{ scriptNonce: 'random-nonce-value' }}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <AsyncComponent />
+                    </Suspense>
+                </StreamingContext>
+            </body>
+        </html>
+    );
 
-  return c.body(stream, {
-    headers: {
-      'Content-Type': 'text/html; charset=UTF-8',
-      'Transfer-Encoding': 'chunked',
-      'Content-Security-Policy':
-        "script-src 'nonce-random-nonce-value'",
-    },
-  })
-})
+    return c.body(stream, {
+        headers: {
+            'Content-Type': 'text/html; charset=UTF-8',
+            'Transfer-Encoding': 'chunked',
+            'Content-Security-Policy': "script-src 'nonce-random-nonce-value'"
+        }
+    });
+});
 ```
 
 The `scriptNonce` value will be automatically added to any `<script>` tags generated by `Suspense` and `ErrorBoundary` components.
@@ -5857,45 +5761,45 @@ Combine the JSX and html middlewares for powerful templating.
 For in-depth details, consult the [html middleware documentation](/docs/helpers/html).
 
 ```tsx
-import { Hono } from 'hono'
-import { html } from 'hono/html'
+import { Hono } from 'hono';
+import { html } from 'hono/html';
 
-const app = new Hono()
+const app = new Hono();
 
 interface SiteData {
-  title: string
-  children?: any
+    title: string;
+    children?: any;
 }
 
 const Layout = (props: SiteData) =>
-  html`<!doctype html>
-    <html>
-      <head>
-        <title>${props.title}</title>
-      </head>
-      <body>
-        ${props.children}
-      </body>
-    </html>`
+    html`<!DOCTYPE html>
+        <html>
+            <head>
+                <title>${props.title}</title>
+            </head>
+            <body>
+                ${props.children}
+            </body>
+        </html>`;
 
 const Content = (props: { siteData: SiteData; name: string }) => (
-  <Layout {...props.siteData}>
-    <h1>Hello {props.name}</h1>
-  </Layout>
-)
+    <Layout {...props.siteData}>
+        <h1>Hello {props.name}</h1>
+    </Layout>
+);
 
 app.get('/:name', (c) => {
-  const { name } = c.req.param()
-  const props = {
-    name: name,
-    siteData: {
-      title: 'JSX with html sample',
-    },
-  }
-  return c.html(<Content {...props} />)
-})
+    const { name } = c.req.param();
+    const props = {
+        name: name,
+        siteData: {
+            title: 'JSX with html sample'
+        }
+    };
+    return c.html(<Content {...props} />);
+});
 
-export default app
+export default app;
 ```
 
 ## With JSX Renderer Middleware
@@ -5908,16 +5812,15 @@ You can override the type definition to add your custom elements and attributes.
 
 ```ts
 declare module 'hono/jsx' {
-  namespace JSX {
-    interface IntrinsicElements {
-      'my-custom-element': HTMLAttributes & {
-        'x-event'?: 'click' | 'scroll'
-      }
+    namespace JSX {
+        interface IntrinsicElements {
+            'my-custom-element': HTMLAttributes & {
+                'x-event'?: 'click' | 'scroll';
+            };
+        }
     }
-  }
 }
 ```
-
 
 # Middleware
 
@@ -5925,26 +5828,26 @@ Middleware works after/before Handler. We can get `Request` before dispatching o
 
 ## Definition of Middleware
 
-- Handler - should return `Response` object. Only one handler will be called.
-- Middleware - should return nothing, will be proceeded to next middleware with `await next()`
+-   Handler - should return `Response` object. Only one handler will be called.
+-   Middleware - should return nothing, will be proceeded to next middleware with `await next()`
 
 The user can register middleware using `app.use` or using `app.HTTP_METHOD` as well as the handlers. For this feature, it's easy to specify the path and the method.
 
 ```ts
 // match any method, all routes
-app.use(logger())
+app.use(logger());
 
 // specify path
-app.use('/posts/*', cors())
+app.use('/posts/*', cors());
 
 // specify method and path
-app.post('/posts/*', basicAuth())
+app.post('/posts/*', basicAuth());
 ```
 
 If the handler returns `Response`, it will be used for the end-user, and stopping the processing.
 
 ```ts
-app.post('/posts', (c) => c.text('Created!', 201))
+app.post('/posts', (c) => c.text('Created!', 201));
 ```
 
 In this case, four middleware are processed before dispatching like this:
@@ -5962,25 +5865,25 @@ See below.
 
 ```ts
 app.use(async (_, next) => {
-  console.log('middleware 1 start')
-  await next()
-  console.log('middleware 1 end')
-})
+    console.log('middleware 1 start');
+    await next();
+    console.log('middleware 1 end');
+});
 app.use(async (_, next) => {
-  console.log('middleware 2 start')
-  await next()
-  console.log('middleware 2 end')
-})
+    console.log('middleware 2 start');
+    await next();
+    console.log('middleware 2 end');
+});
 app.use(async (_, next) => {
-  console.log('middleware 3 start')
-  await next()
-  console.log('middleware 3 end')
-})
+    console.log('middleware 3 start');
+    await next();
+    console.log('middleware 3 end');
+});
 
 app.get('/', (c) => {
-  console.log('handler')
-  return c.text('Hello!')
-})
+    console.log('handler');
+    return c.text('Hello!');
+});
 ```
 
 Result is the following.
@@ -6002,23 +5905,23 @@ Note that if the handler or any middleware throws, hono will catch it and either
 Hono has built-in middleware.
 
 ```ts
-import { Hono } from 'hono'
-import { poweredBy } from 'hono/powered-by'
-import { logger } from 'hono/logger'
-import { basicAuth } from 'hono/basic-auth'
+import { Hono } from 'hono';
+import { poweredBy } from 'hono/powered-by';
+import { logger } from 'hono/logger';
+import { basicAuth } from 'hono/basic-auth';
 
-const app = new Hono()
+const app = new Hono();
 
-app.use(poweredBy())
-app.use(logger())
+app.use(poweredBy());
+app.use(logger());
 
 app.use(
-  '/auth/*',
-  basicAuth({
-    username: 'hono',
-    password: 'acoolproject',
-  })
-)
+    '/auth/*',
+    basicAuth({
+        username: 'hono',
+        password: 'acoolproject'
+    })
+);
 ```
 
 ::: warning
@@ -6026,17 +5929,17 @@ In Deno, it is possible to use a different version of middleware than the Hono v
 For example, this code is not working because the version is different.
 
 ```ts
-import { Hono } from 'jsr:@hono/hono@4.4.0'
-import { upgradeWebSocket } from 'jsr:@hono/hono@4.4.5/deno'
+import { Hono } from 'jsr:@hono/hono@4.4.0';
+import { upgradeWebSocket } from 'jsr:@hono/hono@4.4.5/deno';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get(
-  '/ws',
-  upgradeWebSocket(() => ({
-    // ...
-  }))
-)
+    '/ws',
+    upgradeWebSocket(() => ({
+        // ...
+    }))
+);
 ```
 
 :::
@@ -6048,17 +5951,17 @@ You can write your own middleware directly inside `app.use()`:
 ```ts
 // Custom logger
 app.use(async (c, next) => {
-  console.log(`[${c.req.method}] ${c.req.url}`)
-  await next()
-})
+    console.log(`[${c.req.method}] ${c.req.url}`);
+    await next();
+});
 
 // Add a custom header
 app.use('/message/*', async (c, next) => {
-  await next()
-  c.header('x-message', 'This is middleware!')
-})
+    await next();
+    c.header('x-message', 'This is middleware!');
+});
 
-app.get('/message/hello', (c) => c.text('Hello Middleware!'))
+app.get('/message/hello', (c) => c.text('Hello Middleware!'));
 ```
 
 However, embedding middleware directly within `app.use()` can limit its reusability. Therefore, we can separate our
@@ -6068,12 +5971,12 @@ To ensure we don't lose type definitions for `context` and `next`, when separati
 [`createMiddleware()`](/docs/helpers/factory#createmiddleware) from Hono's factory. This also allows us to type-safely [access data we've `set` in `Context`](https://hono.dev/docs/api/context#set-get) from downstream handlers.
 
 ```ts
-import { createMiddleware } from 'hono/factory'
+import { createMiddleware } from 'hono/factory';
 
 const logger = createMiddleware(async (c, next) => {
-  console.log(`[${c.req.method}] ${c.req.url}`)
-  await next()
-})
+    console.log(`[${c.req.method}] ${c.req.url}`);
+    await next();
+});
 ```
 
 :::info
@@ -6091,10 +5994,10 @@ Additionally, middleware can be designed to modify responses if necessary:
 
 ```ts
 const stripRes = createMiddleware(async (c, next) => {
-  await next()
-  c.res = undefined
-  c.res = new Response('New Response')
-})
+    await next();
+    c.res = undefined;
+    c.res = new Response('New Response');
+});
 ```
 
 ## Context access inside Middleware arguments
@@ -6102,14 +6005,14 @@ const stripRes = createMiddleware(async (c, next) => {
 To access the context inside middleware arguments, directly use the context parameter provided by `app.use`. See the example below for clarification.
 
 ```ts
-import { cors } from 'hono/cors'
+import { cors } from 'hono/cors';
 
 app.use('*', async (c, next) => {
-  const middleware = cors({
-    origin: c.env.CORS_ORIGIN,
-  })
-  return middleware(c, next)
-})
+    const middleware = cors({
+        origin: c.env.CORS_ORIGIN
+    });
+    return middleware(c, next);
+});
 ```
 
 ### Extending the Context in Middleware
@@ -6117,20 +6020,20 @@ app.use('*', async (c, next) => {
 To extend the context inside middleware, use `c.set`. You can make this type-safe by passing a `{ Variables: { yourVariable: YourVariableType } }` generic argument to the `createMiddleware` function.
 
 ```ts
-import { createMiddleware } from 'hono/factory'
+import { createMiddleware } from 'hono/factory';
 
 const echoMiddleware = createMiddleware<{
-  Variables: {
-    echo: (str: string) => string
-  }
+    Variables: {
+        echo: (str: string) => string;
+    };
 }>(async (c, next) => {
-  c.set('echo', (str) => str)
-  await next()
-})
+    c.set('echo', (str) => str);
+    await next();
+});
 
 app.get('/echo', echoMiddleware, (c) => {
-  return c.text(c.var.echo('Hello!'))
-})
+    return c.text(c.var.echo('Hello!'));
+});
 ```
 
 ## Third-party Middleware
@@ -6141,18 +6044,17 @@ So with them, we may make a more complex application.
 We can explore a variety of [third-party middleware](https://hono.dev/docs/middleware/third-party).
 For example, we have GraphQL Server Middleware, Sentry Middleware, Firebase Auth Middleware, and others.
 
-
 # Miscellaneous
 
 ## Contributing
 
 Contributions Welcome! You can contribute in the following ways.
 
-- Create an Issue - Propose a new feature. Report a bug.
-- Pull Request - Fix a bug and typo. Refactor the code.
-- Create third-party middleware - Instruct below.
-- Share - Share your thoughts on the Blog, X(Twitter), and others.
-- Make your application - Please try to use Hono.
+-   Create an Issue - Propose a new feature. Report a bug.
+-   Pull Request - Fix a bug and typo. Refactor the code.
+-   Create third-party middleware - Instruct below.
+-   Share - Share your thoughts on the Blog, X(Twitter), and others.
+-   Make your application - Please try to use Hono.
 
 For more details, see [Contribution Guide](https://github.com/honojs/hono/blob/main/docs/CONTRIBUTING.md).
 
@@ -6160,15 +6062,14 @@ For more details, see [Contribution Guide](https://github.com/honojs/hono/blob/m
 
 You can sponsor Hono authors via the GitHub sponsor program.
 
-- [Sponsor @yusukebe on GitHub Sponsors](https://github.com/sponsors/yusukebe)
-- [Sponsor @usualoma on GitHub Sponsors](https://github.com/sponsors/usualoma)
+-   [Sponsor @yusukebe on GitHub Sponsors](https://github.com/sponsors/yusukebe)
+-   [Sponsor @usualoma on GitHub Sponsors](https://github.com/sponsors/usualoma)
 
 ## Other Resources
 
-- GitHub repository: <a href="https://github.com/honojs">https://github.com/honojs</a>
-- npm registry: <a href="https://www.npmjs.com/package/hono">https://www.npmjs.com/package/hono</a>
-- JSR: <a href="https://jsr.io/@hono/hono">https://jsr.io/@hono/hono</a>
-
+-   GitHub repository: <a href="https://github.com/honojs">https://github.com/honojs</a>
+-   npm registry: <a href="https://www.npmjs.com/package/hono">https://www.npmjs.com/package/hono</a>
+-   JSR: <a href="https://jsr.io/@hono/hono">https://jsr.io/@hono/hono</a>
 
 # RPC
 
@@ -6214,7 +6115,7 @@ const route = app.post(
 Then, export the type to share the API spec with the Client.
 
 ```ts
-export type AppType = typeof route
+export type AppType = typeof route;
 ```
 
 ## Client
@@ -6222,33 +6123,33 @@ export type AppType = typeof route
 On the Client side, import `hc` and `AppType` first.
 
 ```ts
-import type { AppType } from '.'
-import { hc } from 'hono/client'
+import type { AppType } from '.';
+import { hc } from 'hono/client';
 ```
 
 `hc` is a function to create a client. Pass `AppType` as Generics and specify the server URL as an argument.
 
 ```ts
-const client = hc<AppType>('http://localhost:8787/')
+const client = hc<AppType>('http://localhost:8787/');
 ```
 
 Call `client.{path}.{method}` and pass the data you wish to send to the server as an argument.
 
 ```ts
 const res = await client.posts.$post({
-  form: {
-    title: 'Hello',
-    body: 'Hono is a cool project',
-  },
-})
+    form: {
+        title: 'Hello',
+        body: 'Hono is a cool project'
+    }
+});
 ```
 
 The `res` is compatible with the "fetch" Response. You can retrieve data from the server with `res.json()`.
 
 ```ts
 if (res.ok) {
-  const data = await res.json()
-  console.log(data.message)
+    const data = await res.json();
+    console.log(data.message);
 }
 ```
 
@@ -6259,17 +6160,17 @@ To make the client send cookies with every request, add `{ 'init': { 'credential
 ```ts
 // client.ts
 const client = hc<AppType>('http://localhost:8787/', {
-  init: {
-    credentials: 'include',
-  },
-})
+    init: {
+        credentials: 'include'
+    }
+});
 
 // This request will now include any cookies you might have set
 const res = await client.posts.$get({
-  query: {
-    id: '123',
-  },
-})
+    query: {
+        id: '123'
+    }
+});
 ```
 
 ## Status code
@@ -6279,58 +6180,55 @@ If you explicitly specify the status code, such as `200` or `404`, in `c.json()`
 ```ts
 // server.ts
 const app = new Hono().get(
-  '/posts',
-  zValidator(
-    'query',
-    z.object({
-      id: z.string(),
-    })
-  ),
-  async (c) => {
-    const { id } = c.req.valid('query')
-    const post: Post | undefined = await getPost(id)
+    '/posts',
+    zValidator(
+        'query',
+        z.object({
+            id: z.string()
+        })
+    ),
+    async (c) => {
+        const { id } = c.req.valid('query');
+        const post: Post | undefined = await getPost(id);
 
-    if (post === undefined) {
-      return c.json({ error: 'not found' }, 404) // Specify 404
+        if (post === undefined) {
+            return c.json({ error: 'not found' }, 404); // Specify 404
+        }
+
+        return c.json({ post }, 200); // Specify 200
     }
+);
 
-    return c.json({ post }, 200) // Specify 200
-  }
-)
-
-export type AppType = typeof app
+export type AppType = typeof app;
 ```
 
 You can get the data by the status code.
 
 ```ts
 // client.ts
-const client = hc<AppType>('http://localhost:8787/')
+const client = hc<AppType>('http://localhost:8787/');
 
 const res = await client.posts.$get({
-  query: {
-    id: '123',
-  },
-})
+    query: {
+        id: '123'
+    }
+});
 
 if (res.status === 404) {
-  const data: { error: string } = await res.json()
-  console.log(data.error)
+    const data: { error: string } = await res.json();
+    console.log(data.error);
 }
 
 if (res.ok) {
-  const data: { post: Post } = await res.json()
-  console.log(data.post)
+    const data: { post: Post } = await res.json();
+    console.log(data.post);
 }
 
 // { post: Post } | { error: string }
-type ResponseType = InferResponseType<typeof client.posts.$get>
+type ResponseType = InferResponseType<typeof client.posts.$get>;
 
 // { post: Post }
-type ResponseType200 = InferResponseType<
-  typeof client.posts.$get,
-  200
->
+type ResponseType200 = InferResponseType<typeof client.posts.$get, 200>;
 ```
 
 ## Not Found
@@ -6340,61 +6238,61 @@ If you want to use a client, you should not use `c.notFound()` for the Not Found
 ```ts
 // server.ts
 export const routes = new Hono().get(
-  '/posts',
-  zValidator(
-    'query',
-    z.object({
-      id: z.string(),
-    })
-  ),
-  async (c) => {
-    const { id } = c.req.valid('query')
-    const post: Post | undefined = await getPost(id)
+    '/posts',
+    zValidator(
+        'query',
+        z.object({
+            id: z.string()
+        })
+    ),
+    async (c) => {
+        const { id } = c.req.valid('query');
+        const post: Post | undefined = await getPost(id);
 
-    if (post === undefined) {
-      return c.notFound() // ❌️
+        if (post === undefined) {
+            return c.notFound(); // ❌️
+        }
+
+        return c.json({ post });
     }
-
-    return c.json({ post })
-  }
-)
+);
 
 // client.ts
-import { hc } from 'hono/client'
+import { hc } from 'hono/client';
 
-const client = hc<typeof routes>('/')
+const client = hc<typeof routes>('/');
 
 const res = await client.posts[':id'].$get({
-  param: {
-    id: '123',
-  },
-})
+    param: {
+        id: '123'
+    }
+});
 
-const data = await res.json() // 🙁 data is unknown
+const data = await res.json(); // 🙁 data is unknown
 ```
 
 Please use `c.json()` and specify the status code for the Not Found Response.
 
 ```ts
 export const routes = new Hono().get(
-  '/posts',
-  zValidator(
-    'query',
-    z.object({
-      id: z.string(),
-    })
-  ),
-  async (c) => {
-    const { id } = c.req.valid('query')
-    const post: Post | undefined = await getPost(id)
+    '/posts',
+    zValidator(
+        'query',
+        z.object({
+            id: z.string()
+        })
+    ),
+    async (c) => {
+        const { id } = c.req.valid('query');
+        const post: Post | undefined = await getPost(id);
 
-    if (post === undefined) {
-      return c.json({ error: 'not found' }, 404) // Specify 404
+        if (post === undefined) {
+            return c.json({ error: 'not found' }, 404); // Specify 404
+        }
+
+        return c.json({ post }, 200); // Specify 200
     }
-
-    return c.json({ post }, 200) // Specify 200
-  }
-)
+);
 ```
 
 ## Path parameters
@@ -6403,32 +6301,32 @@ You can also handle routes that include path parameters.
 
 ```ts
 const route = app.get(
-  '/posts/:id',
-  zValidator(
-    'query',
-    z.object({
-      page: z.string().optional(),
-    })
-  ),
-  (c) => {
-    // ...
-    return c.json({
-      title: 'Night',
-      body: 'Time to sleep',
-    })
-  }
-)
+    '/posts/:id',
+    zValidator(
+        'query',
+        z.object({
+            page: z.string().optional()
+        })
+    ),
+    (c) => {
+        // ...
+        return c.json({
+            title: 'Night',
+            body: 'Time to sleep'
+        });
+    }
+);
 ```
 
 Specify the string you want to include in the path with `param`.
 
 ```ts
 const res = await client.posts[':id'].$get({
-  param: {
-    id: '123',
-  },
-  query: {},
-})
+    param: {
+        id: '123'
+    },
+    query: {}
+});
 ```
 
 ### Include slashes
@@ -6440,26 +6338,26 @@ const res = await client.posts[':id'].$get({
 
 // Requests /posts/123/456
 const res = await client.posts[':id'].$get({
-  param: {
-    id: '123/456',
-  },
-})
+    param: {
+        id: '123/456'
+    }
+});
 
 // server.ts
 const route = app.get(
-  '/posts/:id{.+}',
-  zValidator(
-    'param',
-    z.object({
-      id: z.string(),
-    })
-  ),
-  (c) => {
-    // id: 123/456
-    const { id } = c.req.valid('param')
-    // ...
-  }
-)
+    '/posts/:id{.+}',
+    zValidator(
+        'param',
+        z.object({
+            id: z.string()
+        })
+    ),
+    (c) => {
+        // id: 123/456
+        const { id } = c.req.valid('param');
+        // ...
+    }
+);
 ```
 
 > [!NOTE]
@@ -6471,26 +6369,26 @@ You can append the headers to the request.
 
 ```ts
 const res = await client.search.$get(
-  {
-    //...
-  },
-  {
-    headers: {
-      'X-Custom-Header': 'Here is Hono Client',
-      'X-User-Agent': 'hc',
+    {
+        //...
     },
-  }
-)
+    {
+        headers: {
+            'X-Custom-Header': 'Here is Hono Client',
+            'X-User-Agent': 'hc'
+        }
+    }
+);
 ```
 
 To add a common header to all requests, specify it as an argument to the `hc` function.
 
 ```ts
 const client = hc<AppType>('/api', {
-  headers: {
-    Authorization: 'Bearer TOKEN',
-  },
-})
+    headers: {
+        Authorization: 'Bearer TOKEN'
+    }
+});
 ```
 
 ## `init` option
@@ -6498,28 +6396,28 @@ const client = hc<AppType>('/api', {
 You can pass the fetch's `RequestInit` object to the request as the `init` option. Below is an example of aborting a Request.
 
 ```ts
-import { hc } from 'hono/client'
+import { hc } from 'hono/client';
 
-const client = hc<AppType>('http://localhost:8787/')
+const client = hc<AppType>('http://localhost:8787/');
 
-const abortController = new AbortController()
+const abortController = new AbortController();
 const res = await client.api.posts.$post(
-  {
-    json: {
-      // Request body
+    {
+        json: {
+            // Request body
+        }
     },
-  },
-  {
-    // RequestInit object
-    init: {
-      signal: abortController.signal,
-    },
-  }
-)
+    {
+        // RequestInit object
+        init: {
+            signal: abortController.signal
+        }
+    }
+);
 
 // ...
 
-abortController.abort()
+abortController.abort();
 ```
 
 ::: info
@@ -6537,32 +6435,32 @@ You have to pass in an absolute URL for this to work. Passing in a relative URL 
 
 ```ts
 // ❌ Will throw error
-const client = hc<AppType>('/')
-client.api.post.$url()
+const client = hc<AppType>('/');
+client.api.post.$url();
 
 // ✅ Will work as expected
-const client = hc<AppType>('http://localhost:8787/')
-client.api.post.$url()
+const client = hc<AppType>('http://localhost:8787/');
+client.api.post.$url();
 ```
 
 :::
 
 ```ts
 const route = app
-  .get('/api/posts', (c) => c.json({ posts }))
-  .get('/api/posts/:id', (c) => c.json({ post }))
+    .get('/api/posts', (c) => c.json({ posts }))
+    .get('/api/posts/:id', (c) => c.json({ post }));
 
-const client = hc<typeof route>('http://localhost:8787/')
+const client = hc<typeof route>('http://localhost:8787/');
 
-let url = client.api.posts.$url()
-console.log(url.pathname) // `/api/posts`
+let url = client.api.posts.$url();
+console.log(url.pathname); // `/api/posts`
 
 url = client.api.posts[':id'].$url({
-  param: {
-    id: '123',
-  },
-})
-console.log(url.pathname) // `/api/posts/123`
+    param: {
+        id: '123'
+    }
+});
+console.log(url.pathname); // `/api/posts/123`
 ```
 
 ## File Uploads
@@ -6572,26 +6470,26 @@ You can upload files using a form body:
 ```ts
 // client
 const res = await client.user.picture.$put({
-  form: {
-    file: new File([fileToUpload], filename, {
-      type: fileToUpload.type,
-    }),
-  },
-})
+    form: {
+        file: new File([fileToUpload], filename, {
+            type: fileToUpload.type
+        })
+    }
+});
 ```
 
 ```ts
 // server
 const route = app.put(
-  '/user/picture',
-  zValidator(
-    'form',
-    z.object({
-      file: z.instanceof(File),
-    })
-  )
-  // ...
-)
+    '/user/picture',
+    zValidator(
+        'form',
+        z.object({
+            file: z.instanceof(File)
+        })
+    )
+    // ...
+);
 ```
 
 ## Custom `fetch` method
@@ -6610,8 +6508,8 @@ services = [
 ```ts
 // src/client.ts
 const client = hc<CreateProfileType>('/', {
-  fetch: c.env.AUTH.fetch.bind(c.env.AUTH),
-})
+    fetch: c.env.AUTH.fetch.bind(c.env.AUTH)
+});
 ```
 
 ## Infer
@@ -6619,14 +6517,14 @@ const client = hc<CreateProfileType>('/', {
 Use `InferRequestType` and `InferResponseType` to know the type of object to be requested and the type of object to be returned.
 
 ```ts
-import type { InferRequestType, InferResponseType } from 'hono/client'
+import type { InferRequestType, InferResponseType } from 'hono/client';
 
 // InferRequestType
-const $post = client.todo.$post
-type ReqType = InferRequestType<typeof $post>['form']
+const $post = client.todo.$post;
+type ReqType = InferRequestType<typeof $post>['form'];
 
 // InferResponseType
-type ResType = InferResponseType<typeof $post>
+type ResType = InferResponseType<typeof $post>;
 ```
 
 ## Parsing a Response with type-safety helper
@@ -6634,14 +6532,14 @@ type ResType = InferResponseType<typeof $post>
 You can use `parseResponse()` helper to easily parse a Response from `hc` with type-safety.
 
 ```ts
-import { parseResponse, DetailedError } from 'hono/client'
+import { parseResponse, DetailedError } from 'hono/client';
 
 // result contains the parsed response body (automatically parsed based on Content-Type)
 const result = await parseResponse(client.hello.$get()).catch(
-  (e: DetailedError) => {
-    console.error(e)
-  }
-)
+    (e: DetailedError) => {
+        console.error(e);
+    }
+);
 // parseResponse automatically throws an error if response is not ok
 ```
 
@@ -6650,37 +6548,36 @@ const result = await parseResponse(client.hello.$get()).catch(
 You can also use a React Hook library such as [SWR](https://swr.vercel.app).
 
 ```tsx
-import useSWR from 'swr'
-import { hc } from 'hono/client'
-import type { InferRequestType } from 'hono/client'
-import type { AppType } from '../functions/api/[[route]]'
+import useSWR from 'swr';
+import { hc } from 'hono/client';
+import type { InferRequestType } from 'hono/client';
+import type { AppType } from '../functions/api/[[route]]';
 
 const App = () => {
-  const client = hc<AppType>('/api')
-  const $get = client.hello.$get
+    const client = hc<AppType>('/api');
+    const $get = client.hello.$get;
 
-  const fetcher =
-    (arg: InferRequestType<typeof $get>) => async () => {
-      const res = await $get(arg)
-      return await res.json()
-    }
+    const fetcher = (arg: InferRequestType<typeof $get>) => async () => {
+        const res = await $get(arg);
+        return await res.json();
+    };
 
-  const { data, error, isLoading } = useSWR(
-    'api-hello',
-    fetcher({
-      query: {
-        name: 'SWR',
-      },
-    })
-  )
+    const { data, error, isLoading } = useSWR(
+        'api-hello',
+        fetcher({
+            query: {
+                name: 'SWR'
+            }
+        })
+    );
 
-  if (error) return <div>failed to load</div>
-  if (isLoading) return <div>loading...</div>
+    if (error) return <div>failed to load</div>;
+    if (isLoading) return <div>loading...</div>;
 
-  return <h1>{data?.message}</h1>
-}
+    return <h1>{data?.message}</h1>;
+};
 
-export default App
+export default App;
 ```
 
 ## Using RPC with larger applications
@@ -6690,42 +6587,42 @@ A simple way to do this is to chain the handlers so that the types are always in
 
 ```ts
 // authors.ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
 const app = new Hono()
-  .get('/', (c) => c.json('list authors'))
-  .post('/', (c) => c.json('create an author', 201))
-  .get('/:id', (c) => c.json(`get ${c.req.param('id')}`))
+    .get('/', (c) => c.json('list authors'))
+    .post('/', (c) => c.json('create an author', 201))
+    .get('/:id', (c) => c.json(`get ${c.req.param('id')}`));
 
-export default app
+export default app;
 ```
 
 ```ts
 // books.ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
 const app = new Hono()
-  .get('/', (c) => c.json('list books'))
-  .post('/', (c) => c.json('create a book', 201))
-  .get('/:id', (c) => c.json(`get ${c.req.param('id')}`))
+    .get('/', (c) => c.json('list books'))
+    .post('/', (c) => c.json('create a book', 201))
+    .get('/:id', (c) => c.json(`get ${c.req.param('id')}`));
 
-export default app
+export default app;
 ```
 
 You can then import the sub-routers as you usually would, and make sure you chain their handlers as well, since this is the top level of the app in this case, this is the type we'll want to export.
 
 ```ts
 // index.ts
-import { Hono } from 'hono'
-import authors from './authors'
-import books from './books'
+import { Hono } from 'hono';
+import authors from './authors';
+import books from './books';
 
-const app = new Hono()
+const app = new Hono();
 
-const routes = app.route('/authors', authors).route('/books', books)
+const routes = app.route('/authors', authors).route('/books', books);
 
-export default app
-export type AppType = typeof routes
+export default app;
+export type AppType = typeof routes;
 ```
 
 You can now create a new client using the registered AppType and use it as you would normally.
@@ -6740,21 +6637,19 @@ For example, suppose your app has a route like this:
 
 ```ts
 // app.ts
-export const app = new Hono().get('foo/:id', (c) =>
-  c.json({ ok: true }, 200)
-)
+export const app = new Hono().get('foo/:id', (c) => c.json({ ok: true }, 200));
 ```
 
 Hono will infer the type as follows:
 
 ```ts
 export const app = Hono<BlankEnv, BlankSchema, '/'>().get<
-  'foo/:id',
-  'foo/:id',
-  JSONRespondReturn<{ ok: boolean }, 200>,
-  BlankInput,
-  BlankEnv
->('foo/:id', (c) => c.json({ ok: true }, 200))
+    'foo/:id',
+    'foo/:id',
+    JSONRespondReturn<{ ok: boolean }, 200>,
+    BlankInput,
+    BlankEnv
+>('foo/:id', (c) => c.json({ ok: true }, 200));
 ```
 
 This is a type instantiation for a single route. While the user doesn't need to write these type arguments manually, which is a good thing, it's known that type instantiation takes much time. `tsserver` used in your IDE does this time consuming task every time you use the app. If you have a lot of routes, this can slow down your IDE significantly.
@@ -6778,26 +6673,26 @@ Like in the case of [Hono version mismatch](#hono-version-mismatch), you'll run 
 Compiling your client including the server app gives you the best performance. Put the following code in your project:
 
 ```ts
-import { app } from './app'
-import { hc } from 'hono/client'
+import { app } from './app';
+import { hc } from 'hono/client';
 
 // this is a trick to calculate the type when compiling
-export type Client = ReturnType<typeof hc<typeof app>>
+export type Client = ReturnType<typeof hc<typeof app>>;
 
 export const hcWithType = (...args: Parameters<typeof hc>): Client =>
-  hc<typeof app>(...args)
+    hc<typeof app>(...args);
 ```
 
 After compiling, you can use `hcWithType` instead of `hc` to get the client with the type already calculated.
 
 ```ts
-const client = hcWithType('http://localhost:8787/')
+const client = hcWithType('http://localhost:8787/');
 const res = await client.posts.$post({
-  form: {
-    title: 'Hello',
-    body: 'Hono is a cool project',
-  },
-})
+    form: {
+        title: 'Hello',
+        body: 'Hono is a cool project'
+    }
+});
 ```
 
 If your project is a monorepo, this solution does fit well. Using a tool like [`turborepo`](https://turbo.build/repo/docs), you can easily separate the server project and the client project and get better integration managing dependencies between them. Here is [a working example](https://github.com/m-shaka/hono-rpc-perf-tips-example).
@@ -6810,8 +6705,8 @@ This is a bit cumbersome, but you can specify type arguments manually to avoid t
 
 ```ts
 const app = new Hono().get<'foo/:id'>('foo/:id', (c) =>
-  c.json({ ok: true }, 200)
-)
+    c.json({ ok: true }, 200)
+);
 ```
 
 Specifying just single type argument make a difference in performance, while it may take you a lot of time and effort if you have a lot of routes.
@@ -6822,20 +6717,19 @@ As described in [Using RPC with larger applications](#using-rpc-with-larger-appl
 
 ```ts
 // authors-cli.ts
-import { app as authorsApp } from './authors'
-import { hc } from 'hono/client'
+import { app as authorsApp } from './authors';
+import { hc } from 'hono/client';
 
-const authorsClient = hc<typeof authorsApp>('/authors')
+const authorsClient = hc<typeof authorsApp>('/authors');
 
 // books-cli.ts
-import { app as booksApp } from './books'
-import { hc } from 'hono/client'
+import { app as booksApp } from './books';
+import { hc } from 'hono/client';
 
-const booksClient = hc<typeof booksApp>('/books')
+const booksClient = hc<typeof booksApp>('/books');
 ```
 
 This way, `tsserver` doesn't need to instantiate types for all routes at once.
-
 
 # Testing
 
@@ -6863,98 +6757,98 @@ For example, consider an application that provides the following REST API.
 
 ```ts
 app.get('/posts', (c) => {
-  return c.text('Many posts')
-})
+    return c.text('Many posts');
+});
 
 app.post('/posts', (c) => {
-  return c.json(
-    {
-      message: 'Created',
-    },
-    201,
-    {
-      'X-Custom': 'Thank you',
-    }
-  )
-})
+    return c.json(
+        {
+            message: 'Created'
+        },
+        201,
+        {
+            'X-Custom': 'Thank you'
+        }
+    );
+});
 ```
 
 Make a request to `GET /posts` and test the response.
 
 ```ts
 describe('Example', () => {
-  test('GET /posts', async () => {
-    const res = await app.request('/posts')
-    expect(res.status).toBe(200)
-    expect(await res.text()).toBe('Many posts')
-  })
-})
+    test('GET /posts', async () => {
+        const res = await app.request('/posts');
+        expect(res.status).toBe(200);
+        expect(await res.text()).toBe('Many posts');
+    });
+});
 ```
 
 To make a request to `POST /posts`, do the following.
 
 ```ts
 test('POST /posts', async () => {
-  const res = await app.request('/posts', {
-    method: 'POST',
-  })
-  expect(res.status).toBe(201)
-  expect(res.headers.get('X-Custom')).toBe('Thank you')
-  expect(await res.json()).toEqual({
-    message: 'Created',
-  })
-})
+    const res = await app.request('/posts', {
+        method: 'POST'
+    });
+    expect(res.status).toBe(201);
+    expect(res.headers.get('X-Custom')).toBe('Thank you');
+    expect(await res.json()).toEqual({
+        message: 'Created'
+    });
+});
 ```
 
 To make a request to `POST /posts` with `JSON` data, do the following.
 
 ```ts
 test('POST /posts', async () => {
-  const res = await app.request('/posts', {
-    method: 'POST',
-    body: JSON.stringify({ message: 'hello hono' }),
-    headers: new Headers({ 'Content-Type': 'application/json' }),
-  })
-  expect(res.status).toBe(201)
-  expect(res.headers.get('X-Custom')).toBe('Thank you')
-  expect(await res.json()).toEqual({
-    message: 'Created',
-  })
-})
+    const res = await app.request('/posts', {
+        method: 'POST',
+        body: JSON.stringify({ message: 'hello hono' }),
+        headers: new Headers({ 'Content-Type': 'application/json' })
+    });
+    expect(res.status).toBe(201);
+    expect(res.headers.get('X-Custom')).toBe('Thank you');
+    expect(await res.json()).toEqual({
+        message: 'Created'
+    });
+});
 ```
 
 To make a request to `POST /posts` with `multipart/form-data` data, do the following.
 
 ```ts
 test('POST /posts', async () => {
-  const formData = new FormData()
-  formData.append('message', 'hello')
-  const res = await app.request('/posts', {
-    method: 'POST',
-    body: formData,
-  })
-  expect(res.status).toBe(201)
-  expect(res.headers.get('X-Custom')).toBe('Thank you')
-  expect(await res.json()).toEqual({
-    message: 'Created',
-  })
-})
+    const formData = new FormData();
+    formData.append('message', 'hello');
+    const res = await app.request('/posts', {
+        method: 'POST',
+        body: formData
+    });
+    expect(res.status).toBe(201);
+    expect(res.headers.get('X-Custom')).toBe('Thank you');
+    expect(await res.json()).toEqual({
+        message: 'Created'
+    });
+});
 ```
 
 You can also pass an instance of the Request class.
 
 ```ts
 test('POST /posts', async () => {
-  const req = new Request('http://localhost/posts', {
-    method: 'POST',
-  })
-  const res = await app.request(req)
-  expect(res.status).toBe(201)
-  expect(res.headers.get('X-Custom')).toBe('Thank you')
-  expect(await res.json()).toEqual({
-    message: 'Created',
-  })
-})
+    const req = new Request('http://localhost/posts', {
+        method: 'POST'
+    });
+    const res = await app.request(req);
+    expect(res.status).toBe(201);
+    expect(res.headers.get('X-Custom')).toBe('Thank you');
+    expect(await res.json()).toEqual({
+        message: 'Created'
+    });
+});
 ```
 
 In this way, you can test it as like an End-to-End.
@@ -6965,19 +6859,18 @@ To set `c.env` for testing, you can pass it as the 3rd parameter to `app.request
 
 ```ts
 const MOCK_ENV = {
-  API_HOST: 'example.com',
-  DB: {
-    prepare: () => {
-      /* mocked D1 */
-    },
-  },
-}
+    API_HOST: 'example.com',
+    DB: {
+        prepare: () => {
+            /* mocked D1 */
+        }
+    }
+};
 
 test('GET /posts', async () => {
-  const res = await app.request('/posts', {}, MOCK_ENV)
-})
+    const res = await app.request('/posts', {}, MOCK_ENV);
+});
 ```
-
 
 # Validation
 
@@ -6992,7 +6885,7 @@ First, introduce a way to validate incoming values without using the third-party
 Import `validator` from `hono/validator`.
 
 ```ts
-import { validator } from 'hono/validator'
+import { validator } from 'hono/validator';
 ```
 
 To validate form data, specify `form` as the first argument and a callback as the second argument.
@@ -7041,18 +6934,18 @@ It is important to set the `content-type` header when testing using
 Given an application like this.
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 app.post(
-  '/testing',
-  validator('json', (value, c) => {
-    // pass-through validator
-    return value
-  }),
-  (c) => {
-    const body = c.req.valid('json')
-    return c.json(body)
-  }
-)
+    '/testing',
+    validator('json', (value, c) => {
+        // pass-through validator
+        return value;
+    }),
+    (c) => {
+        const body = c.req.valid('json');
+        return c.json(body);
+    }
+);
 ```
 
 Your tests can be written like this.
@@ -7060,20 +6953,20 @@ Your tests can be written like this.
 ```ts
 // ❌ this will not work
 const res = await app.request('/testing', {
-  method: 'POST',
-  body: JSON.stringify({ key: 'value' }),
-})
-const data = await res.json()
-console.log(data) // undefined
+    method: 'POST',
+    body: JSON.stringify({ key: 'value' })
+});
+const data = await res.json();
+console.log(data); // undefined
 
 // ✅ this will work
 const res = await app.request('/testing', {
-  method: 'POST',
-  body: JSON.stringify({ key: 'value' }),
-  headers: new Headers({ 'Content-Type': 'application/json' }),
-})
-const data = await res.json()
-console.log(data) // { key: 'value' }
+    method: 'POST',
+    body: JSON.stringify({ key: 'value' }),
+    headers: new Headers({ 'Content-Type': 'application/json' })
+});
+const data = await res.json();
+console.log(data); // { key: 'value' }
 ```
 
 :::
@@ -7086,44 +6979,44 @@ If you want to validate the `Idempotency-Key` header, you need to use `idempoten
 ```ts
 // ❌ this will not work
 app.post(
-  '/api',
-  validator('header', (value, c) => {
-    // idempotencyKey is always undefined
-    // so this middleware always return 400 as not expected
-    const idempotencyKey = value['Idempotency-Key']
+    '/api',
+    validator('header', (value, c) => {
+        // idempotencyKey is always undefined
+        // so this middleware always return 400 as not expected
+        const idempotencyKey = value['Idempotency-Key'];
 
-    if (idempotencyKey == undefined || idempotencyKey === '') {
-      throw new HTTPException(400, {
-        message: 'Idempotency-Key is required',
-      })
+        if (idempotencyKey == undefined || idempotencyKey === '') {
+            throw new HTTPException(400, {
+                message: 'Idempotency-Key is required'
+            });
+        }
+        return { idempotencyKey };
+    }),
+    (c) => {
+        const { idempotencyKey } = c.req.valid('header');
+        // ...
     }
-    return { idempotencyKey }
-  }),
-  (c) => {
-    const { idempotencyKey } = c.req.valid('header')
-    // ...
-  }
-)
+);
 
 // ✅ this will work
 app.post(
-  '/api',
-  validator('header', (value, c) => {
-    // can retrieve the value of the header as expected
-    const idempotencyKey = value['idempotency-key']
+    '/api',
+    validator('header', (value, c) => {
+        // can retrieve the value of the header as expected
+        const idempotencyKey = value['idempotency-key'];
 
-    if (idempotencyKey == undefined || idempotencyKey === '') {
-      throw new HTTPException(400, {
-        message: 'Idempotency-Key is required',
-      })
+        if (idempotencyKey == undefined || idempotencyKey === '') {
+            throw new HTTPException(400, {
+                message: 'Idempotency-Key is required'
+            });
+        }
+        return { idempotencyKey };
+    }),
+    (c) => {
+        const { idempotencyKey } = c.req.valid('header');
+        // ...
     }
-    return { idempotencyKey }
-  }),
-  (c) => {
-    const { idempotencyKey } = c.req.valid('header')
-    // ...
-  }
-)
+);
 ```
 
 :::
@@ -7173,40 +7066,40 @@ bun add zod
 Import `z` from `zod`.
 
 ```ts
-import * as z from 'zod'
+import * as z from 'zod';
 ```
 
 Write your schema.
 
 ```ts
 const schema = z.object({
-  body: z.string(),
-})
+    body: z.string()
+});
 ```
 
 You can use the schema in the callback function for validation and return the validated value.
 
 ```ts
 const route = app.post(
-  '/posts',
-  validator('form', (value, c) => {
-    const parsed = schema.safeParse(value)
-    if (!parsed.success) {
-      return c.text('Invalid!', 401)
+    '/posts',
+    validator('form', (value, c) => {
+        const parsed = schema.safeParse(value);
+        if (!parsed.success) {
+            return c.text('Invalid!', 401);
+        }
+        return parsed.data;
+    }),
+    (c) => {
+        const { body } = c.req.valid('form');
+        // ... do something
+        return c.json(
+            {
+                message: 'Created!'
+            },
+            201
+        );
     }
-    return parsed.data
-  }),
-  (c) => {
-    const { body } = c.req.valid('form')
-    // ... do something
-    return c.json(
-      {
-        message: 'Created!',
-      },
-      201
-    )
-  }
-)
+);
 ```
 
 ## Zod Validator Middleware
@@ -7236,27 +7129,26 @@ bun add @hono/zod-validator
 And import `zValidator`.
 
 ```ts
-import { zValidator } from '@hono/zod-validator'
+import { zValidator } from '@hono/zod-validator';
 ```
 
 And write as follows.
 
 ```ts
 const route = app.post(
-  '/posts',
-  zValidator(
-    'form',
-    z.object({
-      body: z.string(),
-    })
-  ),
-  (c) => {
-    const validated = c.req.valid('form')
-    // ... use your validated data
-  }
-)
+    '/posts',
+    zValidator(
+        'form',
+        z.object({
+            body: z.string()
+        })
+    ),
+    (c) => {
+        const validated = c.req.valid('form');
+        // ... use your validated data
+    }
+);
 ```
-
 
 # Alibaba Cloud Function Compute
 
@@ -7311,14 +7203,14 @@ touch src/index.ts
 Edit `src/index.ts`.
 
 ```ts
-import { Hono } from 'hono'
-import { handle } from 'hono-alibaba-cloud-fc3-adapter'
+import { Hono } from 'hono';
+import { handle } from 'hono-alibaba-cloud-fc3-adapter';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Hono!'))
+app.get('/', (c) => c.text('Hello Hono!'));
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
 
 ## 3. Setup serverless-devs
@@ -7341,30 +7233,30 @@ name: my-app
 access: 'default'
 
 vars:
-  region: 'us-west-1'
+    region: 'us-west-1'
 
 resources:
-  my-app:
-    component: fc3
-    props:
-      region: ${vars.region}
-      functionName: 'my-app'
-      description: 'Hello World by Hono'
-      runtime: 'nodejs20'
-      code: ./dist
-      handler: index.handler
-      memorySize: 1024
-      timeout: 300
+    my-app:
+        component: fc3
+        props:
+            region: ${vars.region}
+            functionName: 'my-app'
+            description: 'Hello World by Hono'
+            runtime: 'nodejs20'
+            code: ./dist
+            handler: index.handler
+            memorySize: 1024
+            timeout: 300
 ```
 
 Edit `scripts` section in `package.json`:
 
 ```json
 {
-  "scripts": {
-    "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node20 ./src/index.ts",
-    "deploy": "s deploy -y"
-  }
+    "scripts": {
+        "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node20 ./src/index.ts",
+        "deploy": "s deploy -y"
+    }
 }
 ```
 
@@ -7376,7 +7268,6 @@ Finally, run the command to deploy:
 npm run build # Compile the TypeScript code to JavaScript
 npm run deploy # Deploy the function to Alibaba Cloud Function Compute
 ```
-
 
 # AWS Lambda
 
@@ -7442,14 +7333,14 @@ touch lambda/index.ts
 Edit `lambda/index.ts`.
 
 ```ts
-import { Hono } from 'hono'
-import { handle } from 'hono/aws-lambda'
+import { Hono } from 'hono';
+import { handle } from 'hono/aws-lambda';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Hono!'))
+app.get('/', (c) => c.text('Hello Hono!'));
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
 
 ## 3. Deploy
@@ -7457,27 +7348,27 @@ export const handler = handle(app)
 Edit `lib/my-app-stack.ts`.
 
 ```ts
-import * as cdk from 'aws-cdk-lib'
-import { Construct } from 'constructs'
-import * as lambda from 'aws-cdk-lib/aws-lambda'
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
+import * as cdk from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 
 export class MyAppStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props)
+    constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+        super(scope, id, props);
 
-    const fn = new NodejsFunction(this, 'lambda', {
-      entry: 'lambda/index.ts',
-      handler: 'handler',
-      runtime: lambda.Runtime.NODEJS_22_X,
-    })
-    const fnUrl = fn.addFunctionUrl({
-      authType: lambda.FunctionUrlAuthType.NONE,
-    })
-    new cdk.CfnOutput(this, 'lambdaUrl', {
-      value: fnUrl.url!,
-    })
-  }
+        const fn = new NodejsFunction(this, 'lambda', {
+            entry: 'lambda/index.ts',
+            handler: 'handler',
+            runtime: lambda.Runtime.NODEJS_22_X
+        });
+        const fnUrl = fn.addFunctionUrl({
+            authType: lambda.FunctionUrlAuthType.NONE
+        });
+        new cdk.CfnOutput(this, 'lambdaUrl', {
+            value: fnUrl.url!
+        });
+    }
 }
 ```
 
@@ -7495,11 +7386,11 @@ Once binary type is set to `Content-Type` header, Hono automatically encodes dat
 
 ```ts
 app.get('/binary', async (c) => {
-  // ...
-  c.status(200)
-  c.header('Content-Type', 'image/png') // means binary data
-  return c.body(buffer) // supports `ArrayBufferLike` type, encoded to base64.
-})
+    // ...
+    c.status(200);
+    c.header('Content-Type', 'image/png'); // means binary data
+    return c.body(buffer); // supports `ArrayBufferLike` type, encoded to base64.
+});
 ```
 
 ## Access AWS Lambda Object
@@ -7507,25 +7398,25 @@ app.get('/binary', async (c) => {
 In Hono, you can access the AWS Lambda Events and Context by binding the `LambdaEvent`, `LambdaContext` type and using `c.env`
 
 ```ts
-import { Hono } from 'hono'
-import type { LambdaEvent, LambdaContext } from 'hono/aws-lambda'
-import { handle } from 'hono/aws-lambda'
+import { Hono } from 'hono';
+import type { LambdaEvent, LambdaContext } from 'hono/aws-lambda';
+import { handle } from 'hono/aws-lambda';
 
 type Bindings = {
-  event: LambdaEvent
-  lambdaContext: LambdaContext
-}
+    event: LambdaEvent;
+    lambdaContext: LambdaContext;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.get('/aws-lambda-info/', (c) => {
-  return c.json({
-    isBase64Encoded: c.env.event.isBase64Encoded,
-    awsRequestId: c.env.lambdaContext.awsRequestId,
-  })
-})
+    return c.json({
+        isBase64Encoded: c.env.event.isBase64Encoded,
+        awsRequestId: c.env.lambdaContext.awsRequestId
+    });
+});
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
 
 ## Access RequestContext
@@ -7533,22 +7424,22 @@ export const handler = handle(app)
 In Hono, you can access the AWS Lambda request context by binding the `LambdaEvent` type and using `c.env.event.requestContext`.
 
 ```ts
-import { Hono } from 'hono'
-import type { LambdaEvent } from 'hono/aws-lambda'
-import { handle } from 'hono/aws-lambda'
+import { Hono } from 'hono';
+import type { LambdaEvent } from 'hono/aws-lambda';
+import { handle } from 'hono/aws-lambda';
 
 type Bindings = {
-  event: LambdaEvent
-}
+    event: LambdaEvent;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.get('/custom-context/', (c) => {
-  const lambdaContext = c.env.event.requestContext
-  return c.json(lambdaContext)
-})
+    const lambdaContext = c.env.event.requestContext;
+    return c.json(lambdaContext);
+});
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
 
 ### Before v3.10.0 (deprecated)
@@ -7556,22 +7447,22 @@ export const handler = handle(app)
 you can access the AWS Lambda request context by binding the `ApiGatewayRequestContext` type and using `c.env.`
 
 ```ts
-import { Hono } from 'hono'
-import type { ApiGatewayRequestContext } from 'hono/aws-lambda'
-import { handle } from 'hono/aws-lambda'
+import { Hono } from 'hono';
+import type { ApiGatewayRequestContext } from 'hono/aws-lambda';
+import { handle } from 'hono/aws-lambda';
 
 type Bindings = {
-  requestContext: ApiGatewayRequestContext
-}
+    requestContext: ApiGatewayRequestContext;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.get('/custom-context/', (c) => {
-  const lambdaContext = c.env.requestContext
-  return c.json(lambdaContext)
-})
+    const lambdaContext = c.env.requestContext;
+    return c.json(lambdaContext);
+});
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
 
 ## Lambda response streaming
@@ -7588,24 +7479,23 @@ fn.addFunctionUrl({
 Typically, the implementation requires writing chunks to NodeJS.WritableStream using awslambda.streamifyResponse, but with the AWS Lambda Adaptor, you can achieve the traditional streaming response of Hono by using streamHandle instead of handle.
 
 ```ts
-import { Hono } from 'hono'
-import { streamHandle } from 'hono/aws-lambda'
-import { streamText } from 'hono/streaming'
+import { Hono } from 'hono';
+import { streamHandle } from 'hono/aws-lambda';
+import { streamText } from 'hono/streaming';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/stream', async (c) => {
-  return streamText(c, async (stream) => {
-    for (let i = 0; i < 3; i++) {
-      await stream.writeln(`${i}`)
-      await stream.sleep(1)
-    }
-  })
-})
+    return streamText(c, async (stream) => {
+        for (let i = 0; i < 3; i++) {
+            await stream.writeln(`${i}`);
+            await stream.sleep(1);
+        }
+    });
+});
 
-export const handler = streamHandle(app)
+export const handler = streamHandle(app);
 ```
-
 
 # Azure Functions
 
@@ -7628,7 +7518,7 @@ brew install azure-functions-core-tools@4
 
 Follow this link for other OS:
 
-- [Install the Azure Functions Core Tools | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-typescript?pivots=nodejs-model-v4#install-the-azure-functions-core-tools)
+-   [Install the Azure Functions Core Tools | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-typescript?pivots=nodejs-model-v4#install-the-azure-functions-core-tools)
 
 ## 2. Setup
 
@@ -7680,34 +7570,34 @@ Create `src/app.ts`:
 
 ```ts
 // src/app.ts
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Azure Functions!'))
+app.get('/', (c) => c.text('Hello Azure Functions!'));
 
-export default app
+export default app;
 ```
 
 Create `src/functions/httpTrigger.ts`:
 
 ```ts
 // src/functions/httpTrigger.ts
-import { app } from '@azure/functions'
-import { azureHonoHandler } from '@marplex/hono-azurefunc-adapter'
-import honoApp from '../app'
+import { app } from '@azure/functions';
+import { azureHonoHandler } from '@marplex/hono-azurefunc-adapter';
+import honoApp from '../app';
 
 app.http('httpTrigger', {
-  methods: [
-    //Add all your supported HTTP methods here
-    'GET',
-    'POST',
-    'DELETE',
-    'PUT',
-  ],
-  authLevel: 'anonymous',
-  route: '{*proxy}',
-  handler: azureHonoHandler(honoApp.fetch),
-})
+    methods: [
+        //Add all your supported HTTP methods here
+        'GET',
+        'POST',
+        'DELETE',
+        'PUT'
+    ],
+    authLevel: 'anonymous',
+    route: '{*proxy}',
+    handler: azureHonoHandler(honoApp.fetch)
+});
 ```
 
 ## 4. Run
@@ -7767,7 +7657,6 @@ Deploy your project to the function app in Azure Cloud. Replace `<YourFunctionAp
 ```sh
 func azure functionapp publish <YourFunctionAppName>
 ```
-
 
 # Getting Started
 
@@ -7875,15 +7764,15 @@ The `import` and the final `export default` parts may vary from runtime to runti
 but all of the application code will run the same code everywhere.
 
 ```ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+    return c.text('Hello Hono!');
+});
 
-export default app
+export default app;
 ```
 
 Start the development server and access `http://localhost:8787` with your browser.
@@ -7914,11 +7803,11 @@ Returning JSON is also easy. The following is an example of handling a GET Reque
 
 ```ts
 app.get('/api/hello', (c) => {
-  return c.json({
-    ok: true,
-    message: 'Hello Hono!',
-  })
-})
+    return c.json({
+        ok: true,
+        message: 'Hello Hono!'
+    });
+});
 ```
 
 ## Request and Response
@@ -7927,20 +7816,18 @@ Getting a path parameter, URL query value, and appending a Response header is wr
 
 ```ts
 app.get('/posts/:id', (c) => {
-  const page = c.req.query('page')
-  const id = c.req.param('id')
-  c.header('X-Message', 'Hi!')
-  return c.text(`You want to see ${page} of ${id}`)
-})
+    const page = c.req.query('page');
+    const id = c.req.param('id');
+    c.header('X-Message', 'Hi!');
+    return c.text(`You want to see ${page} of ${id}`);
+});
 ```
 
 We can easily handle POST, PUT, and DELETE not only GET.
 
 ```ts
-app.post('/posts', (c) => c.text('Created!', 201))
-app.delete('/posts/:id', (c) =>
-  c.text(`${c.req.param('id')} is deleted!`)
-)
+app.post('/posts', (c) => c.text('Created!', 201));
+app.delete('/posts/:id', (c) => c.text(`${c.req.param('id')} is deleted!`));
 ```
 
 ## Return HTML
@@ -7949,18 +7836,18 @@ You can write HTML with [the html Helper](/docs/helpers/html) or using [JSX](/do
 
 ```tsx
 const View = () => {
-  return (
-    <html>
-      <body>
-        <h1>Hello Hono!</h1>
-      </body>
-    </html>
-  )
-}
+    return (
+        <html>
+            <body>
+                <h1>Hello Hono!</h1>
+            </body>
+        </html>
+    );
+};
 
 app.get('/page', (c) => {
-  return c.html(<View />)
-})
+    return c.html(<View />);
+});
 ```
 
 ## Return raw Response
@@ -7969,8 +7856,8 @@ You can also return the raw [Response](https://developer.mozilla.org/en-US/docs/
 
 ```ts
 app.get('/', () => {
-  return new Response('Good morning!')
-})
+    return new Response('Good morning!');
+});
 ```
 
 ## Using Middleware
@@ -7979,21 +7866,21 @@ Middleware can do the hard work for you.
 For example, add in Basic Authentication.
 
 ```ts
-import { basicAuth } from 'hono/basic-auth'
+import { basicAuth } from 'hono/basic-auth';
 
 // ...
 
 app.use(
-  '/admin/*',
-  basicAuth({
-    username: 'admin',
-    password: 'secret',
-  })
-)
+    '/admin/*',
+    basicAuth({
+        username: 'admin',
+        password: 'secret'
+    })
+);
 
 app.get('/admin', (c) => {
-  return c.text('You are authorized!')
-})
+    return c.text('You are authorized!');
+});
 ```
 
 There are useful built-in middleware including Bearer and authentication using JWT, CORS and ETag.
@@ -8006,14 +7893,14 @@ There are Adapters for platform-dependent functions, e.g., handling static files
 For example, to handle WebSocket in Cloudflare Workers, import `hono/cloudflare-workers`.
 
 ```ts
-import { upgradeWebSocket } from 'hono/cloudflare-workers'
+import { upgradeWebSocket } from 'hono/cloudflare-workers';
 
 app.get(
-  '/ws',
-  upgradeWebSocket((c) => {
-    // ...
-  })
-)
+    '/ws',
+    upgradeWebSocket((c) => {
+        // ...
+    })
+);
 ```
 
 ## Next step
@@ -8021,7 +7908,6 @@ app.get(
 Most code will work on any platform, but there are guides for each.
 For instance, how to set up projects or how to deploy.
 Please see the page for the exact platform you want to use to create your application!
-
 
 # Bun
 
@@ -8063,12 +7949,12 @@ bun add hono
 "Hello World" script is below. Almost the same as writing on other platforms.
 
 ```ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
-app.get('/', (c) => c.text('Hello Bun!'))
+const app = new Hono();
+app.get('/', (c) => c.text('Hello Bun!'));
 
-export default app
+export default app;
 ```
 
 ## 4. Run
@@ -8104,14 +7990,14 @@ export default { // [!code ++]
 To serve static files, use `serveStatic` imported from `hono/bun`.
 
 ```ts
-import { serveStatic } from 'hono/bun'
+import { serveStatic } from 'hono/bun';
 
-const app = new Hono()
+const app = new Hono();
 
-app.use('/static/*', serveStatic({ root: './' }))
-app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }))
-app.get('/', (c) => c.text('You can access: /static/hello.txt'))
-app.get('*', serveStatic({ path: './static/fallback.txt' }))
+app.use('/static/*', serveStatic({ root: './' }));
+app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }));
+app.get('/', (c) => c.text('You can access: /static/hello.txt'));
+app.get('*', serveStatic({ path: './static/fallback.txt' }));
 ```
 
 For the above code, it will work well with the following directory structure.
@@ -8135,13 +8021,12 @@ If you want to map `http://localhost:3000/static/*` to `./statics`, you can use 
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    root: './',
-    rewriteRequestPath: (path) =>
-      path.replace(/^\/static/, '/statics'),
-  })
-)
+    '/static/*',
+    serveStatic({
+        root: './',
+        rewriteRequestPath: (path) => path.replace(/^\/static/, '/statics')
+    })
+);
 ```
 
 ### `mimes`
@@ -8150,14 +8035,14 @@ You can add MIME types with `mimes`:
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    mimes: {
-      m3u8: 'application/vnd.apple.mpegurl',
-      ts: 'video/mp2t',
-    },
-  })
-)
+    '/static/*',
+    serveStatic({
+        mimes: {
+            m3u8: 'application/vnd.apple.mpegurl',
+            ts: 'video/mp2t'
+        }
+    })
+);
 ```
 
 ### `onFound`
@@ -8166,14 +8051,14 @@ You can specify handling when the requested file is found with `onFound`:
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    // ...
-    onFound: (_path, c) => {
-      c.header('Cache-Control', `public, immutable, max-age=31536000`)
-    },
-  })
-)
+    '/static/*',
+    serveStatic({
+        // ...
+        onFound: (_path, c) => {
+            c.header('Cache-Control', `public, immutable, max-age=31536000`);
+        }
+    })
+);
 ```
 
 ### `onNotFound`
@@ -8182,13 +8067,13 @@ You can specify handling when the requested file is not found with `onNotFound`:
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    onNotFound: (path, c) => {
-      console.log(`${path} is not found, you access ${c.req.path}`)
-    },
-  })
-)
+    '/static/*',
+    serveStatic({
+        onNotFound: (path, c) => {
+            console.log(`${path} is not found, you access ${c.req.path}`);
+        }
+    })
+);
 ```
 
 ### `precompressed`
@@ -8197,11 +8082,11 @@ The `precompressed` option checks if files with extensions like `.br` or `.gz` a
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    precompressed: true,
-  })
-)
+    '/static/*',
+    serveStatic({
+        precompressed: true
+    })
+);
 ```
 
 ## Testing
@@ -8209,16 +8094,16 @@ app.get(
 You can use `bun:test` for testing on Bun.
 
 ```ts
-import { describe, expect, it } from 'bun:test'
-import app from '.'
+import { describe, expect, it } from 'bun:test';
+import app from '.';
 
 describe('My first test', () => {
-  it('Should return 200 Response', async () => {
-    const req = new Request('http://localhost/')
-    const res = await app.fetch(req)
-    expect(res.status).toBe(200)
-  })
-})
+    it('Should return 200 Response', async () => {
+        const req = new Request('http://localhost/');
+        const res = await app.fetch(req);
+        expect(res.status).toBe(200);
+    });
+});
 ```
 
 Then, run the command.
@@ -8226,7 +8111,6 @@ Then, run the command.
 ```sh
 bun test index.test.ts
 ```
-
 
 # Cloudflare Pages
 
@@ -8312,18 +8196,18 @@ Below is a basic directory structure.
 Edit `src/index.tsx` like the following:
 
 ```tsx
-import { Hono } from 'hono'
-import { renderer } from './renderer'
+import { Hono } from 'hono';
+import { renderer } from './renderer';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('*', renderer)
+app.get('*', renderer);
 
 app.get('/', (c) => {
-  return c.render(<h1>Hello, Cloudflare Pages!</h1>)
-})
+    return c.render(<h1>Hello, Cloudflare Pages!</h1>);
+});
 
-export default app
+export default app;
 ```
 
 ## 3. Run
@@ -8433,20 +8317,20 @@ id = "abcdef"
 Edit the `vite.config.ts`:
 
 ```ts
-import devServer from '@hono/vite-dev-server'
-import adapter from '@hono/vite-dev-server/cloudflare'
-import build from '@hono/vite-cloudflare-pages'
-import { defineConfig } from 'vite'
+import devServer from '@hono/vite-dev-server';
+import adapter from '@hono/vite-dev-server/cloudflare';
+import build from '@hono/vite-cloudflare-pages';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [
-    devServer({
-      entry: 'src/index.tsx',
-      adapter, // Cloudflare Adapter
-    }),
-    build(),
-  ],
-})
+    plugins: [
+        devServer({
+            entry: 'src/index.tsx',
+            adapter // Cloudflare Adapter
+        }),
+        build()
+    ]
+});
 ```
 
 ### Use Bindings in your application
@@ -8455,21 +8339,21 @@ Use Variable and KV in your application. Set the types.
 
 ```ts
 type Bindings = {
-  MY_NAME: string
-  MY_KV: KVNamespace
-}
+    MY_NAME: string;
+    MY_KV: KVNamespace;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 ```
 
 Use them:
 
 ```tsx
 app.get('/', async (c) => {
-  await c.env.MY_KV.put('name', c.env.MY_NAME)
-  const name = await c.env.MY_KV.get('name')
-  return c.render(<h1>Hello! {name}</h1>)
-})
+    await c.env.MY_KV.put('name', c.env.MY_NAME);
+    const name = await c.env.MY_KV.get('name');
+    return c.render(<h1>Hello! {name}</h1>);
+});
 ```
 
 ### In production
@@ -8484,53 +8368,53 @@ Additionally, `import.meta.env.PROD` is useful for detecting whether it's runnin
 
 ```tsx
 app.get('/', (c) => {
-  return c.html(
-    <html>
-      <head>
-        {import.meta.env.PROD ? (
-          <script type='module' src='/static/client.js'></script>
-        ) : (
-          <script type='module' src='/src/client.ts'></script>
-        )}
-      </head>
-      <body>
-        <h1>Hello</h1>
-      </body>
-    </html>
-  )
-})
+    return c.html(
+        <html>
+            <head>
+                {import.meta.env.PROD ? (
+                    <script type="module" src="/static/client.js"></script>
+                ) : (
+                    <script type="module" src="/src/client.ts"></script>
+                )}
+            </head>
+            <body>
+                <h1>Hello</h1>
+            </body>
+        </html>
+    );
+});
 ```
 
 In order to build the script properly, you can use the example config file `vite.config.ts` as shown below.
 
 ```ts
-import pages from '@hono/vite-cloudflare-pages'
-import devServer from '@hono/vite-dev-server'
-import { defineConfig } from 'vite'
+import pages from '@hono/vite-cloudflare-pages';
+import devServer from '@hono/vite-dev-server';
+import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => {
-  if (mode === 'client') {
-    return {
-      build: {
-        rollupOptions: {
-          input: './src/client.ts',
-          output: {
-            entryFileNames: 'static/client.js',
-          },
-        },
-      },
+    if (mode === 'client') {
+        return {
+            build: {
+                rollupOptions: {
+                    input: './src/client.ts',
+                    output: {
+                        entryFileNames: 'static/client.js'
+                    }
+                }
+            }
+        };
+    } else {
+        return {
+            plugins: [
+                pages(),
+                devServer({
+                    entry: 'src/index.tsx'
+                })
+            ]
+        };
     }
-  } else {
-    return {
-      plugins: [
-        pages(),
-        devServer({
-          entry: 'src/index.tsx',
-        }),
-      ],
-    }
-  }
-})
+});
 ```
 
 You can run the following command to build the server and client script.
@@ -8546,8 +8430,8 @@ Cloudflare Pages uses its own [middleware](https://developers.cloudflare.com/pag
 ```ts
 // functions/_middleware.ts
 export async function onRequest(pagesContext) {
-  console.log(`You are accessing ${pagesContext.request.url}`)
-  return await pagesContext.next()
+    console.log(`You are accessing ${pagesContext.request.url}`);
+    return await pagesContext.next();
 }
 ```
 
@@ -8555,41 +8439,41 @@ Using `handleMiddleware`, you can use Hono's middleware as Cloudflare Pages midd
 
 ```ts
 // functions/_middleware.ts
-import { handleMiddleware } from 'hono/cloudflare-pages'
+import { handleMiddleware } from 'hono/cloudflare-pages';
 
 export const onRequest = handleMiddleware(async (c, next) => {
-  console.log(`You are accessing ${c.req.url}`)
-  await next()
-})
+    console.log(`You are accessing ${c.req.url}`);
+    await next();
+});
 ```
 
 You can also use built-in and 3rd party middleware for Hono. For example, to add Basic Authentication, you can use [Hono's Basic Authentication Middleware](/docs/middleware/builtin/basic-auth).
 
 ```ts
 // functions/_middleware.ts
-import { handleMiddleware } from 'hono/cloudflare-pages'
-import { basicAuth } from 'hono/basic-auth'
+import { handleMiddleware } from 'hono/cloudflare-pages';
+import { basicAuth } from 'hono/basic-auth';
 
 export const onRequest = handleMiddleware(
-  basicAuth({
-    username: 'hono',
-    password: 'acoolproject',
-  })
-)
+    basicAuth({
+        username: 'hono',
+        password: 'acoolproject'
+    })
+);
 ```
 
 If you want to apply multiple middleware, you can write it like this:
 
 ```ts
-import { handleMiddleware } from 'hono/cloudflare-pages'
+import { handleMiddleware } from 'hono/cloudflare-pages';
 
 // ...
 
 export const onRequest = [
-  handleMiddleware(middleware1),
-  handleMiddleware(middleware2),
-  handleMiddleware(middleware3),
-]
+    handleMiddleware(middleware1),
+    handleMiddleware(middleware2),
+    handleMiddleware(middleware3)
+];
 ```
 
 ### Accessing `EventContext`
@@ -8598,42 +8482,41 @@ You can access [`EventContext`](https://developers.cloudflare.com/pages/function
 
 ```ts
 // functions/_middleware.ts
-import { handleMiddleware } from 'hono/cloudflare-pages'
+import { handleMiddleware } from 'hono/cloudflare-pages';
 
 export const onRequest = [
-  handleMiddleware(async (c, next) => {
-    c.env.eventContext.data.user = 'Joe'
-    await next()
-  }),
-]
+    handleMiddleware(async (c, next) => {
+        c.env.eventContext.data.user = 'Joe';
+        await next();
+    })
+];
 ```
 
 Then, you can access the data value in via `c.env.eventContext` in the handler:
 
 ```ts
 // functions/api/[[route]].ts
-import type { EventContext } from 'hono/cloudflare-pages'
-import { handle } from 'hono/cloudflare-pages'
+import type { EventContext } from 'hono/cloudflare-pages';
+import { handle } from 'hono/cloudflare-pages';
 
 // ...
 
 type Env = {
-  Bindings: {
-    eventContext: EventContext
-  }
-}
+    Bindings: {
+        eventContext: EventContext;
+    };
+};
 
-const app = new Hono<Env>().basePath('/api')
+const app = new Hono<Env>().basePath('/api');
 
 app.get('/hello', (c) => {
-  return c.json({
-    message: `Hello, ${c.env.eventContext.data.user}!`, // 'Joe'
-  })
-})
+    return c.json({
+        message: `Hello, ${c.env.eventContext.data.user}!` // 'Joe'
+    });
+});
 
-export const onRequest = handle(app)
+export const onRequest = handle(app);
 ```
-
 
 # Cloudflare Workers
 
@@ -8705,12 +8588,12 @@ bun i
 Edit `src/index.ts` like below.
 
 ```ts
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Cloudflare Workers!'))
+app.get('/', (c) => c.text('Hello Cloudflare Workers!'));
 
-export default app
+export default app;
 ```
 
 ## 3. Run
@@ -8778,12 +8661,12 @@ You can integrate Hono with other event handlers (such as `scheduled`) in _Modul
 To do this, export `app.fetch` as the module's `fetch` handler, and then implement other handlers as needed:
 
 ```ts
-const app = new Hono()
+const app = new Hono();
 
 export default {
-  fetch: app.fetch,
-  scheduled: async (batch, env) => {},
-}
+    fetch: app.fetch,
+    scheduled: async (batch, env) => {}
+};
 ```
 
 ## Serve static files
@@ -8840,21 +8723,21 @@ Refer to [examples](https://github.com/honojs/examples) for setting it up.
 If there is the application below.
 
 ```ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
-app.get('/', (c) => c.text('Please test me!'))
+const app = new Hono();
+app.get('/', (c) => c.text('Please test me!'));
 ```
 
 We can test if it returns "_200 OK_" Response with this code.
 
 ```ts
 describe('Test the application', () => {
-  it('Should return 200 response', async () => {
-    const res = await app.request('http://localhost/')
-    expect(res.status).toBe(200)
-  })
-})
+    it('Should return 200 response', async () => {
+        const res = await app.request('http://localhost/');
+        expect(res.status).toBe(200);
+    });
+});
 ```
 
 ## Bindings
@@ -8863,19 +8746,19 @@ In the Cloudflare Workers, we can bind the environment values, KV namespace, R2 
 
 ```ts
 type Bindings = {
-  MY_BUCKET: R2Bucket
-  USERNAME: string
-  PASSWORD: string
-}
+    MY_BUCKET: R2Bucket;
+    USERNAME: string;
+    PASSWORD: string;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 // Access to environment values
 app.put('/upload/:key', async (c, next) => {
-  const key = c.req.param('key')
-  await c.env.MY_BUCKET.put(key, c.req.body)
-  return c.text(`Put ${key} successfully!`)
-})
+    const key = c.req.param('key');
+    await c.env.MY_BUCKET.put(key, c.req.body);
+    return c.text(`Put ${key} successfully!`);
+});
 ```
 
 ## Using Variables in Middleware
@@ -8884,24 +8767,24 @@ This is the only case for Module Worker mode.
 If you want to use Variables or Secret Variables in Middleware, for example, "username" or "password" in Basic Authentication Middleware, you need to write like the following.
 
 ```ts
-import { basicAuth } from 'hono/basic-auth'
+import { basicAuth } from 'hono/basic-auth';
 
 type Bindings = {
-  USERNAME: string
-  PASSWORD: string
-}
+    USERNAME: string;
+    PASSWORD: string;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 //...
 
 app.use('/auth/*', async (c, next) => {
-  const auth = basicAuth({
-    username: c.env.USERNAME,
-    password: c.env.PASSWORD,
-  })
-  return auth(c, next)
-})
+    const auth = basicAuth({
+        username: c.env.USERNAME,
+        password: c.env.PASSWORD
+    });
+    return auth(c, next);
+});
 ```
 
 The same is applied to Bearer Authentication Middleware, JWT Authentication, or others.
@@ -8920,20 +8803,20 @@ then create `.github/workflows/deploy.yml` in your Hono project root folder, pas
 name: Deploy
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    deploy:
+        runs-on: ubuntu-latest
+        name: Deploy
+        steps:
+            - uses: actions/checkout@v4
+            - name: Deploy
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 ```
 
 then edit `wrangler.toml`, and add this code after `compatibility_date` line.
@@ -8966,22 +8849,21 @@ By default, `process.env` is not available in Cloudflare Workers, so it is recom
 
 ```ts
 type Bindings = {
-  SECRET_KEY: string
-}
+    SECRET_KEY: string;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.get('/env', (c) => {
-  const SECRET_KEY = c.env.SECRET_KEY
-  return c.text(SECRET_KEY)
-})
+    const SECRET_KEY = c.env.SECRET_KEY;
+    return c.text(SECRET_KEY);
+});
 ```
 
 Before you deploy your project to Cloudflare, remember to set the environment variable/secrets in the Cloudflare Workers project's configuration.
 
 > For more about this section you can find in the Cloudflare documentation:
 > https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-the-dashboard
-
 
 # Deno
 
@@ -9015,13 +8897,13 @@ cd my-app
 Edit `main.ts`:
 
 ```ts [main.ts]
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Deno!'))
+app.get('/', (c) => c.text('Hello Deno!'));
 
-Deno.serve(app.fetch)
+Deno.serve(app.fetch);
 ```
 
 ## 4. Run
@@ -9037,8 +8919,8 @@ deno task start
 You can specify the port number by updating the arguments of `Deno.serve` in `main.ts`:
 
 ```ts
-Deno.serve(app.fetch) // [!code --]
-Deno.serve({ port: 8787 }, app.fetch) // [!code ++]
+Deno.serve(app.fetch); // [!code --]
+Deno.serve({ port: 8787 }, app.fetch); // [!code ++]
 ```
 
 ## Serve static files
@@ -9046,17 +8928,17 @@ Deno.serve({ port: 8787 }, app.fetch) // [!code ++]
 To serve static files, use `serveStatic` imported from `hono/deno`.
 
 ```ts
-import { Hono } from 'hono'
-import { serveStatic } from 'hono/deno'
+import { Hono } from 'hono';
+import { serveStatic } from 'hono/deno';
 
-const app = new Hono()
+const app = new Hono();
 
-app.use('/static/*', serveStatic({ root: './' }))
-app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }))
-app.get('/', (c) => c.text('You can access: /static/hello.txt'))
-app.get('*', serveStatic({ path: './static/fallback.txt' }))
+app.use('/static/*', serveStatic({ root: './' }));
+app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }));
+app.get('/', (c) => c.text('You can access: /static/hello.txt'));
+app.get('*', serveStatic({ path: './static/fallback.txt' }));
 
-Deno.serve(app.fetch)
+Deno.serve(app.fetch);
 ```
 
 For the above code, it will work well with the following directory structure.
@@ -9080,13 +8962,12 @@ If you want to map `http://localhost:8000/static/*` to `./statics`, you can use 
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    root: './',
-    rewriteRequestPath: (path) =>
-      path.replace(/^\/static/, '/statics'),
-  })
-)
+    '/static/*',
+    serveStatic({
+        root: './',
+        rewriteRequestPath: (path) => path.replace(/^\/static/, '/statics')
+    })
+);
 ```
 
 ### `mimes`
@@ -9095,14 +8976,14 @@ You can add MIME types with `mimes`:
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    mimes: {
-      m3u8: 'application/vnd.apple.mpegurl',
-      ts: 'video/mp2t',
-    },
-  })
-)
+    '/static/*',
+    serveStatic({
+        mimes: {
+            m3u8: 'application/vnd.apple.mpegurl',
+            ts: 'video/mp2t'
+        }
+    })
+);
 ```
 
 ### `onFound`
@@ -9111,14 +8992,14 @@ You can specify handling when the requested file is found with `onFound`:
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    // ...
-    onFound: (_path, c) => {
-      c.header('Cache-Control', `public, immutable, max-age=31536000`)
-    },
-  })
-)
+    '/static/*',
+    serveStatic({
+        // ...
+        onFound: (_path, c) => {
+            c.header('Cache-Control', `public, immutable, max-age=31536000`);
+        }
+    })
+);
 ```
 
 ### `onNotFound`
@@ -9127,13 +9008,13 @@ You can specify handling when the requested file is not found with `onNotFound`:
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    onNotFound: (path, c) => {
-      console.log(`${path} is not found, you access ${c.req.path}`)
-    },
-  })
-)
+    '/static/*',
+    serveStatic({
+        onNotFound: (path, c) => {
+            console.log(`${path} is not found, you access ${c.req.path}`);
+        }
+    })
+);
 ```
 
 ### `precompressed`
@@ -9142,11 +9023,11 @@ The `precompressed` option checks if files with extensions like `.br` or `.gz` a
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    precompressed: true,
-  })
-)
+    '/static/*',
+    serveStatic({
+        precompressed: true
+    })
+);
 ```
 
 ## Deno Deploy
@@ -9166,16 +9047,16 @@ deno add jsr:@std/assert
 ```
 
 ```ts [hello.ts]
-import { Hono } from 'hono'
-import { assertEquals } from '@std/assert'
+import { Hono } from 'hono';
+import { assertEquals } from '@std/assert';
 
 Deno.test('Hello World', async () => {
-  const app = new Hono()
-  app.get('/', (c) => c.text('Please test me'))
+    const app = new Hono();
+    app.get('/', (c) => c.text('Please test me'));
 
-  const res = await app.request('http://localhost/')
-  assertEquals(res.status, 200)
-})
+    const res = await app.request('http://localhost/');
+    assertEquals(res.status, 200);
+});
 ```
 
 Then run the command:
@@ -9201,11 +9082,11 @@ When using third-party middleware, you may need to use Hono from the same regist
 
 ```json
 {
-  "imports": {
-    "hono": "npm:hono",
-    "zod": "npm:zod",
-    "@hono/zod-validator": "npm:@hono/zod-validator"
-  }
+    "imports": {
+        "hono": "npm:hono",
+        "zod": "npm:zod",
+        "@hono/zod-validator": "npm:@hono/zod-validator"
+    }
 }
 ```
 
@@ -9213,14 +9094,13 @@ We also provide many third-party middleware packages on [JSR](https://jsr.io/@ho
 
 ```json
 {
-  "imports": {
-    "hono": "jsr:@hono/hono",
-    "zod": "npm:zod",
-    "@hono/zod-validator": "jsr:@hono/zod-validator"
-  }
+    "imports": {
+        "hono": "jsr:@hono/hono",
+        "zod": "npm:zod",
+        "@hono/zod-validator": "jsr:@hono/zod-validator"
+    }
 }
 ```
-
 
 # Fastly Compute
 
@@ -9290,14 +9170,14 @@ Edit `src/index.ts`:
 
 ```ts
 // src/index.ts
-import { Hono } from 'hono'
-import { fire } from 'hono/service-worker'
+import { Hono } from 'hono';
+import { fire } from 'hono/service-worker';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Fastly!'))
+app.get('/', (c) => c.text('Hello Fastly!'));
 
-fire(app)
+fire(app);
 ```
 
 ## 3. Run
@@ -9349,7 +9229,6 @@ bun run deploy
 ```
 
 :::
-
 
 # Google Cloud Run
 
@@ -9482,10 +9361,9 @@ If you want to deploy using Deno or Bun runtimes (or a customised Nodejs contain
 
 For information on containerizing please refer to:
 
-- [Nodejs](/docs/getting-started/nodejs#building-deployment)
-- [Bun](https://bun.sh/guides/ecosystem/docker)
-- [Deno](https://docs.deno.com/examples/google_cloud_run_tutorial)
-
+-   [Nodejs](/docs/getting-started/nodejs#building-deployment)
+-   [Bun](https://bun.sh/guides/ecosystem/docker)
+-   [Deno](https://docs.deno.com/examples/google_cloud_run_tutorial)
 
 # Lambda@Edge
 
@@ -9542,14 +9420,14 @@ mkdir lambda
 Edit `lambda/index_edge.ts`.
 
 ```ts
-import { Hono } from 'hono'
-import { handle } from 'hono/lambda-edge'
+import { Hono } from 'hono';
+import { handle } from 'hono/lambda-edge';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Hono on Lambda@Edge!'))
+app.get('/', (c) => c.text('Hello Hono on Lambda@Edge!'));
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
 
 ## 3. Deploy
@@ -9558,56 +9436,56 @@ Edit `bin/my-app.ts`.
 
 ```ts
 #!/usr/bin/env node
-import 'source-map-support/register'
-import * as cdk from 'aws-cdk-lib'
-import { MyAppStack } from '../lib/my-app-stack'
+import 'source-map-support/register';
+import * as cdk from 'aws-cdk-lib';
+import { MyAppStack } from '../lib/my-app-stack';
 
-const app = new cdk.App()
+const app = new cdk.App();
 new MyAppStack(app, 'MyAppStack', {
-  env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: 'us-east-1',
-  },
-})
+    env: {
+        account: process.env.CDK_DEFAULT_ACCOUNT,
+        region: 'us-east-1'
+    }
+});
 ```
 
 Edit `lambda/cdk-stack.ts`.
 
 ```ts
-import { Construct } from 'constructs'
-import * as cdk from 'aws-cdk-lib'
-import * as cloudfront from 'aws-cdk-lib/aws-cloudfront'
-import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
-import * as lambda from 'aws-cdk-lib/aws-lambda'
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
-import * as s3 from 'aws-cdk-lib/aws-s3'
+import { Construct } from 'constructs';
+import * as cdk from 'aws-cdk-lib';
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 
 export class MyAppStack extends cdk.Stack {
-  public readonly edgeFn: lambda.Function
+    public readonly edgeFn: lambda.Function;
 
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props)
-    const edgeFn = new NodejsFunction(this, 'edgeViewer', {
-      entry: 'lambda/index_edge.ts',
-      handler: 'handler',
-      runtime: lambda.Runtime.NODEJS_20_X,
-    })
+    constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+        super(scope, id, props);
+        const edgeFn = new NodejsFunction(this, 'edgeViewer', {
+            entry: 'lambda/index_edge.ts',
+            handler: 'handler',
+            runtime: lambda.Runtime.NODEJS_20_X
+        });
 
-    // Upload any html
-    const originBucket = new s3.Bucket(this, 'originBucket')
+        // Upload any html
+        const originBucket = new s3.Bucket(this, 'originBucket');
 
-    new cloudfront.Distribution(this, 'Cdn', {
-      defaultBehavior: {
-        origin: new origins.S3Origin(originBucket),
-        edgeLambdas: [
-          {
-            functionVersion: edgeFn.currentVersion,
-            eventType: cloudfront.LambdaEdgeEventType.VIEWER_REQUEST,
-          },
-        ],
-      },
-    })
-  }
+        new cloudfront.Distribution(this, 'Cdn', {
+            defaultBehavior: {
+                origin: new origins.S3Origin(originBucket),
+                edgeLambdas: [
+                    {
+                        functionVersion: edgeFn.currentVersion,
+                        eventType: cloudfront.LambdaEdgeEventType.VIEWER_REQUEST
+                    }
+                ]
+            }
+        });
+    }
 }
 ```
 
@@ -9622,34 +9500,33 @@ cdk deploy
 If you want to add Basic Auth and continue with request processing after verification, you can use `c.env.callback()`
 
 ```ts
-import { Hono } from 'hono'
-import { basicAuth } from 'hono/basic-auth'
-import type { Callback, CloudFrontRequest } from 'hono/lambda-edge'
-import { handle } from 'hono/lambda-edge'
+import { Hono } from 'hono';
+import { basicAuth } from 'hono/basic-auth';
+import type { Callback, CloudFrontRequest } from 'hono/lambda-edge';
+import { handle } from 'hono/lambda-edge';
 
 type Bindings = {
-  callback: Callback
-  request: CloudFrontRequest
-}
+    callback: Callback;
+    request: CloudFrontRequest;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.get(
-  '*',
-  basicAuth({
-    username: 'hono',
-    password: 'acoolproject',
-  })
-)
+    '*',
+    basicAuth({
+        username: 'hono',
+        password: 'acoolproject'
+    })
+);
 
 app.get('/', async (c, next) => {
-  await next()
-  c.env.callback(null, c.env.request)
-})
+    await next();
+    c.env.callback(null, c.env.request);
+});
 
-export const handler = handle(app)
+export const handler = handle(app);
 ```
-
 
 # Netlify
 
@@ -9694,16 +9571,16 @@ Move into `my-app`.
 Edit `netlify/edge-functions/index.ts`:
 
 ```ts
-import { Hono } from 'jsr:@hono/hono'
-import { handle } from 'jsr:@hono/hono/netlify'
+import { Hono } from 'jsr:@hono/hono';
+import { handle } from 'jsr:@hono/hono/netlify';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+    return c.text('Hello Hono!');
+});
 
-export default handle(app)
+export default handle(app);
 ```
 
 ## 3. Run
@@ -9727,29 +9604,28 @@ netlify deploy --prod
 You can access the Netlify's `Context` through `c.env`:
 
 ```ts
-import { Hono } from 'jsr:@hono/hono'
-import { handle } from 'jsr:@hono/hono/netlify'
+import { Hono } from 'jsr:@hono/hono';
+import { handle } from 'jsr:@hono/hono/netlify';
 
 // Import the type definition
-import type { Context } from 'https://edge.netlify.com/'
+import type { Context } from 'https://edge.netlify.com/';
 
 export type Env = {
-  Bindings: {
-    context: Context
-  }
-}
+    Bindings: {
+        context: Context;
+    };
+};
 
-const app = new Hono<Env>()
+const app = new Hono<Env>();
 
 app.get('/country', (c) =>
-  c.json({
-    'You are in': c.env.context.geo.country?.name,
-  })
-)
+    c.json({
+        'You are in': c.env.context.geo.country?.name
+    })
+);
 
-export default handle(app)
+export default handle(app);
 ```
-
 
 # Next.js
 
@@ -9819,19 +9695,19 @@ bun i
 If you use the App Router, Edit `app/api/[[...route]]/route.ts`. Refer to the [Supported HTTP Methods](https://nextjs.org/docs/app/building-your-application/routing/route-handlers#supported-http-methods) section for more options.
 
 ```ts
-import { Hono } from 'hono'
-import { handle } from 'hono/vercel'
+import { Hono } from 'hono';
+import { handle } from 'hono/vercel';
 
-const app = new Hono().basePath('/api')
+const app = new Hono().basePath('/api');
 
 app.get('/hello', (c) => {
-  return c.json({
-    message: 'Hello Next.js!',
-  })
-})
+    return c.json({
+        message: 'Hello Next.js!'
+    });
+});
 
-export const GET = handle(app)
-export const POST = handle(app)
+export const GET = handle(app);
+export const POST = handle(app);
 ```
 
 ## 3. Run
@@ -9891,25 +9767,25 @@ bun add @hono/node-server
 Then, you can utilize the `handle` function imported from `@hono/node-server/vercel` in `pages/api/[[...route]].ts`.
 
 ```ts
-import { Hono } from 'hono'
-import { handle } from '@hono/node-server/vercel'
-import type { PageConfig } from 'next'
+import { Hono } from 'hono';
+import { handle } from '@hono/node-server/vercel';
+import type { PageConfig } from 'next';
 
 export const config: PageConfig = {
-  api: {
-    bodyParser: false,
-  },
-}
+    api: {
+        bodyParser: false
+    }
+};
 
-const app = new Hono().basePath('/api')
+const app = new Hono().basePath('/api');
 
 app.get('/hello', (c) => {
-  return c.json({
-    message: 'Hello Next.js!',
-  })
-})
+    return c.json({
+        message: 'Hello Next.js!'
+    });
+});
 
-export default handle(app)
+export default handle(app);
 ```
 
 In order for this to work with the Pages Router, it's important to disable Vercel Node.js helpers by setting up an environment variable in your project dashboard or in your `.env` file.
@@ -9917,7 +9793,6 @@ In order for this to work with the Pages Router, it's important to disable Verce
 ```text
 NODEJS_HELPERS=0
 ```
-
 
 # Node.js
 
@@ -9928,9 +9803,9 @@ Hono was not designed for Node.js at first. But with a [Node.js Adapter](https:/
 ::: info
 It works on Node.js versions greater than 18.x. The specific required Node.js versions are as follows:
 
-- 18.x => 18.14.1+
-- 19.x => 19.7.0+
-- 20.x => 20.0.0+
+-   18.x => 18.14.1+
+-   19.x => 19.7.0+
+-   20.x => 20.0.0+
 
 Essentially, you can simply use the latest version of each major release.
 :::
@@ -9995,34 +9870,34 @@ bun i
 Edit `src/index.ts`:
 
 ```ts
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
 
-const app = new Hono()
-app.get('/', (c) => c.text('Hello Node.js!'))
+const app = new Hono();
+app.get('/', (c) => c.text('Hello Node.js!'));
 
-serve(app)
+serve(app);
 ```
 
 If you want to gracefully shut down the server, write it like this:
 
 ```ts
-const server = serve(app)
+const server = serve(app);
 
 // graceful shutdown
 process.on('SIGINT', () => {
-  server.close()
-  process.exit(0)
-})
+    server.close();
+    process.exit(0);
+});
 process.on('SIGTERM', () => {
-  server.close((err) => {
-    if (err) {
-      console.error(err)
-      process.exit(1)
-    }
-    process.exit(0)
-  })
-})
+    server.close((err) => {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+        process.exit(0);
+    });
+});
 ```
 
 ## 3. Run
@@ -10051,9 +9926,9 @@ You can specify the port number with the `port` option.
 
 ```ts
 serve({
-  fetch: app.fetch,
-  port: 8787,
-})
+    fetch: app.fetch,
+    port: 8787
+});
 ```
 
 ## Access the raw Node.js APIs
@@ -10061,23 +9936,23 @@ serve({
 You can access the Node.js APIs from `c.env.incoming` and `c.env.outgoing`.
 
 ```ts
-import { Hono } from 'hono'
-import { serve, type HttpBindings } from '@hono/node-server'
+import { Hono } from 'hono';
+import { serve, type HttpBindings } from '@hono/node-server';
 // or `Http2Bindings` if you use HTTP2
 
 type Bindings = HttpBindings & {
-  /* ... */
-}
+    /* ... */
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.get('/', (c) => {
-  return c.json({
-    remoteAddress: c.env.incoming.socket.remoteAddress,
-  })
-})
+    return c.json({
+        remoteAddress: c.env.incoming.socket.remoteAddress
+    });
+});
 
-serve(app)
+serve(app);
 ```
 
 ## Serve static files
@@ -10096,21 +9971,21 @@ You can use `serveStatic` to serve static files from the local file system. For 
 If a request to the path `/static/*` comes in and you want to return a file under `./static`, you can write the following:
 
 ```ts
-import { serveStatic } from '@hono/node-server/serve-static'
+import { serveStatic } from '@hono/node-server/serve-static';
 
-app.use('/static/*', serveStatic({ root: './' }))
+app.use('/static/*', serveStatic({ root: './' }));
 ```
 
 Use the `path` option to serve `favicon.ico` in the directory root:
 
 ```ts
-app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }))
+app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }));
 ```
 
 If a request to the path `/hello.txt` or `/image.png` comes in and you want to return a file named `./static/hello.txt` or `./static/image.png`, you can use the following:
 
 ```ts
-app.use('*', serveStatic({ root: './static' }))
+app.use('*', serveStatic({ root: './static' }));
 ```
 
 ### `rewriteRequestPath`
@@ -10119,13 +9994,12 @@ If you want to map `http://localhost:3000/static/*` to `./statics`, you can use 
 
 ```ts
 app.get(
-  '/static/*',
-  serveStatic({
-    root: './',
-    rewriteRequestPath: (path) =>
-      path.replace(/^\/static/, '/statics'),
-  })
-)
+    '/static/*',
+    serveStatic({
+        root: './',
+        rewriteRequestPath: (path) => path.replace(/^\/static/, '/statics')
+    })
+);
 ```
 
 ## http2
@@ -10135,28 +10009,28 @@ You can run hono on a [Node.js http2 Server](https://nodejs.org/api/http2.html).
 ### unencrypted http2
 
 ```ts
-import { createServer } from 'node:http2'
+import { createServer } from 'node:http2';
 
 const server = serve({
-  fetch: app.fetch,
-  createServer,
-})
+    fetch: app.fetch,
+    createServer
+});
 ```
 
 ### encrypted http2
 
 ```ts
-import { createSecureServer } from 'node:http2'
-import { readFileSync } from 'node:fs'
+import { createSecureServer } from 'node:http2';
+import { readFileSync } from 'node:fs';
 
 const server = serve({
-  fetch: app.fetch,
-  createServer: createSecureServer,
-  serverOptions: {
-    key: readFileSync('localhost-privkey.pem'),
-    cert: readFileSync('localhost-cert.pem'),
-  },
-})
+    fetch: app.fetch,
+    createServer: createSecureServer,
+    serverOptions: {
+        key: readFileSync('localhost-privkey.pem'),
+        cert: readFileSync('localhost-cert.pem')
+    }
+});
 ```
 
 ## Building & Deployment
@@ -10217,7 +10091,6 @@ EXPOSE 3000
 CMD ["node", "/app/dist/index.js"]
 ```
 
-
 # Service Worker
 
 [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) is a script that runs in the background of the browser to handle tasks like caching and push notifications. Using a Service Worker adapter, you can run applications made with Hono as [FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent) handler within the browser.
@@ -10237,12 +10110,12 @@ Create the necessary files for the project. Make a `package.json` file with the 
 
 ```json
 {
-  "name": "my-app",
-  "private": true,
-  "scripts": {
-    "dev": "vite dev"
-  },
-  "type": "module"
+    "name": "my-app",
+    "private": true,
+    "scripts": {
+        "dev": "vite dev"
+    },
+    "type": "module"
 }
 ```
 
@@ -10250,14 +10123,14 @@ Similarly, create a `tsconfig.json` file with the following:
 
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "WebWorker"],
-    "moduleResolution": "bundler"
-  },
-  "include": ["./"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "lib": ["ES2020", "DOM", "WebWorker"],
+        "moduleResolution": "bundler"
+    },
+    "include": ["./"],
+    "exclude": ["node_modules"]
 }
 ```
 
@@ -10292,12 +10165,12 @@ bun add -D vite
 Edit `index.html`:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <body>
-    <a href="/sw">Hello World by Service Worker</a>
-    <script type="module" src="/main.ts"></script>
-  </body>
+    <body>
+        <a href="/sw">Hello World by Service Worker</a>
+        <script type="module" src="/main.ts"></script>
+    </body>
 </html>
 ```
 
@@ -10305,29 +10178,27 @@ Edit `index.html`:
 
 ```ts
 function register() {
-  navigator.serviceWorker
-    .register('/sw.ts', { scope: '/sw', type: 'module' })
-    .then(
-      function (_registration) {
-        console.log('Register Service Worker: Success')
-      },
-      function (_error) {
-        console.log('Register Service Worker: Error')
-      }
-    )
+    navigator.serviceWorker
+        .register('/sw.ts', { scope: '/sw', type: 'module' })
+        .then(
+            function (_registration) {
+                console.log('Register Service Worker: Success');
+            },
+            function (_error) {
+                console.log('Register Service Worker: Error');
+            }
+        );
 }
 function start() {
-  navigator.serviceWorker
-    .getRegistrations()
-    .then(function (registrations) {
-      for (const registration of registrations) {
-        console.log('Unregister Service Worker')
-        registration.unregister()
-      }
-      register()
-    })
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        for (const registration of registrations) {
+            console.log('Unregister Service Worker');
+            registration.unregister();
+        }
+        register();
+    });
 }
-start()
+start();
 ```
 
 In `sw.ts`, create an application using Hono and register it to the `fetch` event with the Service Worker adapter’s `handle` function. This allows the Hono application to intercept access to `/sw`.
@@ -10335,15 +10206,15 @@ In `sw.ts`, create an application using Hono and register it to the `fetch` even
 ```ts
 // To support types
 // https://github.com/microsoft/TypeScript/issues/14877
-declare const self: ServiceWorkerGlobalScope
+declare const self: ServiceWorkerGlobalScope;
 
-import { Hono } from 'hono'
-import { handle } from 'hono/service-worker'
+import { Hono } from 'hono';
+import { handle } from 'hono/service-worker';
 
-const app = new Hono().basePath('/sw')
-app.get('/', (c) => c.text('Hello World'))
+const app = new Hono().basePath('/sw');
+app.get('/', (c) => c.text('Hello World'));
 
-self.addEventListener('fetch', handle(app))
+self.addEventListener('fetch', handle(app));
 ```
 
 ### Using `fire()`
@@ -10351,13 +10222,13 @@ self.addEventListener('fetch', handle(app))
 The `fire()` function automatically calls `addEventListener('fetch', handle(app))` for you, making the code more concise.
 
 ```ts
-import { Hono } from 'hono'
-import { fire } from 'hono/service-worker'
+import { Hono } from 'hono';
+import { fire } from 'hono/service-worker';
 
-const app = new Hono().basePath('/sw')
-app.get('/', (c) => c.text('Hello World'))
+const app = new Hono().basePath('/sw');
+app.get('/', (c) => c.text('Hello World'));
 
-fire(app)
+fire(app);
 ```
 
 ## 3. Run
@@ -10385,7 +10256,6 @@ bun run dev
 :::
 
 By default, the development server will run on port `5173`. Access `http://localhost:5173/` in your browser to complete the Service Worker registration. Then, access `/sw` to see the response from the Hono application.
-
 
 # Supabase Edge Functions
 
@@ -10430,15 +10300,15 @@ This command creates a new Edge Function with the specified name in your project
 Edit the `hello-world` function by modifying the file `supabase/functions/hello-world/index.ts`:
 
 ```ts
-import { Hono } from 'jsr:@hono/hono'
+import { Hono } from 'jsr:@hono/hono';
 
 // change this to your function name
-const functionName = 'hello-world'
-const app = new Hono().basePath(`/${functionName}`)
+const functionName = 'hello-world';
+const app = new Hono().basePath(`/${functionName}`);
 
-app.get('/hello', (c) => c.text('Hello from hono-server!'))
+app.get('/hello', (c) => c.text('Hello from hono-server!'));
 
-Deno.serve(app.fetch)
+Deno.serve(app.fetch);
 ```
 
 ## 3. Run
@@ -10478,7 +10348,6 @@ supabase functions deploy hello-world
 ```
 
 For more deployment methods, visit the Supabase documentation on [Deploying to Production](https://supabase.com/docs/guides/functions/deploy).
-
 
 # Vercel
 
@@ -10549,20 +10418,20 @@ We will use Vercel CLI to work on the app locally in the next step. If you haven
 In the `index.ts` or `src/index.ts` of your project, export the Hono application as a default export.
 
 ```ts
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
 const welcomeStrings = [
-  'Hello Hono!',
-  'To learn more about Hono on Vercel, visit https://vercel.com/docs/frameworks/hono',
-]
+    'Hello Hono!',
+    'To learn more about Hono on Vercel, visit https://vercel.com/docs/frameworks/hono'
+];
 
 app.get('/', (c) => {
-  return c.text(welcomeStrings.join('\n\n'))
-})
+    return c.text(welcomeStrings.join('\n\n'));
+});
 
-export default app
+export default app;
 ```
 
 If you started with the `vercel` template, this is already set up for you.
@@ -10589,7 +10458,6 @@ vercel deploy
 
 [Learn more about Hono in the Vercel documentation](https://vercel.com/docs/frameworks/backend/hono).
 
-
 # Benchmarks
 
 Benchmarks are only benchmarks, but they are important to us.
@@ -10599,83 +10467,83 @@ Benchmarks are only benchmarks, but they are important to us.
 We measured the speeds of a bunch of JavaScript routers.
 For example, `find-my-way` is a very fast router used inside Fastify.
 
-- @medley/router
-- find-my-way
-- koa-tree-router
-- trek-router
-- express (includes handling)
-- koa-router
+-   @medley/router
+-   find-my-way
+-   koa-tree-router
+-   trek-router
+-   express (includes handling)
+-   koa-router
 
 First, we registered the following routing to each of our routers.
 These are similar to those used in the real world.
 
 ```ts twoslash
 interface Route {
-  method: string
-  path: string
+    method: string;
+    path: string;
 }
 // ---cut---
 export const routes: Route[] = [
-  { method: 'GET', path: '/user' },
-  { method: 'GET', path: '/user/comments' },
-  { method: 'GET', path: '/user/avatar' },
-  { method: 'GET', path: '/user/lookup/username/:username' },
-  { method: 'GET', path: '/user/lookup/email/:address' },
-  { method: 'GET', path: '/event/:id' },
-  { method: 'GET', path: '/event/:id/comments' },
-  { method: 'POST', path: '/event/:id/comment' },
-  { method: 'GET', path: '/map/:location/events' },
-  { method: 'GET', path: '/status' },
-  { method: 'GET', path: '/very/deeply/nested/route/hello/there' },
-  { method: 'GET', path: '/static/*' },
-]
+    { method: 'GET', path: '/user' },
+    { method: 'GET', path: '/user/comments' },
+    { method: 'GET', path: '/user/avatar' },
+    { method: 'GET', path: '/user/lookup/username/:username' },
+    { method: 'GET', path: '/user/lookup/email/:address' },
+    { method: 'GET', path: '/event/:id' },
+    { method: 'GET', path: '/event/:id/comments' },
+    { method: 'POST', path: '/event/:id/comment' },
+    { method: 'GET', path: '/map/:location/events' },
+    { method: 'GET', path: '/status' },
+    { method: 'GET', path: '/very/deeply/nested/route/hello/there' },
+    { method: 'GET', path: '/static/*' }
+];
 ```
 
 Then we sent the Request to the endpoints like below.
 
 ```ts twoslash
 interface Route {
-  method: string
-  path: string
+    method: string;
+    path: string;
 }
 // ---cut---
 const routes: (Route & { name: string })[] = [
-  {
-    name: 'short static',
-    method: 'GET',
-    path: '/user',
-  },
-  {
-    name: 'static with same radix',
-    method: 'GET',
-    path: '/user/comments',
-  },
-  {
-    name: 'dynamic route',
-    method: 'GET',
-    path: '/user/lookup/username/hey',
-  },
-  {
-    name: 'mixed static dynamic',
-    method: 'GET',
-    path: '/event/abcd1234/comments',
-  },
-  {
-    name: 'post',
-    method: 'POST',
-    path: '/event/abcd1234/comment',
-  },
-  {
-    name: 'long static',
-    method: 'GET',
-    path: '/very/deeply/nested/route/hello/there',
-  },
-  {
-    name: 'wildcard',
-    method: 'GET',
-    path: '/static/index.html',
-  },
-]
+    {
+        name: 'short static',
+        method: 'GET',
+        path: '/user'
+    },
+    {
+        name: 'static with same radix',
+        method: 'GET',
+        path: '/user/comments'
+    },
+    {
+        name: 'dynamic route',
+        method: 'GET',
+        path: '/user/lookup/username/hey'
+    },
+    {
+        name: 'mixed static dynamic',
+        method: 'GET',
+        path: '/event/abcd1234/comments'
+    },
+    {
+        name: 'post',
+        method: 'POST',
+        path: '/event/abcd1234/comment'
+    },
+    {
+        name: 'long static',
+        method: 'GET',
+        path: '/very/deeply/nested/route/hello/there'
+    },
+    {
+        name: 'wildcard',
+        method: 'GET',
+        path: '/static/index.html'
+    }
+];
 ```
 
 Let's see the results.
@@ -10724,8 +10592,8 @@ The following screenshots show the results on Bun.
 
 **Hono is the fastest**, compared to other routers for Cloudflare Workers.
 
-- Machine: Apple MacBook Pro, 32 GiB, M1 Pro
-- Scripts: [benchmarks/handle-event](https://github.com/honojs/hono/tree/main/benchmarks/handle-event)
+-   Machine: Apple MacBook Pro, 32 GiB, M1 Pro
+-   Scripts: [benchmarks/handle-event](https://github.com/honojs/hono/tree/main/benchmarks/handle-event)
 
 ```
 Hono x 402,820 ops/sec ±4.78% (80 runs sampled)
@@ -10740,9 +10608,9 @@ Fastest is Hono
 
 **Hono is the fastest**, compared to other frameworks for Deno.
 
-- Machine: Apple MacBook Pro, 32 GiB, M1 Pro, Deno v1.22.0
-- Scripts: [benchmarks/deno](https://github.com/honojs/hono/tree/main/benchmarks/deno)
-- Method: `bombardier --fasthttp -d 10s -c 100 'http://localhost:8000/user/lookup/username/foo'`
+-   Machine: Apple MacBook Pro, 32 GiB, M1 Pro, Deno v1.22.0
+-   Scripts: [benchmarks/deno](https://github.com/honojs/hono/tree/main/benchmarks/deno)
+-   Method: `bombardier --fasthttp -d 10s -c 100 'http://localhost:8000/user/lookup/username/foo'`
 
 | Framework |   Version    |                  Results |
 | --------- | :----------: | -----------------------: |
@@ -10760,15 +10628,13 @@ Another benchmark result: [denosaurs/bench](https://github.com/denosaurs/bench)
 Hono is one of the fastest frameworks for Bun.
 You can see it below.
 
-- [SaltyAom/bun-http-framework-benchmark](https://github.com/SaltyAom/bun-http-framework-benchmark)
-
+-   [SaltyAom/bun-http-framework-benchmark](https://github.com/SaltyAom/bun-http-framework-benchmark)
 
 # Developer Experience
 
 To create a great application, we need great development experience.
 Fortunately, we can write applications for Cloudflare Workers, Deno, and Bun in TypeScript without having the need to transpile it to JavaScript.
 Hono is written in TypeScript and can make applications type-safe.
-
 
 # Middleware
 
@@ -10781,19 +10647,18 @@ It's like an onion structure.
 For example, we can write the middleware to add the "X-Response-Time" header as follows.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.use(async (c, next) => {
-  const start = performance.now()
-  await next()
-  const end = performance.now()
-  c.res.headers.set('X-Response-Time', `${end - start}`)
-})
+    const start = performance.now();
+    await next();
+    const end = performance.now();
+    c.res.headers.set('X-Response-Time', `${end - start}`);
+});
 ```
 
 With this simple method, we can write our own custom middleware and we can use the built-in or third party middleware.
-
 
 # Philosophy
 
@@ -10818,7 +10683,6 @@ An ecosystem has sprung up.
 
 In other words, Hono is damn fast, makes a lot of things possible, and works anywhere.
 We might imagine that Hono could become the **Standard for Web Standards**.
-
 
 # Routers
 
@@ -10913,7 +10777,6 @@ $ npx wrangler deploy --minify ./src/index.ts
 Total Upload: 14.68 KiB / gzip: 5.38 KiB
 ```
 
-
 # Hono Stacks
 
 Hono makes easy things easy and hard things easy.
@@ -10927,10 +10790,10 @@ The client generated by `hc` will read the spec and access the endpoint type-saf
 
 The following libraries make it possible.
 
-- Hono - API Server
-- [Zod](https://zod.dev) - Validator
-- [Zod Validator Middleware](https://github.com/honojs/middleware/tree/main/packages/zod-validator)
-- `hc` - HTTP Client
+-   Hono - API Server
+-   [Zod](https://zod.dev) - Validator
+-   [Zod Validator Middleware](https://github.com/honojs/middleware/tree/main/packages/zod-validator)
+-   `hc` - HTTP Client
 
 We can call the set of these components the **Hono Stack**.
 Now let's create an API server and a client with it.
@@ -10940,15 +10803,15 @@ Now let's create an API server and a client with it.
 First, write an endpoint that receives a GET request and returns JSON.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/hello', (c) => {
-  return c.json({
-    message: `Hello!`,
-  })
-})
+    return c.json({
+        message: `Hello!`
+    });
+});
 ```
 
 ## Validation with Zod
@@ -10958,24 +10821,24 @@ Validate with Zod to receive the value of the query parameter.
 ![](/images/sc01.gif)
 
 ```ts
-import { zValidator } from '@hono/zod-validator'
-import { z } from 'zod'
+import { zValidator } from '@hono/zod-validator';
+import { z } from 'zod';
 
 app.get(
-  '/hello',
-  zValidator(
-    'query',
-    z.object({
-      name: z.string(),
-    })
-  ),
-  (c) => {
-    const { name } = c.req.valid('query')
-    return c.json({
-      message: `Hello! ${name}`,
-    })
-  }
-)
+    '/hello',
+    zValidator(
+        'query',
+        z.object({
+            name: z.string()
+        })
+    ),
+    (c) => {
+        const { name } = c.req.valid('query');
+        return c.json({
+            message: `Hello! ${name}`
+        });
+    }
+);
 ```
 
 ## Sharing the Types
@@ -11017,15 +10880,15 @@ Then, magically, completion works and the endpoint path and request type are sug
 ![](/images/sc03.gif)
 
 ```ts
-import { AppType } from './server'
-import { hc } from 'hono/client'
+import { AppType } from './server';
+import { hc } from 'hono/client';
 
-const client = hc<AppType>('/api')
+const client = hc<AppType>('/api');
 const res = await client.hello.$get({
-  query: {
-    name: 'Hono',
-  },
-})
+    query: {
+        name: 'Hono'
+    }
+});
 ```
 
 The `Response` is compatible with the fetch API, but the data that can be retrieved with `json()` has a type.
@@ -11033,8 +10896,8 @@ The `Response` is compatible with the fetch API, but the data that can be retrie
 ![](/images/sc04.gif)
 
 ```ts
-const data = await res.json()
-console.log(`${data.message}`)
+const data = await res.json();
+console.log(`${data.message}`);
 ```
 
 Sharing API specifications means that you can be aware of server-side changes.
@@ -11049,39 +10912,39 @@ The API server.
 
 ```ts
 // functions/api/[[route]].ts
-import { Hono } from 'hono'
-import { handle } from 'hono/cloudflare-pages'
-import { z } from 'zod'
-import { zValidator } from '@hono/zod-validator'
+import { Hono } from 'hono';
+import { handle } from 'hono/cloudflare-pages';
+import { z } from 'zod';
+import { zValidator } from '@hono/zod-validator';
 
-const app = new Hono()
+const app = new Hono();
 
 const schema = z.object({
-  id: z.string(),
-  title: z.string(),
-})
+    id: z.string(),
+    title: z.string()
+});
 
-type Todo = z.infer<typeof schema>
+type Todo = z.infer<typeof schema>;
 
-const todos: Todo[] = []
+const todos: Todo[] = [];
 
 const route = app
-  .post('/todo', zValidator('form', schema), (c) => {
-    const todo = c.req.valid('form')
-    todos.push(todo)
-    return c.json({
-      message: 'created!',
+    .post('/todo', zValidator('form', schema), (c) => {
+        const todo = c.req.valid('form');
+        todos.push(todo);
+        return c.json({
+            message: 'created!'
+        });
     })
-  })
-  .get((c) => {
-    return c.json({
-      todos,
-    })
-  })
+    .get((c) => {
+        return c.json({
+            todos
+        });
+    });
 
-export type AppType = typeof route
+export type AppType = typeof route;
 
-export const onRequest = handle(app, '/api')
+export const onRequest = handle(app, '/api');
 ```
 
 The client with React and React Query.
@@ -11089,78 +10952,77 @@ The client with React and React Query.
 ```tsx
 // src/App.tsx
 import {
-  useQuery,
-  useMutation,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
-import { AppType } from '../functions/api/[[route]]'
-import { hc, InferResponseType, InferRequestType } from 'hono/client'
+    useQuery,
+    useMutation,
+    QueryClient,
+    QueryClientProvider
+} from '@tanstack/react-query';
+import { AppType } from '../functions/api/[[route]]';
+import { hc, InferResponseType, InferRequestType } from 'hono/client';
 
-const queryClient = new QueryClient()
-const client = hc<AppType>('/api')
+const queryClient = new QueryClient();
+const client = hc<AppType>('/api');
 
 export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Todos />
-    </QueryClientProvider>
-  )
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Todos />
+        </QueryClientProvider>
+    );
 }
 
 const Todos = () => {
-  const query = useQuery({
-    queryKey: ['todos'],
-    queryFn: async () => {
-      const res = await client.todo.$get()
-      return await res.json()
-    },
-  })
+    const query = useQuery({
+        queryKey: ['todos'],
+        queryFn: async () => {
+            const res = await client.todo.$get();
+            return await res.json();
+        }
+    });
 
-  const $post = client.todo.$post
+    const $post = client.todo.$post;
 
-  const mutation = useMutation<
-    InferResponseType<typeof $post>,
-    Error,
-    InferRequestType<typeof $post>['form']
-  >({
-    mutationFn: async (todo) => {
-      const res = await $post({
-        form: todo,
-      })
-      return await res.json()
-    },
-    onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['todos'] })
-    },
-    onError: (error) => {
-      console.log(error)
-    },
-  })
+    const mutation = useMutation<
+        InferResponseType<typeof $post>,
+        Error,
+        InferRequestType<typeof $post>['form']
+    >({
+        mutationFn: async (todo) => {
+            const res = await $post({
+                form: todo
+            });
+            return await res.json();
+        },
+        onSuccess: async () => {
+            queryClient.invalidateQueries({ queryKey: ['todos'] });
+        },
+        onError: (error) => {
+            console.log(error);
+        }
+    });
 
-  return (
-    <div>
-      <button
-        onClick={() => {
-          mutation.mutate({
-            id: Date.now().toString(),
-            title: 'Write code',
-          })
-        }}
-      >
-        Add Todo
-      </button>
+    return (
+        <div>
+            <button
+                onClick={() => {
+                    mutation.mutate({
+                        id: Date.now().toString(),
+                        title: 'Write code'
+                    });
+                }}
+            >
+                Add Todo
+            </button>
 
-      <ul>
-        {query.data?.todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
+            <ul>
+                {query.data?.todos.map((todo) => (
+                    <li key={todo.id}>{todo.title}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 ```
-
 
 # Web Standards
 
@@ -11173,29 +11035,28 @@ For example, a server that returns "Hello World" could be written as below. This
 
 ```ts twoslash
 export default {
-  async fetch() {
-    return new Response('Hello World')
-  },
-}
+    async fetch() {
+        return new Response('Hello World');
+    }
+};
 ```
 
 Hono uses only Web Standards, which means that Hono can run on any runtime that supports them.
 In addition, we have a Node.js adapter. Hono runs on these runtimes:
 
-- Cloudflare Workers (`workerd`)
-- Deno
-- Bun
-- Fastly Compute
-- AWS Lambda
-- Node.js
-- Vercel (edge-light)
+-   Cloudflare Workers (`workerd`)
+-   Deno
+-   Bun
+-   Fastly Compute
+-   AWS Lambda
+-   Node.js
+-   Vercel (edge-light)
 
 It also works on Netlify and other platforms.
 The same code runs on all platforms.
 
 Cloudflare Workers, Deno, Shopify, and others launched [WinterCG](https://wintercg.org) to discuss the possibility of using the Web Standards to enable "web-interoperability".
 Hono will follow their steps and go for **the Standard of the Web Standards**.
-
 
 # Context
 
@@ -11206,16 +11067,16 @@ The `Context` object is instantiated for each request and kept until the respons
 `req` is an instance of HonoRequest. For more details, see [HonoRequest](/docs/api/request).
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/hello', (c) => {
-  const userAgent = c.req.header('User-Agent')
-  // ...
-  // ---cut-start---
-  return c.text(`Hello, ${userAgent}`)
-  // ---cut-end---
-})
+    const userAgent = c.req.header('User-Agent');
+    // ...
+    // ---cut-start---
+    return c.text(`Hello, ${userAgent}`);
+    // ---cut-end---
+});
 ```
 
 ## status()
@@ -11223,14 +11084,14 @@ app.get('/hello', (c) => {
 You can set an HTTP status code with `c.status()`. The default is `200`. You don't have to use `c.status()` if the code is `200`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/posts', (c) => {
-  // Set HTTP status code
-  c.status(201)
-  return c.text('Your post is created!')
-})
+    // Set HTTP status code
+    c.status(201);
+    return c.text('Your post is created!');
+});
 ```
 
 ## header()
@@ -11238,14 +11099,14 @@ app.post('/posts', (c) => {
 You can set HTTP Headers for the response.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/', (c) => {
-  // Set headers
-  c.header('X-Message', 'My custom message')
-  return c.text('HellO!')
-})
+    // Set headers
+    c.header('X-Message', 'My custom message');
+    return c.text('HellO!');
+});
 ```
 
 ## body()
@@ -11257,40 +11118,40 @@ Return an HTTP response.
 :::
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/welcome', (c) => {
-  c.header('Content-Type', 'text/plain')
-  // Return the response body
-  return c.body('Thank you for coming')
-})
+    c.header('Content-Type', 'text/plain');
+    // Return the response body
+    return c.body('Thank you for coming');
+});
 ```
 
 You can also write the following.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/welcome', (c) => {
-  return c.body('Thank you for coming', 201, {
-    'X-Message': 'Hello!',
-    'Content-Type': 'text/plain',
-  })
-})
+    return c.body('Thank you for coming', 201, {
+        'X-Message': 'Hello!',
+        'Content-Type': 'text/plain'
+    });
+});
 ```
 
 The response is the same `Response` object as below.
 
 ```ts twoslash
 new Response('Thank you for coming', {
-  status: 201,
-  headers: {
-    'X-Message': 'Hello!',
-    'Content-Type': 'text/plain',
-  },
-})
+    status: 201,
+    headers: {
+        'X-Message': 'Hello!',
+        'Content-Type': 'text/plain'
+    }
+});
 ```
 
 ## text()
@@ -11298,12 +11159,12 @@ new Response('Thank you for coming', {
 Render text as `Content-Type:text/plain`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/say', (c) => {
-  return c.text('Hello!')
-})
+    return c.text('Hello!');
+});
 ```
 
 ## json()
@@ -11311,12 +11172,12 @@ app.get('/say', (c) => {
 Render JSON as `Content-Type:application/json`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/api', (c) => {
-  return c.json({ message: 'Hello!' })
-})
+    return c.json({ message: 'Hello!' });
+});
 ```
 
 ## html()
@@ -11324,12 +11185,12 @@ app.get('/api', (c) => {
 Render HTML as `Content-Type:text/html`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/', (c) => {
-  return c.html('<h1>Hello! Hono!</h1>')
-})
+    return c.html('<h1>Hello! Hono!</h1>');
+});
 ```
 
 ## notFound()
@@ -11337,12 +11198,12 @@ app.get('/', (c) => {
 Return a `Not Found` Response. You can customize it with [`app.notFound()`](/docs/api/hono#not-found).
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/notfound', (c) => {
-  return c.notFound()
-})
+    return c.notFound();
+});
 ```
 
 ## redirect()
@@ -11350,15 +11211,15 @@ app.get('/notfound', (c) => {
 Redirect, default status code is `302`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/redirect', (c) => {
-  return c.redirect('/')
-})
+    return c.redirect('/');
+});
 app.get('/redirect-permanently', (c) => {
-  return c.redirect('/', 301)
-})
+    return c.redirect('/', 301);
+});
 ```
 
 ## res
@@ -11366,14 +11227,14 @@ app.get('/redirect-permanently', (c) => {
 You can access the Response object that will be returned.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 // Response object
 app.use('/', async (c, next) => {
-  await next()
-  c.res.headers.append('X-Debug', 'Debug message')
-})
+    await next();
+    c.res.headers.append('X-Debug', 'Debug message');
+});
 ```
 
 ## set() / get()
@@ -11381,30 +11242,30 @@ app.use('/', async (c, next) => {
 Get and set arbitrary key-value pairs, with a lifetime of the current request. This allows passing specific values between middleware or from middleware to route handlers.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono<{ Variables: { message: string } }>()
+import { Hono } from 'hono';
+const app = new Hono<{ Variables: { message: string } }>();
 // ---cut---
 app.use(async (c, next) => {
-  c.set('message', 'Hono is cool!!')
-  await next()
-})
+    c.set('message', 'Hono is cool!!');
+    await next();
+});
 
 app.get('/', (c) => {
-  const message = c.get('message')
-  return c.text(`The message is "${message}"`)
-})
+    const message = c.get('message');
+    return c.text(`The message is "${message}"`);
+});
 ```
 
 Pass the `Variables` as Generics to the constructor of `Hono` to make it type-safe.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
 type Variables = {
-  message: string
-}
+    message: string;
+};
 
-const app = new Hono<{ Variables: Variables }>()
+const app = new Hono<{ Variables: Variables }>();
 ```
 
 The value of `c.set` / `c.get` are retained only within the same request. They cannot be shared or persisted across different requests.
@@ -11414,57 +11275,57 @@ The value of `c.set` / `c.get` are retained only within the same request. They c
 You can also access the value of a variable with `c.var`.
 
 ```ts twoslash
-import type { Context } from 'hono'
-declare const c: Context
+import type { Context } from 'hono';
+declare const c: Context;
 // ---cut---
-const result = c.var.client.oneMethod()
+const result = c.var.client.oneMethod();
 ```
 
 If you want to create the middleware which provides a custom method,
 write like the following:
 
 ```ts twoslash
-import { Hono } from 'hono'
-import { createMiddleware } from 'hono/factory'
+import { Hono } from 'hono';
+import { createMiddleware } from 'hono/factory';
 // ---cut---
 type Env = {
-  Variables: {
-    echo: (str: string) => string
-  }
-}
+    Variables: {
+        echo: (str: string) => string;
+    };
+};
 
-const app = new Hono()
+const app = new Hono();
 
 const echoMiddleware = createMiddleware<Env>(async (c, next) => {
-  c.set('echo', (str) => str)
-  await next()
-})
+    c.set('echo', (str) => str);
+    await next();
+});
 
 app.get('/echo', echoMiddleware, (c) => {
-  return c.text(c.var.echo('Hello!'))
-})
+    return c.text(c.var.echo('Hello!'));
+});
 ```
 
 If you want to use the middleware in multiple handlers, you can use `app.use()`.
 Then, you have to pass the `Env` as Generics to the constructor of `Hono` to make it type-safe.
 
 ```ts twoslash
-import { Hono } from 'hono'
-import type { MiddlewareHandler } from 'hono/types'
-declare const echoMiddleware: MiddlewareHandler
+import { Hono } from 'hono';
+import type { MiddlewareHandler } from 'hono/types';
+declare const echoMiddleware: MiddlewareHandler;
 type Env = {
-  Variables: {
-    echo: (str: string) => string
-  }
-}
+    Variables: {
+        echo: (str: string) => string;
+    };
+};
 // ---cut---
-const app = new Hono<Env>()
+const app = new Hono<Env>();
 
-app.use(echoMiddleware)
+app.use(echoMiddleware);
 
 app.get('/echo', (c) => {
-  return c.text(c.var.echo('Hello!'))
-})
+    return c.text(c.var.echo('Hello!'));
+});
 ```
 
 ## render() / setRenderer()
@@ -11474,41 +11335,41 @@ You can set a layout using `c.setRenderer()` within a custom middleware.
 ```tsx twoslash
 /** @jsx jsx */
 /** @jsxImportSource hono/jsx */
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.use(async (c, next) => {
-  c.setRenderer((content) => {
-    return c.html(
-      <html>
-        <body>
-          <p>{content}</p>
-        </body>
-      </html>
-    )
-  })
-  await next()
-})
+    c.setRenderer((content) => {
+        return c.html(
+            <html>
+                <body>
+                    <p>{content}</p>
+                </body>
+            </html>
+        );
+    });
+    await next();
+});
 ```
 
 Then, you can utilize `c.render()` to create responses within this layout.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/', (c) => {
-  return c.render('Hello!')
-})
+    return c.render('Hello!');
+});
 ```
 
 The output of which will be:
 
 ```html
 <html>
-  <body>
-    <p>Hello!</p>
-  </body>
+    <body>
+        <p>Hello!</p>
+    </body>
 </html>
 ```
 
@@ -11517,12 +11378,11 @@ To ensure type safety, types can be defined as:
 
 ```ts
 declare module 'hono' {
-  interface ContextRenderer {
-    (
-      content: string | Promise<string>,
-      head: { title: string }
-    ): Response | Promise<Response>
-  }
+    interface ContextRenderer {
+        (content: string | Promise<string>, head: { title: string }):
+            | Response
+            | Promise<Response>;
+    }
 }
 ```
 
@@ -11530,33 +11390,33 @@ Here's an example of how you can use this:
 
 ```ts
 app.use('/pages/*', async (c, next) => {
-  c.setRenderer((content, head) => {
-    return c.html(
-      <html>
-        <head>
-          <title>{head.title}</title>
-        </head>
-        <body>
-          <header>{head.title}</header>
-          <p>{content}</p>
-        </body>
-      </html>
-    )
-  })
-  await next()
-})
+    c.setRenderer((content, head) => {
+        return c.html(
+            <html>
+                <head>
+                    <title>{head.title}</title>
+                </head>
+                <body>
+                    <header>{head.title}</header>
+                    <p>{content}</p>
+                </body>
+            </html>
+        );
+    });
+    await next();
+});
 
 app.get('/pages/my-favorite', (c) => {
-  return c.render(<p>Ramen and Sushi</p>, {
-    title: 'My favorite',
-  })
-})
+    return c.render(<p>Ramen and Sushi</p>, {
+        title: 'My favorite'
+    });
+});
 
 app.get('/pages/my-hobbies', (c) => {
-  return c.render(<p>Watching baseball</p>, {
-    title: 'My hobbies',
-  })
-})
+    return c.render(<p>Watching baseball</p>, {
+        title: 'My hobbies'
+    });
+});
 ```
 
 ## executionCtx
@@ -11564,20 +11424,20 @@ app.get('/pages/my-hobbies', (c) => {
 You can access Cloudflare Workers' specific [ExecutionContext](https://developers.cloudflare.com/workers/runtime-apis/context/).
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 const app = new Hono<{
-  Bindings: {
-    KV: any
-  }
-}>()
-declare const key: string
-declare const data: string
+    Bindings: {
+        KV: any;
+    };
+}>();
+declare const key: string;
+declare const data: string;
 // ---cut---
 // ExecutionContext object
 app.get('/foo', async (c) => {
-  c.executionCtx.waitUntil(c.env.KV.put(key, data))
-  // ...
-})
+    c.executionCtx.waitUntil(c.env.KV.put(key, data));
+    // ...
+});
 ```
 
 ## event
@@ -11585,23 +11445,23 @@ app.get('/foo', async (c) => {
 You can access Cloudflare Workers' specific `FetchEvent`. This was used in "Service Worker" syntax. But, it is not recommended now.
 
 ```ts twoslash
-import { Hono } from 'hono'
-declare const key: string
-declare const data: string
-type KVNamespace = any
+import { Hono } from 'hono';
+declare const key: string;
+declare const data: string;
+type KVNamespace = any;
 // ---cut---
 // Type definition to make type inference
 type Bindings = {
-  MY_KV: KVNamespace
-}
+    MY_KV: KVNamespace;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 // FetchEvent object (only set when using Service Worker syntax)
 app.get('/foo', async (c) => {
-  c.event.waitUntil(c.env.MY_KV.put(key, data))
-  // ...
-})
+    c.event.waitUntil(c.env.MY_KV.put(key, data));
+    // ...
+});
 ```
 
 ## env
@@ -11610,21 +11470,21 @@ In Cloudflare Workers Environment variables, secrets, KV namespaces, D1 database
 Regardless of type, bindings are always available as global variables and can be accessed via the context `c.env.BINDING_KEY`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-type KVNamespace = any
+import { Hono } from 'hono';
+type KVNamespace = any;
 // ---cut---
 // Type definition to make type inference
 type Bindings = {
-  MY_KV: KVNamespace
-}
+    MY_KV: KVNamespace;
+};
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings }>();
 
 // Environment object for Cloudflare Workers
 app.get('/', async (c) => {
-  c.env.MY_KV.get('my-key')
-  // ...
-})
+    c.env.MY_KV.get('my-key');
+    // ...
+});
 ```
 
 ## error
@@ -11633,15 +11493,15 @@ If the Handler throws an error, the error object is placed in `c.error`.
 You can access it in your middleware.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.use(async (c, next) => {
-  await next()
-  if (c.error) {
-    // do something...
-  }
-})
+    await next();
+    if (c.error) {
+        // do something...
+    }
+});
 ```
 
 ## ContextVariableMap
@@ -11650,36 +11510,35 @@ For instance, if you wish to add type definitions to variables when a specific m
 
 ```ts
 declare module 'hono' {
-  interface ContextVariableMap {
-    result: string
-  }
+    interface ContextVariableMap {
+        result: string;
+    }
 }
 ```
 
 You can then utilize this in your middleware:
 
 ```ts twoslash
-import { createMiddleware } from 'hono/factory'
+import { createMiddleware } from 'hono/factory';
 // ---cut---
 const mw = createMiddleware(async (c, next) => {
-  c.set('result', 'some values') // result is a string
-  await next()
-})
+    c.set('result', 'some values'); // result is a string
+    await next();
+});
 ```
 
 In a handler, the variable is inferred as the proper type:
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono<{ Variables: { result: string } }>()
+import { Hono } from 'hono';
+const app = new Hono<{ Variables: { result: string } }>();
 // ---cut---
 app.get('/', (c) => {
-  const val = c.get('result') // val is a string
-  // ...
-  return c.json({ result: val })
-})
+    const val = c.get('result'); // val is a string
+    // ...
+    return c.json({ result: val });
+});
 ```
-
 
 # Exception
 
@@ -11690,36 +11549,36 @@ When a fatal error occurs, such as authentication failure, an HTTPException must
 This example throws an HTTPException from the middleware.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
-declare const authorized: boolean
+import { Hono } from 'hono';
+const app = new Hono();
+declare const authorized: boolean;
 // ---cut---
-import { HTTPException } from 'hono/http-exception'
+import { HTTPException } from 'hono/http-exception';
 
 // ...
 
 app.post('/auth', async (c, next) => {
-  // authentication
-  if (authorized === false) {
-    throw new HTTPException(401, { message: 'Custom error message' })
-  }
-  await next()
-})
+    // authentication
+    if (authorized === false) {
+        throw new HTTPException(401, { message: 'Custom error message' });
+    }
+    await next();
+});
 ```
 
 You can specify the response to be returned back to the user.
 
 ```ts twoslash
-import { HTTPException } from 'hono/http-exception'
+import { HTTPException } from 'hono/http-exception';
 
 const errorResponse = new Response('Unauthorized', {
-  status: 401,
-  headers: {
-    Authenticate: 'error="invalid_token"',
-  },
-})
+    status: 401,
+    headers: {
+        Authenticate: 'error="invalid_token"'
+    }
+});
 
-throw new HTTPException(401, { res: errorResponse })
+throw new HTTPException(401, { res: errorResponse });
 ```
 
 ## Handling HTTPException
@@ -11727,23 +11586,23 @@ throw new HTTPException(401, { res: errorResponse })
 You can handle the thrown HTTPException with `app.onError`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
-import { HTTPException } from 'hono/http-exception'
+import { HTTPException } from 'hono/http-exception';
 
 // ...
 
 app.onError((err, c) => {
-  if (err instanceof HTTPException) {
-    // Get the custom response
-    return err.getResponse()
-  }
-  // ...
-  // ---cut-start---
-  return c.text('Error')
-  // ---cut-end---
-})
+    if (err instanceof HTTPException) {
+        // Get the custom response
+        return err.getResponse();
+    }
+    // ...
+    // ---cut-start---
+    return c.text('Error');
+    // ---cut-end---
+});
 ```
 
 ## `cause`
@@ -11751,22 +11610,21 @@ app.onError((err, c) => {
 The `cause` option is available to add a [`cause`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause) data.
 
 ```ts twoslash
-import { Hono, Context } from 'hono'
-import { HTTPException } from 'hono/http-exception'
-const app = new Hono()
-declare const message: string
-declare const authorize: (c: Context) => void
+import { Hono, Context } from 'hono';
+import { HTTPException } from 'hono/http-exception';
+const app = new Hono();
+declare const message: string;
+declare const authorize: (c: Context) => void;
 // ---cut---
 app.post('/auth', async (c, next) => {
-  try {
-    authorize(c)
-  } catch (e) {
-    throw new HTTPException(401, { message, cause: e })
-  }
-  await next()
-})
+    try {
+        authorize(c);
+    } catch (e) {
+        throw new HTTPException(401, { message, cause: e });
+    }
+    await next();
+});
 ```
-
 
 # App - Hono
 
@@ -11774,30 +11632,30 @@ app.post('/auth', async (c, next) => {
 It will be imported first and used until the end.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 //...
 
-export default app // for Cloudflare Workers or Bun
+export default app; // for Cloudflare Workers or Bun
 ```
 
 ## Methods
 
 An instance of `Hono` has the following methods.
 
-- app.**HTTP_METHOD**(\[path,\]handler|middleware...)
-- app.**all**(\[path,\]handler|middleware...)
-- app.**on**(method|method[], path|path[], handler|middleware...)
-- app.**use**(\[path,\]middleware)
-- app.**route**(path, \[app\])
-- app.**basePath**(path)
-- app.**notFound**(handler)
-- app.**onError**(err, handler)
-- app.**mount**(path, anotherApp)
-- app.**fire**()
-- app.**fetch**(request, env, event)
-- app.**request**(path, options)
+-   app.**HTTP_METHOD**(\[path,\]handler|middleware...)
+-   app.**all**(\[path,\]handler|middleware...)
+-   app.**on**(method|method[], path|path[], handler|middleware...)
+-   app.**use**(\[path,\]middleware)
+-   app.**route**(path, \[app\])
+-   app.**basePath**(path)
+-   app.**notFound**(handler)
+-   app.**onError**(err, handler)
+-   app.**mount**(path, anotherApp)
+-   app.**fire**()
+-   app.**fetch**(request, env, event)
+-   app.**request**(path, options)
 
 The first part of them is used for routing, please refer to the [routing section](/docs/api/routing).
 
@@ -11806,12 +11664,12 @@ The first part of them is used for routing, please refer to the [routing section
 `app.notFound` allows you to customize a Not Found Response.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.notFound((c) => {
-  return c.text('Custom 404 Message', 404)
-})
+    return c.text('Custom 404 Message', 404);
+});
 ```
 
 ## Error Handling
@@ -11819,13 +11677,13 @@ app.notFound((c) => {
 `app.onError` handles an error and returns a customized Response.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.onError((err, c) => {
-  console.error(`${err}`)
-  return c.text('Custom Error Message', 500)
-})
+    console.error(`${err}`);
+    return c.text('Custom Error Message', 500);
+});
 ```
 
 ## fire()
@@ -11853,25 +11711,25 @@ addEventListener('fetch', (event: FetchEventLike): void => {
 For Cloudflare Workers, you can use the following:
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
-type Env = any
-type ExecutionContext = any
+import { Hono } from 'hono';
+const app = new Hono();
+type Env = any;
+type ExecutionContext = any;
 // ---cut---
 export default {
-  fetch(request: Request, env: Env, ctx: ExecutionContext) {
-    return app.fetch(request, env, ctx)
-  },
-}
+    fetch(request: Request, env: Env, ctx: ExecutionContext) {
+        return app.fetch(request, env, ctx);
+    }
+};
 ```
 
 or just do:
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
-export default app
+export default app;
 ```
 
 Bun:
@@ -11893,32 +11751,32 @@ You can pass a URL or pathname to send a GET request.
 `app` will return a `Response` object.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
-declare const test: (name: string, fn: () => void) => void
-declare const expect: (value: any) => any
+import { Hono } from 'hono';
+const app = new Hono();
+declare const test: (name: string, fn: () => void) => void;
+declare const expect: (value: any) => any;
 // ---cut---
 test('GET /hello is ok', async () => {
-  const res = await app.request('/hello')
-  expect(res.status).toBe(200)
-})
+    const res = await app.request('/hello');
+    expect(res.status).toBe(200);
+});
 ```
 
 You can also pass a `Request` object:
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
-declare const test: (name: string, fn: () => void) => void
-declare const expect: (value: any) => any
+import { Hono } from 'hono';
+const app = new Hono();
+declare const test: (name: string, fn: () => void) => void;
+declare const expect: (value: any) => any;
 // ---cut---
 test('POST /message is ok', async () => {
-  const req = new Request('Hello!', {
-    method: 'POST',
-  })
-  const res = await app.request(req)
-  expect(res.status).toBe(201)
-})
+    const req = new Request('Hello!', {
+        method: 'POST'
+    });
+    const res = await app.request(req);
+    expect(res.status).toBe(201);
+});
 ```
 
 ## mount()
@@ -11926,37 +11784,37 @@ test('POST /message is ok', async () => {
 The `mount()` allows you to mount applications built with other frameworks into your Hono application.
 
 ```ts
-import { Router as IttyRouter } from 'itty-router'
-import { Hono } from 'hono'
+import { Router as IttyRouter } from 'itty-router';
+import { Hono } from 'hono';
 
 // Create itty-router application
-const ittyRouter = IttyRouter()
+const ittyRouter = IttyRouter();
 
 // Handle `GET /itty-router/hello`
-ittyRouter.get('/hello', () => new Response('Hello from itty-router'))
+ittyRouter.get('/hello', () => new Response('Hello from itty-router'));
 
 // Hono application
-const app = new Hono()
+const app = new Hono();
 
 // Mount!
-app.mount('/itty-router', ittyRouter.handle)
+app.mount('/itty-router', ittyRouter.handle);
 ```
 
 ## strict mode
 
 Strict mode defaults to `true` and distinguishes the following routes.
 
-- `/hello`
-- `/hello/`
+-   `/hello`
+-   `/hello/`
 
 `app.get('/hello')` will not match `GET /hello/`.
 
 By setting strict mode to `false`, both paths will be treated equally.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
-const app = new Hono({ strict: false })
+const app = new Hono({ strict: false });
 ```
 
 ## router option
@@ -11964,11 +11822,11 @@ const app = new Hono({ strict: false })
 The `router` option specifices which router to use. The default router is `SmartRouter`. If you want to use `RegExpRouter`, pass it to a new `Hono` instance:
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
-import { RegExpRouter } from 'hono/router/reg-exp-router'
+import { RegExpRouter } from 'hono/router/reg-exp-router';
 
-const app = new Hono({ router: new RegExpRouter() })
+const app = new Hono({ router: new RegExpRouter() });
 ```
 
 ## Generics
@@ -11976,31 +11834,30 @@ const app = new Hono({ router: new RegExpRouter() })
 You can pass Generics to specify the types of Cloudflare Workers Bindings and variables used in `c.set`/`c.get`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-type User = any
-declare const user: User
+import { Hono } from 'hono';
+type User = any;
+declare const user: User;
 // ---cut---
 type Bindings = {
-  TOKEN: string
-}
+    TOKEN: string;
+};
 
 type Variables = {
-  user: User
-}
+    user: User;
+};
 
 const app = new Hono<{
-  Bindings: Bindings
-  Variables: Variables
-}>()
+    Bindings: Bindings;
+    Variables: Variables;
+}>();
 
 app.use('/auth/*', async (c, next) => {
-  const token = c.env.TOKEN // token is `string`
-  // ...
-  c.set('user', user) // user should be `User`
-  await next()
-})
+    const token = c.env.TOKEN; // token is `string`
+    // ...
+    c.set('user', user); // user should be `User`
+    await next();
+});
 ```
-
 
 # API
 
@@ -12010,11 +11867,10 @@ So, you can understand it well quickly.
 
 In this section, we introduce API of Hono like below.
 
-- Hono object
-- About routing
-- Context object
-- About middleware
-
+-   Hono object
+-   About routing
+-   Context object
+-   About middleware
 
 # Presets
 
@@ -12030,15 +11886,15 @@ Therefore, you can use them interchangeably.
 Usage:
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 ```
 
 Routers:
 
 ```ts
 this.router = new SmartRouter({
-  routers: [new RegExpRouter(), new TrieRouter()],
-})
+    routers: [new RegExpRouter(), new TrieRouter()]
+});
 ```
 
 ## `hono/quick`
@@ -12046,15 +11902,15 @@ this.router = new SmartRouter({
 Usage:
 
 ```ts twoslash
-import { Hono } from 'hono/quick'
+import { Hono } from 'hono/quick';
 ```
 
 Router:
 
 ```ts
 this.router = new SmartRouter({
-  routers: [new LinearRouter(), new TrieRouter()],
-})
+    routers: [new LinearRouter(), new TrieRouter()]
+});
 ```
 
 ## `hono/tiny`
@@ -12062,13 +11918,13 @@ this.router = new SmartRouter({
 Usage:
 
 ```ts twoslash
-import { Hono } from 'hono/tiny'
+import { Hono } from 'hono/tiny';
 ```
 
 Router:
 
 ```ts
-this.router = new PatternRouter()
+this.router = new PatternRouter();
 ```
 
 ## Which preset should I use?
@@ -12079,7 +11935,6 @@ this.router = new PatternRouter()
 | `hono/quick` | This preset is designed for environments where the application is initialized for every request. **Fastly Compute** operates in this manner, thus this preset is recommended for such use.                                                                                                                                                                                                                                                             |
 | `hono/tiny`  | This is the smallest router package and it's suitable for environments where resources are limited.                                                                                                                                                                                                                                                                                                                                                    |
 
-
 # HonoRequest
 
 The `HonoRequest` is an object that can be taken from `c.req` which wraps a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object.
@@ -12089,21 +11944,21 @@ The `HonoRequest` is an object that can be taken from `c.req` which wraps a [Req
 Get the values of path parameters.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 // Captured params
 app.get('/entry/:id', async (c) => {
-  const id = c.req.param('id')
-  //    ^?
-  // ...
-})
+    const id = c.req.param('id');
+    //    ^?
+    // ...
+});
 
 // Get all params at once
 app.get('/entry/:id/comment/:commentId', async (c) => {
-  const { id, commentId } = c.req.param()
-  //      ^?
-})
+    const { id, commentId } = c.req.param();
+    //      ^?
+});
 ```
 
 ## query()
@@ -12111,20 +11966,20 @@ app.get('/entry/:id/comment/:commentId', async (c) => {
 Get querystring parameters.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 // Query params
 app.get('/search', async (c) => {
-  const query = c.req.query('q')
-  //     ^?
-})
+    const query = c.req.query('q');
+    //     ^?
+});
 
 // Get all params at once
 app.get('/search', async (c) => {
-  const { q, limit, offset } = c.req.query()
-  //      ^?
-})
+    const { q, limit, offset } = c.req.query();
+    //      ^?
+});
 ```
 
 ## queries()
@@ -12132,15 +11987,15 @@ app.get('/search', async (c) => {
 Get multiple querystring parameter values, e.g. `/search?tags=A&tags=B`
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/search', async (c) => {
-  // tags will be string[]
-  const tags = c.req.queries('tags')
-  //     ^?
-  // ...
-})
+    // tags will be string[]
+    const tags = c.req.queries('tags');
+    //     ^?
+    // ...
+});
 ```
 
 ## header()
@@ -12148,14 +12003,14 @@ app.get('/search', async (c) => {
 Get the request header value.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/', (c) => {
-  const userAgent = c.req.header('User-Agent')
-  //      ^?
-  return c.text(`Your user agent is ${userAgent}`)
-})
+    const userAgent = c.req.header('User-Agent');
+    //      ^?
+    return c.text(`Your user agent is ${userAgent}`);
+});
 ```
 
 ::: warning
@@ -12166,11 +12021,11 @@ use `c.req.header(“X-Foo”)`.
 
 ```ts
 // ❌ Will not work
-const headerRecord = c.req.header()
-const foo = headerRecord['X-Foo']
+const headerRecord = c.req.header();
+const foo = headerRecord['X-Foo'];
 
 // ✅ Will work
-const foo = c.req.header('X-Foo')
+const foo = c.req.header('X-Foo');
 ```
 
 :::
@@ -12180,13 +12035,13 @@ const foo = c.req.header('X-Foo')
 Parse Request body of type `multipart/form-data` or `application/x-www-form-urlencoded`
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/entry', async (c) => {
-  const body = await c.req.parseBody()
-  // ...
-})
+    const body = await c.req.parseBody();
+    // ...
+});
 ```
 
 `parseBody()` supports the following behaviors.
@@ -12194,11 +12049,11 @@ app.post('/entry', async (c) => {
 **Single file**
 
 ```ts twoslash
-import { Context } from 'hono'
-declare const c: Context
+import { Context } from 'hono';
+declare const c: Context;
 // ---cut---
-const body = await c.req.parseBody()
-const data = body['foo']
+const body = await c.req.parseBody();
+const data = body['foo'];
 //    ^?
 ```
 
@@ -12209,11 +12064,11 @@ If multiple files are uploaded, the last one will be used.
 ### Multiple files
 
 ```ts twoslash
-import { Context } from 'hono'
-declare const c: Context
+import { Context } from 'hono';
+declare const c: Context;
 // ---cut---
-const body = await c.req.parseBody()
-body['foo[]']
+const body = await c.req.parseBody();
+body['foo[]'];
 ```
 
 `body['foo[]']` is always `(string | File)[]`.
@@ -12225,17 +12080,17 @@ body['foo[]']
 If you have a input field that allows multiple `<input type="file" multiple />` or multiple checkboxes with the same name `<input type="checkbox" name="favorites" value="Hono"/>`.
 
 ```ts twoslash
-import { Context } from 'hono'
-declare const c: Context
+import { Context } from 'hono';
+declare const c: Context;
 // ---cut---
-const body = await c.req.parseBody({ all: true })
-body['foo']
+const body = await c.req.parseBody({ all: true });
+body['foo'];
 ```
 
 `all` option is disabled by default.
 
-- If `body['foo']` is multiple files, it will be parsed to `(string | File)[]`.
-- If `body['foo']` is single file, it will be parsed to `(string | File)`.
+-   If `body['foo']` is multiple files, it will be parsed to `(string | File)[]`.
+-   If `body['foo']` is single file, it will be parsed to `(string | File)`.
 
 ### Dot notation
 
@@ -12244,18 +12099,18 @@ If you set the `dot` option `true`, the return value is structured based on the 
 Imagine receiving the following data:
 
 ```ts twoslash
-const data = new FormData()
-data.append('obj.key1', 'value1')
-data.append('obj.key2', 'value2')
+const data = new FormData();
+data.append('obj.key1', 'value1');
+data.append('obj.key2', 'value2');
 ```
 
 You can get the structured value by setting the `dot` option `true`:
 
 ```ts twoslash
-import { Context } from 'hono'
-declare const c: Context
+import { Context } from 'hono';
+declare const c: Context;
 // ---cut---
-const body = await c.req.parseBody({ dot: true })
+const body = await c.req.parseBody({ dot: true });
 // body is `{ obj: { key1: 'value1', key2: 'value2' } }`
 ```
 
@@ -12264,13 +12119,13 @@ const body = await c.req.parseBody({ dot: true })
 Parses the request body of type `application/json`
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/entry', async (c) => {
-  const body = await c.req.json()
-  // ...
-})
+    const body = await c.req.json();
+    // ...
+});
 ```
 
 ## text()
@@ -12278,13 +12133,13 @@ app.post('/entry', async (c) => {
 Parses the request body of type `text/plain`
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/entry', async (c) => {
-  const body = await c.req.text()
-  // ...
-})
+    const body = await c.req.text();
+    // ...
+});
 ```
 
 ## arrayBuffer()
@@ -12292,13 +12147,13 @@ app.post('/entry', async (c) => {
 Parses the request body as an `ArrayBuffer`
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/entry', async (c) => {
-  const body = await c.req.arrayBuffer()
-  // ...
-})
+    const body = await c.req.arrayBuffer();
+    // ...
+});
 ```
 
 ## blob()
@@ -12306,13 +12161,13 @@ app.post('/entry', async (c) => {
 Parses the request body as a `Blob`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/entry', async (c) => {
-  const body = await c.req.blob()
-  // ...
-})
+    const body = await c.req.blob();
+    // ...
+});
 ```
 
 ## formData()
@@ -12320,13 +12175,13 @@ app.post('/entry', async (c) => {
 Parses the request body as a `FormData`.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.post('/entry', async (c) => {
-  const body = await c.req.formData()
-  // ...
-})
+    const body = await c.req.formData();
+    // ...
+});
 ```
 
 ## valid()
@@ -12335,19 +12190,19 @@ Get the validated data.
 
 ```ts
 app.post('/posts', async (c) => {
-  const { title, body } = c.req.valid('form')
-  // ...
-})
+    const { title, body } = c.req.valid('form');
+    // ...
+});
 ```
 
 Available targets are below.
 
-- `form`
-- `json`
-- `query`
-- `header`
-- `cookie`
-- `param`
+-   `form`
+-   `json`
+-   `query`
+-   `header`
+-   `cookie`
+-   `param`
 
 See the [Validation section](/docs/guides/validation) for usage examples.
 
@@ -12360,12 +12215,12 @@ See the [Validation section](/docs/guides/validation) for usage examples.
 You can retrieve the registered path within the handler like this:
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/posts/:id', (c) => {
-  return c.json({ path: c.req.routePath })
-})
+    return c.json({ path: c.req.routePath });
+});
 ```
 
 If you access `/posts/123`, it will return `/posts/:id`:
@@ -12383,25 +12238,24 @@ If you access `/posts/123`, it will return `/posts/:id`:
 It returns matched routes within the handler, which is useful for debugging.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.use(async function logger(c, next) {
-  await next()
-  c.req.matchedRoutes.forEach(({ handler, method, path }, i) => {
-    const name =
-      handler.name ||
-      (handler.length < 2 ? '[handler]' : '[middleware]')
-    console.log(
-      method,
-      ' ',
-      path,
-      ' '.repeat(Math.max(10 - path.length, 0)),
-      name,
-      i === c.req.routeIndex ? '<- respond from here' : ''
-    )
-  })
-})
+    await next();
+    c.req.matchedRoutes.forEach(({ handler, method, path }, i) => {
+        const name =
+            handler.name || (handler.length < 2 ? '[handler]' : '[middleware]');
+        console.log(
+            method,
+            ' ',
+            path,
+            ' '.repeat(Math.max(10 - path.length, 0)),
+            name,
+            i === c.req.routeIndex ? '<- respond from here' : ''
+        );
+    });
+});
 ```
 
 ## path
@@ -12409,13 +12263,13 @@ app.use(async function logger(c, next) {
 The request pathname.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/about/me', async (c) => {
-  const pathname = c.req.path // `/about/me`
-  // ...
-})
+    const pathname = c.req.path; // `/about/me`
+    // ...
+});
 ```
 
 ## url
@@ -12423,13 +12277,13 @@ app.get('/about/me', async (c) => {
 The request url strings.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/about/me', async (c) => {
-  const url = c.req.url // `http://localhost:8787/about/me`
-  // ...
-})
+    const url = c.req.url; // `http://localhost:8787/about/me`
+    // ...
+});
 ```
 
 ## method
@@ -12437,13 +12291,13 @@ app.get('/about/me', async (c) => {
 The method name of the request.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/about/me', async (c) => {
-  const method = c.req.method // `GET`
-  // ...
-})
+    const method = c.req.method; // `GET`
+    // ...
+});
 ```
 
 ## raw
@@ -12458,7 +12312,6 @@ app.post('/', async (c) => {
 })
 ```
 
-
 # Routing
 
 Routing of Hono is flexible and intuitive.
@@ -12467,113 +12320,108 @@ Let's take a look.
 ## Basic
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 // HTTP Methods
-app.get('/', (c) => c.text('GET /'))
-app.post('/', (c) => c.text('POST /'))
-app.put('/', (c) => c.text('PUT /'))
-app.delete('/', (c) => c.text('DELETE /'))
+app.get('/', (c) => c.text('GET /'));
+app.post('/', (c) => c.text('POST /'));
+app.put('/', (c) => c.text('PUT /'));
+app.delete('/', (c) => c.text('DELETE /'));
 
 // Wildcard
 app.get('/wild/*/card', (c) => {
-  return c.text('GET /wild/*/card')
-})
+    return c.text('GET /wild/*/card');
+});
 
 // Any HTTP methods
-app.all('/hello', (c) => c.text('Any Method /hello'))
+app.all('/hello', (c) => c.text('Any Method /hello'));
 
 // Custom HTTP method
-app.on('PURGE', '/cache', (c) => c.text('PURGE Method /cache'))
+app.on('PURGE', '/cache', (c) => c.text('PURGE Method /cache'));
 
 // Multiple Method
-app.on(['PUT', 'DELETE'], '/post', (c) =>
-  c.text('PUT or DELETE /post')
-)
+app.on(['PUT', 'DELETE'], '/post', (c) => c.text('PUT or DELETE /post'));
 
 // Multiple Paths
-app.on('GET', ['/hello', '/ja/hello', '/en/hello'], (c) =>
-  c.text('Hello')
-)
+app.on('GET', ['/hello', '/ja/hello', '/en/hello'], (c) => c.text('Hello'));
 ```
 
 ## Path Parameter
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/user/:name', async (c) => {
-  const name = c.req.param('name')
-  //       ^?
-  // ...
-})
+    const name = c.req.param('name');
+    //       ^?
+    // ...
+});
 ```
 
 or all parameters at once:
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/posts/:id/comment/:comment_id', async (c) => {
-  const { id, comment_id } = c.req.param()
-  //       ^?
-  // ...
-})
+    const { id, comment_id } = c.req.param();
+    //       ^?
+    // ...
+});
 ```
 
 ## Optional Parameter
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 // Will match `/api/animal` and `/api/animal/:type`
-app.get('/api/animal/:type?', (c) => c.text('Animal!'))
+app.get('/api/animal/:type?', (c) => c.text('Animal!'));
 ```
 
 ## Regexp
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/post/:date{[0-9]+}/:title{[a-z]+}', async (c) => {
-  const { date, title } = c.req.param()
-  //       ^?
-  // ...
-})
+    const { date, title } = c.req.param();
+    //       ^?
+    // ...
+});
 ```
 
 ## Including slashes
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
 app.get('/posts/:filename{.+\\.png}', async (c) => {
-  //...
-})
+    //...
+});
 ```
 
 ## Chained route
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
-app
-  .get('/endpoint', (c) => {
-    return c.text('GET /endpoint')
-  })
-  .post((c) => {
-    return c.text('POST /endpoint')
-  })
-  .delete((c) => {
-    return c.text('DELETE /endpoint')
-  })
+app.get('/endpoint', (c) => {
+    return c.text('GET /endpoint');
+})
+    .post((c) => {
+        return c.text('POST /endpoint');
+    })
+    .delete((c) => {
+        return c.text('DELETE /endpoint');
+    });
 ```
 
 ## Grouping
@@ -12581,20 +12429,20 @@ app
 You can group the routes with the Hono instance and add them to the main app with the route method.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
-const book = new Hono()
+const book = new Hono();
 
-book.get('/', (c) => c.text('List Books')) // GET /book
+book.get('/', (c) => c.text('List Books')); // GET /book
 book.get('/:id', (c) => {
-  // GET /book/:id
-  const id = c.req.param('id')
-  return c.text('Get Book: ' + id)
-})
-book.post('/', (c) => c.text('Create Book')) // POST /book
+    // GET /book/:id
+    const id = c.req.param('id');
+    return c.text('Get Book: ' + id);
+});
+book.post('/', (c) => c.text('Create Book')); // POST /book
 
-const app = new Hono()
-app.route('/book', book)
+const app = new Hono();
+app.route('/book', book);
 ```
 
 ## Grouping without changing base
@@ -12602,19 +12450,19 @@ app.route('/book', book)
 You can also group multiple instances while keeping base.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
-const book = new Hono()
-book.get('/book', (c) => c.text('List Books')) // GET /book
-book.post('/book', (c) => c.text('Create Book')) // POST /book
+const book = new Hono();
+book.get('/book', (c) => c.text('List Books')); // GET /book
+book.post('/book', (c) => c.text('Create Book')); // POST /book
 
-const user = new Hono().basePath('/user')
-user.get('/', (c) => c.text('List Users')) // GET /user
-user.post('/', (c) => c.text('Create User')) // POST /user
+const user = new Hono().basePath('/user');
+user.get('/', (c) => c.text('List Users')); // GET /user
+user.post('/', (c) => c.text('Create User')); // POST /user
 
-const app = new Hono()
-app.route('/', book) // Handle /book
-app.route('/', user) // Handle /user
+const app = new Hono();
+app.route('/', book); // Handle /book
+app.route('/', user); // Handle /user
 ```
 
 ## Base path
@@ -12622,10 +12470,10 @@ app.route('/', user) // Handle /user
 You can specify the base path.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
-const api = new Hono().basePath('/api')
-api.get('/book', (c) => c.text('List Books')) // GET /api/book
+const api = new Hono().basePath('/api');
+api.get('/book', (c) => c.text('List Books')); // GET /api/book
 ```
 
 ## Routing with hostname
@@ -12633,14 +12481,14 @@ api.get('/book', (c) => c.text('List Books')) // GET /api/book
 It works fine if it includes a hostname.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
 const app = new Hono({
-  getPath: (req) => req.url.replace(/^https?:\/([^?]+).*$/, '$1'),
-})
+    getPath: (req) => req.url.replace(/^https?:\/([^?]+).*$/, '$1')
+});
 
-app.get('/www1.example.com/hello', (c) => c.text('hello www1'))
-app.get('/www2.example.com/hello', (c) => c.text('hello www2'))
+app.get('/www1.example.com/hello', (c) => c.text('hello www1'));
+app.get('/www2.example.com/hello', (c) => c.text('hello www2'));
 ```
 
 ## Routing with `host` Header value
@@ -12648,16 +12496,16 @@ app.get('/www2.example.com/hello', (c) => c.text('hello www2'))
 Hono can handle the `host` header value if you set the `getPath()` function in the Hono constructor.
 
 ```ts twoslash
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 // ---cut---
 const app = new Hono({
-  getPath: (req) =>
-    '/' +
-    req.headers.get('host') +
-    req.url.replace(/^https?:\/\/[^/]+(\/[^?]*).*/, '$1'),
-})
+    getPath: (req) =>
+        '/' +
+        req.headers.get('host') +
+        req.url.replace(/^https?:\/\/[^/]+(\/[^?]*).*/, '$1')
+});
 
-app.get('/www1.example.com/hello', (c) => c.text('hello www1'))
+app.get('/www1.example.com/hello', (c) => c.text('hello www1'));
 
 // A following request will match the route:
 // new Request('http://www1.example.com/hello', {
@@ -12672,11 +12520,11 @@ By applying this, for example, you can change the routing by `User-Agent` header
 Handlers or middleware will be executed in registration order.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
-app.get('/book/a', (c) => c.text('a')) // a
-app.get('/book/:slug', (c) => c.text('common')) // common
+app.get('/book/a', (c) => c.text('a')); // a
+app.get('/book/:slug', (c) => c.text('common')); // common
 ```
 
 ```
@@ -12687,11 +12535,11 @@ GET /book/b ---> `common`
 When a handler is executed, the process will be stopped.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
-app.get('*', (c) => c.text('common')) // common
-app.get('/foo', (c) => c.text('foo')) // foo
+app.get('*', (c) => c.text('common')); // common
+app.get('/foo', (c) => c.text('foo')); // foo
 ```
 
 ```
@@ -12701,22 +12549,22 @@ GET /foo ---> `common` // foo will not be dispatched
 If you have the middleware that you want to execute, write the code above the handler.
 
 ```ts twoslash
-import { Hono } from 'hono'
-import { logger } from 'hono/logger'
-const app = new Hono()
+import { Hono } from 'hono';
+import { logger } from 'hono/logger';
+const app = new Hono();
 // ---cut---
-app.use(logger())
-app.get('/foo', (c) => c.text('foo'))
+app.use(logger());
+app.get('/foo', (c) => c.text('foo'));
 ```
 
 If you want to have a "_fallback_" handler, write the code below the other handler.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
 // ---cut---
-app.get('/bar', (c) => c.text('bar')) // bar
-app.get('*', (c) => c.text('fallback')) // fallback
+app.get('/bar', (c) => c.text('bar')); // bar
+app.get('*', (c) => c.text('fallback')); // fallback
 ```
 
 ```
@@ -12730,11 +12578,11 @@ Note that the mistake of grouping routings is hard to notice.
 The `route()` function takes the stored routing from the second argument (such as `three` or `two`) and adds it to its own (`two` or `app`) routing.
 
 ```ts
-three.get('/hi', (c) => c.text('hi'))
-two.route('/three', three)
-app.route('/two', two)
+three.get('/hi', (c) => c.text('hi'));
+two.route('/three', three);
+app.route('/two', two);
 
-export default app
+export default app;
 ```
 
 It will return 200 response.
@@ -12746,20 +12594,18 @@ GET /two/three/hi ---> `hi`
 However, if they are in the wrong order, it will return a 404.
 
 ```ts twoslash
-import { Hono } from 'hono'
-const app = new Hono()
-const two = new Hono()
-const three = new Hono()
+import { Hono } from 'hono';
+const app = new Hono();
+const two = new Hono();
+const three = new Hono();
 // ---cut---
-three.get('/hi', (c) => c.text('hi'))
-app.route('/two', two) // `two` does not have routes
-two.route('/three', three)
+three.get('/hi', (c) => c.text('hi'));
+app.route('/two', two); // `two` does not have routes
+two.route('/three', three);
 
-export default app
+export default app;
 ```
 
 ```
 GET /two/three/hi ---> 404 Not Found
 ```
-
-

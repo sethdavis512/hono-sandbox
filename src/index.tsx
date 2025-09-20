@@ -1,9 +1,28 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import { cors } from 'hono/cors';
+import { z } from 'zod';
+import type { PropsWithChildren } from 'hono/jsx';
+
 import { auth } from '../utils/auth';
 
-import type { PropsWithChildren } from 'hono/jsx';
+// Zod validation schemas
+const signUpSchema = z.object({
+    name: z
+        .string()
+        .min(2, 'Name must be at least 2 characters')
+        .max(50, 'Name must be less than 50 characters'),
+    email: z.string().email('Please enter a valid email address'),
+    password: z
+        .string()
+        .min(8, 'Password must be at least 8 characters')
+        .max(100, 'Password must be less than 100 characters')
+});
+
+const signInSchema = z.object({
+    email: z.string().email('Please enter a valid email address'),
+    password: z.string().min(1, 'Password is required')
+});
 
 const app = new Hono<{
     Variables: {
@@ -37,6 +56,7 @@ app.use('*', async (c, next) => {
 
     c.set('user', session.user);
     c.set('session', session.session);
+
     return next();
 });
 
@@ -73,7 +93,11 @@ function Header({ user }: { user: any }) {
                         <>
                             <li>Welcome, {user.name || user.email}!</li>
                             <li>
-                                <form action="/signout" method="post" style="display: inline;">
+                                <form
+                                    action="/signout"
+                                    method="post"
+                                    style="display: inline;"
+                                >
                                     <button type="submit">Sign Out</button>
                                 </form>
                             </li>
@@ -120,7 +144,11 @@ app.get('/', (c) => {
     return c.html(
         <Layout user={user}>
             <h1>Honooo!</h1>
-            {user ? <p>Welcome back, {user.name || user.email}!</p> : <p>Please sign in to get started.</p>}
+            {user ? (
+                <p>Welcome back, {user.name || user.email}!</p>
+            ) : (
+                <p>Please sign in to get started.</p>
+            )}
         </Layout>
     );
 });
@@ -146,13 +174,19 @@ app.get('/session', (c) => {
     });
 });
 
-// Sign-up route
+// Sign-up routes
 app.get('/signup', (c) => {
     const user = c.get('user');
+    const error = c.req.query('error');
     return c.html(
         <Layout user={user}>
             <h1>Sign Up</h1>
-            <form action="/api/auth/sign-up/email" method="post">
+            {error && (
+                <div style="color: red; margin-bottom: 1rem;">
+                    {decodeURIComponent(error)}
+                </div>
+            )}
+            <form action="/signup" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 
@@ -164,18 +198,82 @@ app.get('/signup', (c) => {
 
                 <button type="submit">Sign Up</button>
             </form>
-            <p><a href="/signin">Already have an account? Sign in</a></p>
+            <p>
+                <a href="/signin">Already have an account? Sign in</a>
+            </p>
         </Layout>
     );
 });
 
-// Sign-in route
+app.post('/signup', async (c) => {
+    const formData = await c.req.formData();
+    const data = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        password: formData.get('password') as string
+    };
+
+    try {
+        const validatedData = signUpSchema.parse(data);
+
+        // Forward to Better Auth
+        const authResponse = await fetch(
+            `http://localhost:3000/api/auth/sign-up/email`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(validatedData)
+            }
+        );
+
+        if (authResponse.ok) {
+            return c.redirect('/signin?success=Account created successfully');
+        } else {
+            const errorText = await authResponse.text();
+            return c.redirect(
+                `/signup?error=${encodeURIComponent(
+                    'Failed to create account: ' + errorText
+                )}`
+            );
+        }
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            const errorMessage = error.issues
+                .map((issue) => issue.message)
+                .join(', ');
+            return c.redirect(
+                `/signup?error=${encodeURIComponent(errorMessage)}`
+            );
+        }
+        return c.redirect(
+            `/signup?error=${encodeURIComponent(
+                'An unexpected error occurred'
+            )}`
+        );
+    }
+});
+
+// Sign-in routes
 app.get('/signin', (c) => {
     const user = c.get('user');
+    const error = c.req.query('error');
+    const success = c.req.query('success');
     return c.html(
         <Layout user={user}>
             <h1>Sign In</h1>
-            <form action="/api/auth/sign-in/email" method="post">
+            {error && (
+                <div style="color: red; margin-bottom: 1rem;">
+                    {decodeURIComponent(error)}
+                </div>
+            )}
+            {success && (
+                <div style="color: green; margin-bottom: 1rem;">
+                    {decodeURIComponent(success)}
+                </div>
+            )}
+            <form action="/signin" method="post">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required />
 
@@ -184,9 +282,69 @@ app.get('/signin', (c) => {
 
                 <button type="submit">Sign In</button>
             </form>
-            <p><a href="/signup">Don't have an account? Sign up</a></p>
+            <p>
+                <a href="/signup">Don't have an account? Sign up</a>
+            </p>
         </Layout>
     );
+});
+
+app.post('/signin', async (c) => {
+    const formData = await c.req.formData();
+    const data = {
+        email: formData.get('email') as string,
+        password: formData.get('password') as string
+    };
+
+    try {
+        const validatedData = signInSchema.parse(data);
+
+        // Forward to Better Auth
+        const authResponse = await fetch(
+            `http://localhost:3000/api/auth/sign-in/email`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Cookie: c.req.header('Cookie') || ''
+                },
+                body: JSON.stringify(validatedData)
+            }
+        );
+
+        if (authResponse.ok) {
+            // Extract cookies from auth response and set them
+            const setCookieHeaders = authResponse.headers.getSetCookie();
+            const response = c.redirect('/');
+
+            for (const cookie of setCookieHeaders) {
+                response.headers.append('Set-Cookie', cookie);
+            }
+
+            return response;
+        } else {
+            const errorText = await authResponse.text();
+            return c.redirect(
+                `/signin?error=${encodeURIComponent(
+                    'Invalid email or password'
+                )}`
+            );
+        }
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            const errorMessage = error.issues
+                .map((issue) => issue.message)
+                .join(', ');
+            return c.redirect(
+                `/signin?error=${encodeURIComponent(errorMessage)}`
+            );
+        }
+        return c.redirect(
+            `/signin?error=${encodeURIComponent(
+                'An unexpected error occurred'
+            )}`
+        );
+    }
 });
 
 // Sign-out route
