@@ -141,6 +141,7 @@ function Layout(props: PropsWithChildren & { user?: any }) {
 
 app.get('/', (c) => {
     const user = c.get('user');
+
     return c.html(
         <Layout user={user}>
             <h1>Honooo!</h1>
@@ -155,6 +156,7 @@ app.get('/', (c) => {
 
 app.get('/about', (c) => {
     const user = c.get('user');
+
     return c.html(
         <Layout user={user}>
             <h1>About and stuff</h1>
@@ -178,6 +180,7 @@ app.get('/session', (c) => {
 app.get('/signup', (c) => {
     const user = c.get('user');
     const error = c.req.query('error');
+
     return c.html(
         <Layout user={user}>
             <h1>Sign Up</h1>
