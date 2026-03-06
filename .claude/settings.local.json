@@ -2,7 +2,30 @@
   "permissions": {
     "allow": [
       "Bash(npx prisma:*)",
-      "WebFetch(domain:picocss.com)"
+      "WebFetch(domain:picocss.com)",
+      "Bash(lsof -i :3000 -P -n)",
+      "Bash(agent-browser eval 'document.querySelector\\(\"\"form\"\"\\)?.outerHTML')",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/sign-in/email -H 'Content-Type: application/json' -d '{\"\"email\"\":\"\"seth@mail.com\"\",\"\"password\"\":\"\"asdfasdf\"\"}' -w \"\\\\nHTTP Status: %{http_code}\")",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/sign-in/email -H 'Content-Type: application/json' -d '{\"\"email\"\":\"\"seth@mail.com\"\",\"\"password\"\":\"\"asdfasdf\"\"}' -D - -o /dev/null)",
+      "Bash(curl -s -X POST http://localhost:3000/signin -H 'Content-Type: application/x-www-form-urlencoded' -d 'email=seth@mail.com&password=asdfasdf' -D - -o /dev/null)",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/sign-in/email -H 'Content-Type: application/json' -d '{\"\"email\"\":\"\"seth@mail.com\"\",\"\"password\"\":\"\"asdfasdf\"\"}' -w \"\\\\nStatus: %{http_code}\")",
+      "Bash(curl -v -X POST http://localhost:3000/signin -H 'Content-Type: application/x-www-form-urlencoded' -d 'email=seth@mail.com&password=asdfasdf')",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/sign-in/email -H 'Content-Type: application/json' -H 'Cookie: ' -d '{\"\"email\"\":\"\"seth@mail.com\"\",\"\"password\"\":\"\"asdfasdf\"\"}' -w \"\\\\nStatus: %{http_code}\")",
+      "mcp__context7__resolve-library-id",
+      "Bash(agent-browser open http://localhost:3000/signin)",
+      "Bash(agent-browser wait --load networkidle)",
+      "Bash(agent-browser snapshot -i)",
+      "Bash(agent-browser fill @e6 \"seth@mail.com\")",
+      "Bash(agent-browser fill @e7 \"asdfasdf\")",
+      "Bash(agent-browser click @e8)",
+      "Bash(agent-browser get url)",
+      "Bash(agent-browser close)",
+      "mcp__context7__query-docs",
+      "Bash(bunx @better-auth/cli generate --adapter prisma)",
+      "Bash(bunx @better-auth/cli generate --help)",
+      "Bash(bunx @better-auth/cli generate -y)",
+      "Bash(bun install)",
+      "Bash(bun run build)"
     ],
     "deny": [],
     "ask": []
