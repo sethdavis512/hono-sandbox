@@ -33,7 +33,7 @@ export const auth = betterAuth({
                             slug: 'pro'
                         }
                     ],
-                    successUrl: '/dashboard?checkout=success',
+                    successUrl: '/dashboard',
                     authenticatedUsersOnly: true
                 }),
                 portal({

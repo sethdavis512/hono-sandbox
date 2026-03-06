@@ -9,6 +9,21 @@ import { auth, polarClient } from '../utils/auth';
 const PORT = parseInt(process.env.PORT || '3000', 10);
 const BASE_URL = process.env.BETTER_AUTH_URL || `http://localhost:${PORT}`;
 
+// Check if a user has an active subscription
+async function checkPaidAccess(userId: string): Promise<boolean> {
+    try {
+        const { result } = await polarClient.subscriptions.list({
+            externalCustomerId: userId,
+            active: true,
+            limit: 1
+        });
+        return result.items.length > 0;
+    } catch (error) {
+        console.error('Failed to check paid access:', error);
+        return false;
+    }
+}
+
 // Zod validation schemas
 const signUpSchema = z.object({
     name: z
@@ -73,22 +88,8 @@ async function requireSubscription(c: any, next: any) {
     const user = c.get('user');
     if (!user) return c.redirect('/signin');
 
-    try {
-        const response = await fetch(`${BASE_URL}/api/auth/customer/state`, {
-            headers: c.req.raw.headers
-        });
-        if (response.ok) {
-            const customerState = await response.json();
-            const hasActiveSubscription = customerState?.subscriptions?.some(
-                (sub: any) => sub.status === 'active'
-            );
-            if (hasActiveSubscription) {
-                return next();
-            }
-        }
-    } catch (error) {
-        console.error('Failed to check subscription status:', error);
-    }
+    const hasActive = await checkPaidAccess(user.id);
+    if (hasActive) return next();
 
     return c.redirect('/#pricing');
 }
@@ -152,6 +153,9 @@ h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem; }
 h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
 p { color: var(--color-text-muted); }
 small { color: var(--color-text-muted); font-size: 0.85rem; }
+
+/* Utils */
+.mb-4 { margin-bottom: 1rem; }
 
 /* Nav */
 .site-header { padding: 1rem 0; border-bottom: 1px solid var(--color-border); margin-bottom: 2rem; }
@@ -444,14 +448,14 @@ bun run dev`}</code>
 
             <section class="section" id="docs">
                 <h2 class="section-title">API Documentation</h2>
-                <p class="section-title">
+                <p class="section-title mb-4">
                     Authenticate with your session cookie, then call the API
                     endpoints below.
                 </p>
                 <div class="grid">
                     <article class="card">
                         <h3>Authentication</h3>
-                        <p>
+                        <p class="mb-4">
                             Sign in via the web UI or{' '}
                             <code>POST /api/auth/sign-in/email</code> with{' '}
                             <code>{'{ email, password }'}</code>. The session
@@ -462,7 +466,7 @@ bun run dev`}</code>
                         <h3>
                             <code>GET /api/health</code>
                         </h3>
-                        <p>Public health check. No auth required.</p>
+                        <p class="mb-4">Public health check. No auth required.</p>
                         <pre>
                             <code>{`// Response
 { "status": "ok", "timestamp": "2026-03-06T..." }`}</code>
@@ -472,7 +476,7 @@ bun run dev`}</code>
                         <h3>
                             <code>GET /api/me</code>
                         </h3>
-                        <p>
+                        <p class="mb-4">
                             Returns your profile and subscription status.
                             Requires authentication.
                         </p>
@@ -480,34 +484,6 @@ bun run dev`}</code>
                             <code>{`// Response
 { "id": "...", "name": "...", "email": "...",
   "subscription": { "status": "active", "plan": "pro" } }`}</code>
-                        </pre>
-                    </article>
-                    <article class="card">
-                        <h3>
-                            <code>GET /api/generate?prompt=...</code>
-                        </h3>
-                        <p>
-                            Generate content from a prompt. Requires Pro
-                            subscription.
-                        </p>
-                        <pre>
-                            <code>{`// Response
-{ "result": "Generated content for: ...",
-  "model": "demo-v1", "usage": { "tokens": 11 } }`}</code>
-                        </pre>
-                    </article>
-                    <article class="card">
-                        <h3>
-                            <code>GET /api/keys</code>
-                        </h3>
-                        <p>
-                            List your API keys and usage. Requires Pro
-                            subscription.
-                        </p>
-                        <pre>
-                            <code>{`// Response
-{ "keys": [{ "id": "key_live_demo", "prefix": "sk_live_" }],
-  "usage": { "requests": 0, "limit": 10000 } }`}</code>
                         </pre>
                     </article>
                 </div>
@@ -740,32 +716,16 @@ app.post('/signout', async (c) => {
 // Dashboard (requires authentication, shows subscription status)
 app.get('/dashboard', requireAuth, async (c) => {
     const user = c.get('user');
-    const checkoutSuccess = c.req.query('checkout') === 'success';
-
-    // Check subscription status
-    let hasSubscription = false;
-    try {
-        const response = await fetch(`${BASE_URL}/api/auth/customer/state`, {
-            headers: c.req.raw.headers
-        });
-        if (response.ok) {
-            const customerState = await response.json();
-            hasSubscription = customerState?.subscriptions?.some(
-                (sub: any) => sub.status === 'active'
-            );
-        }
-    } catch {
-        // Subscription check failed — show unsubscribed state
-    }
+    const hasSubscription = await checkPaidAccess(user!.id);
 
     return c.html(
         <Layout user={user}>
             <section class="section">
                 <h1>Dashboard</h1>
-                <p>Welcome back, {user!.name || user!.email}!</p>
-                {checkoutSuccess && (
+                <p class="mb-4">Welcome back, {user!.name || user!.email}!</p>
+                {hasSubscription && (
                     <div class="alert alert-success">
-                        Subscription activated! You now have full API access.
+                        You have full API access.
                     </div>
                 )}
             </section>
@@ -774,7 +734,7 @@ app.get('/dashboard', requireAuth, async (c) => {
                     <h3>Subscription</h3>
                     {hasSubscription ? (
                         <>
-                            <p>You have an active Pro subscription.</p>
+                            <p class="mb-4">You have an active Pro subscription.</p>
                             <a
                                 href="/api/auth/customer/portal"
                                 class="btn btn-outline"
@@ -800,10 +760,44 @@ app.get('/dashboard', requireAuth, async (c) => {
                 <article class="card">
                     <h3>API Access</h3>
                     {hasSubscription ? (
-                        <p>
-                            Your API is ready. Try <code>GET /api/hello</code>{' '}
-                            with your session cookie.
-                        </p>
+                        <>
+                            <p>Your API is ready. Try it out:</p>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                                <button
+                                    class="btn btn-primary btn-sm"
+                                    onclick="callApi('/api/health')"
+                                >
+                                    GET /api/health
+                                </button>
+                                <button
+                                    class="btn btn-outline btn-sm"
+                                    onclick="callApi('/api/me')"
+                                >
+                                    GET /api/me
+                                </button>
+                            </div>
+                            <pre
+                                id="api-response"
+                                style="margin-top: 0.75rem; display: none; max-height: 200px; overflow-y: auto;"
+                            >
+                                <code id="api-response-body" />
+                            </pre>
+                            {raw(`<script>
+async function callApi(endpoint) {
+    const pre = document.getElementById('api-response');
+    const code = document.getElementById('api-response-body');
+    pre.style.display = 'block';
+    code.textContent = 'Loading...';
+    try {
+        const res = await fetch(endpoint, { credentials: 'include' });
+        const json = await res.json();
+        code.textContent = JSON.stringify(json, null, 2);
+    } catch (err) {
+        code.textContent = 'Error: ' + err.message;
+    }
+}
+</script>`)}
+                        </>
                     ) : (
                         <p>API access requires an active Pro subscription.</p>
                     )}
@@ -822,7 +816,7 @@ app.post('/checkout', async (c) => {
         const checkout = await polarClient.checkouts.create({
             products: [process.env.POLAR_PRODUCT_ID!],
             externalCustomerId: user.id,
-            successUrl: `${BASE_URL}/dashboard?checkout=success`
+            successUrl: `${BASE_URL}/dashboard`
         });
 
         return c.redirect(checkout.url);
@@ -844,23 +838,8 @@ app.get('/api/health', (c) => {
 app.get('/api/me', requireAuth, async (c) => {
     const user = c.get('user');
 
-    let subscription: { status: string; plan: string } | null = null;
-    try {
-        const response = await fetch(`${BASE_URL}/api/auth/customer/state`, {
-            headers: c.req.raw.headers
-        });
-        if (response.ok) {
-            const state = await response.json();
-            const activeSub = state?.subscriptions?.find(
-                (sub: any) => sub.status === 'active'
-            );
-            if (activeSub) {
-                subscription = { status: 'active', plan: 'pro' };
-            }
-        }
-    } catch {
-        // Polar unavailable — return profile without subscription info
-    }
+    const hasActive = await checkPaidAccess(user!.id);
+    const subscription = hasActive ? { status: 'active', plan: 'pro' } : null;
 
     return c.json({
         id: user!.id,
