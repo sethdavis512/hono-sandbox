@@ -1,5 +1,5 @@
 {
-    "name": "hono-sandbox",
+    "name": "hono-polar-starter",
     "type": "module",
     "scripts": {
         "dev": "bun run --watch src/index.tsx",

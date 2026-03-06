@@ -106,7 +106,7 @@ app.get('/path', (c) =>
 
 ## PR Instructions
 
-- Title format: `[hono-sandbox] <Description>`
+- Title format: `[hono-polar-starter] <Description>`
 - Always run `bun run build` before committing to ensure compilation passes
 - Test routes manually at `http://localhost:3000`
 - Verify TypeScript types are correct

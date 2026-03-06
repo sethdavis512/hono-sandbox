@@ -295,8 +295,8 @@ function Footer() {
     return (
         <footer class="site-footer">
             <small>
-                © {new Date().getFullYear()} Hono API Starter. Built with Hono,
-                Better Auth &amp; Polar.
+                © {new Date().getFullYear()} hono-polar-starter. Built with
+                Hono, Better Auth &amp; Polar.
             </small>
         </footer>
     );
@@ -395,7 +395,7 @@ app.get('/', (c) => {
                 <pre>
                     <code>{`# Clone & install
 git clone <your-repo>
-cd hono-sandbox
+cd hono-polar-starter
 bun install
 
 # Set up env vars
