@@ -1,4 +1,4 @@
-# Hono Sandbox
+# Honeycomb
 
 A production-ready API boilerplate with authentication, subscription billing, and PostgreSQL persistence — built with Hono, Better Auth, Prisma, and Polar on the Bun runtime. Designed to deploy on Railway.
 

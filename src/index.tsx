@@ -83,6 +83,17 @@ app.on(['POST', 'GET'], '/api/auth/*', (c) => {
     return auth.handler(c.req.raw);
 });
 
+// Server-side portal redirect: /api/auth/customer/portal returns JSON, so we handle the redirect here
+app.get('/portal', requireAuth, async (c) => {
+    const response = await auth.handler(
+        new Request(`${BASE_URL}/api/auth/customer/portal`, {
+            headers: c.req.raw.headers
+        })
+    );
+    const data = (await response.json()) as { url: string };
+    return c.redirect(data.url);
+});
+
 // Middleware: require active subscription
 async function requireSubscription(c: any, next: any) {
     const user = c.get('user');
@@ -114,7 +125,7 @@ function Head() {
                 name="viewport"
                 content="width=device-width, initial-scale=1"
             />
-            <title>Hono API Starter</title>
+            <title>🍯 Honeycomb</title>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link
                 rel="preconnect"
@@ -132,8 +143,8 @@ function Head() {
     --color-border: #e5e5e5;
     --color-text: #171717;
     --color-text-muted: #525252;
-    --color-primary: #2563eb;
-    --color-primary-hover: #1d4ed8;
+    --color-primary: #d97706;
+    --color-primary-hover: #b45309;
     --color-success: #16a34a;
     --color-error: #dc2626;
     --radius: 8px;
@@ -234,7 +245,7 @@ function Header({ user }: { user: any }) {
         <header class="site-header">
             <nav>
                 <a href="/" class="brand">
-                    🔥 Hono API
+                    🍯 Honeycomb
                 </a>
                 <ul class="nav-links">
                     <li>
@@ -466,7 +477,9 @@ bun run dev`}</code>
                         <h3>
                             <code>GET /api/health</code>
                         </h3>
-                        <p class="mb-4">Public health check. No auth required.</p>
+                        <p class="mb-4">
+                            Public health check. No auth required.
+                        </p>
                         <pre>
                             <code>{`// Response
 { "status": "ok", "timestamp": "2026-03-06T..." }`}</code>
@@ -734,11 +747,10 @@ app.get('/dashboard', requireAuth, async (c) => {
                     <h3>Subscription</h3>
                     {hasSubscription ? (
                         <>
-                            <p class="mb-4">You have an active Pro subscription.</p>
-                            <a
-                                href="/api/auth/customer/portal"
-                                class="btn btn-outline"
-                            >
+                            <p class="mb-4">
+                                You have an active Pro subscription.
+                            </p>
+                            <a href="/portal" class="btn btn-outline">
                                 Manage Subscription
                             </a>
                         </>
