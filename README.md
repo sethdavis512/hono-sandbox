@@ -1,6 +1,12 @@
-# Honeycomb
+# Hono Polar Starter
+
+![Hono Polar starter site](./hero-image.png)
 
 A production-ready API boilerplate with authentication, subscription billing, and PostgreSQL persistence — built with Hono, Better Auth, Prisma, and Polar on the Bun runtime. Designed to deploy on Railway.
+
+The application provides a landing page and user dashboard, with integrated payment processing through Polar checkout and account management via the Polar portal.
+
+![Hono Polar starter dashboard](./hero-image-2.png)
 
 ## Who Is This For?
 
