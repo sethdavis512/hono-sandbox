@@ -2,6 +2,13 @@
 
 A production-ready API boilerplate with authentication, subscription billing, and PostgreSQL persistence — built with Hono, Better Auth, Prisma, and Polar on the Bun runtime. Designed to deploy on Railway.
 
+## Who Is This For?
+
+- **Solo developers** who want to ship a paid API without stitching together auth, billing, and database from scratch
+- **Indie hackers** building API-first products who need subscription gating out of the box
+- **Backend engineers** exploring Hono, Bun, or Polar and wanting a real-world reference beyond a hello-world tutorial
+- **Teams** that need a lightweight starting point for an authenticated, monetized API without a heavy framework
+
 ## Use Cases
 
 This repo is a starting point for building **paid API products**. Fork it and replace the example endpoints with your own business logic.
